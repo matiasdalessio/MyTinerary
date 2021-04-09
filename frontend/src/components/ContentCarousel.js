@@ -1,27 +1,27 @@
-import CarouselGroups from "./CarouselGroups"
-
-
-
+import Carousel from 'react-bootstrap/Carousel';
+import { useState } from "react"
 
 const ContentCarousel = ({cities}) =>{
-    return(
-        <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
-                {cities.map((group, index) => {
-                    return <CarouselGroups key={index} group = {group}/>}
-                )}
-                </div> 
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
-        </div>
-    )
+    const [index, setIndex] = useState(0);
+  
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex);
+    };  
 
+    return (
+        <Carousel fade activeIndex={index} onSelect={handleSelect}>
+            {cities.map(cityGroup =>{                
+                return <Carousel.Item className="carousel-item">
+                    <div className="carousel-slides" >
+                    {cityGroup.map(city => {
+                        const foto = require(`../assets/${city.img}`)
+                        return <div className="carousel-img" key ={city.id} style={{backgroundImage: `url('${foto.default}')`}}><h3>{city.name}</h3></div>
+                    })}
+                    </div>                
+                    </Carousel.Item>
+            })}          
+        </Carousel>
+      );
 }
 
 export default ContentCarousel
