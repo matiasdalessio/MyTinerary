@@ -1,0 +1,41 @@
+html *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.granContenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+.carousel{
+  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw;
+  max-height: 60vh;
+}
+
+.footer{
+  background-color: red;
+  padding: 2vh 0;
+  width: 100vw;
+  text-align: center;
+}
+
+.carousel-inner *{
+  margin: 1em;
+  min-width: 50%;
+  max-width: 100%;
+}
+
+.hero{
+  height: 50%;
+  width: 50%;
+  background-size: cover;
+}
