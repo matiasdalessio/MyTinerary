@@ -9,6 +9,8 @@ const ContentCarousel = ({cities}) =>{
     };  
 
     return (
+        <div>
+            <h1 class="carouselTitle">Popular MyTineraries</h1>
         <Carousel fade activeIndex={index} onSelect={handleSelect}>
             {cities.map(cityGroup =>{                
                 return <Carousel.Item className="carousel-item">
@@ -21,6 +23,7 @@ const ContentCarousel = ({cities}) =>{
                     </Carousel.Item>
             })}          
         </Carousel>
+        </div>
       );
 }
 

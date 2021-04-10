@@ -29,11 +29,19 @@ class Home extends React.Component{
     render() {
         return(
             <div className="granContenedor">
-                <div style={{backgroundImage: `url('./img/heroimg.jpg')`, width:'100vw', height: '100vh', backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat: 'no-repeat' }}></div>
+                <div class= "hero" style={{backgroundImage: `url('./img/heroimg.jpg')`, width:'100%', height: '150vh', backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat: 'no-repeat',  }}>
+                    <h1>MyTinerary</h1>
+                    <h2>¡Find your perfect trip, designed by insiders who know and love their cities!</h2>
+                </div>
                 <Header />
+                <div className="callToAction">
+                <h2>What are you waiting for?</h2>
+                <h2>Feel free to check our itineraries and activities!</h2>
+                <button type="button" className="btn btn-link border border-dark">Cities</button> 
+                </div>
                 <div className="body">                    
                     <ContentCarousel cities = {this.infoCities}/>
-                    <button type="button" className="btn btn-link">Cities</button> 
+                    
                 </div>
                 <Footer />
             </div>
