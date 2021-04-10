@@ -13,7 +13,7 @@
   margin: 0 !important;
   padding: 2vh 0 !important;
   border-radius: 100px !important;
-  border: 10px solid white !important;
+  border: 4px solid black !important;
 } 
 
 .dropdown-menu{
@@ -96,16 +96,24 @@
   left: 34%;
 
 }
+.callToAction img{
+  border: 0px !important;
+}
 
+.imagenArriba{
+  position: initial !important;
+  top: 80%;
+}
 .callToAction{
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  background-color: rgb(37, 37, 37, 0.6);
   text-align: center;
-  padding: 5vh 0;
 } 
 
 .carouselTitle{
+  box-shadow: 15px 13px 44px 30px rgba(0,0,0,0.75);
   margin: 0;
   padding: 3vh 0 0 0;
   color: white;
@@ -122,7 +130,11 @@
   background-size:cover; 
   background-repeat: no-repeat;
 }
-
+.cityName{
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.4);
+  text-align: center;
+}
 .carousel-slides{
   min-width: 100%;
   max-width: 100%;
@@ -148,17 +160,30 @@
 
 .footer{
   box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
-  color: white;
-  padding: 1vh 5vw !important;
+  color: black;
+  padding: 1vh 3vw !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(37, 37, 37, 0.6);
-  padding: 2vh 0;
+  padding: 2vh 2vw !important;
   width: 10%;
   text-align: center;
   width : 100%;
 }
-.navFooter .text-dark{
-  color: white !important;
+
+.navFooter{
+  border-right: 1px solid black;
+  display: flex;
+}
+
+.icons *{
+  margin: 0 3vw !important;
+}
+
+.navFooter *{
+  border-left: 1px solid black;
+}
+
+.mapa{
+  color: black;
 }

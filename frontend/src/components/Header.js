@@ -13,7 +13,7 @@ const Header = () =>{ {
                     <NavLink className="nav-link text-dark" exact to="/cities">Cities</NavLink></li>        
             </ul>
             <ul className="nav-item">
-                <button style={{backgroundImage: "url('./img/generic-user-icon.jpg')", width:"80px",  height:"80px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}} class="nav-link genericUser text-dark " data-bs-toggle="dropdown"  role="button" ></button>
+               <button style={{backgroundImage: "url('./img/generic-user-icon.jpg')", width:"80px",  height:"80px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}} class="nav-link genericUser text-dark " data-bs-toggle="dropdown"  role="button" ></button>
                 <ul class="dropdown-menu">
                     <li><Link class="dropdown-item  text-dark" href="house-data.html">Sign In</Link></li>
                     <li><Link class="dropdown-item  text-dark" href="#">Sign Up</Link></li>

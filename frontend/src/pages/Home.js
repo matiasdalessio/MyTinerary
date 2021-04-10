@@ -2,6 +2,7 @@ import React from "react"
 import Header from '../components/Header'
 import Footer from "../components/Footer"
 import ContentCarousel from "../components/ContentCarousel"
+import {NavLink, Link} from 'react-router-dom'
 
 class Home extends React.Component{
 
@@ -35,9 +36,15 @@ class Home extends React.Component{
                 </div>
                 <Header />
                 <div className="callToAction">
-                <h2>What are you waiting for?</h2>
-                <h2>Feel free to check our itineraries and activities!</h2>
-                <button type="button" className="btn btn-link border border-dark">Cities</button> 
+                     <div class="imagenArriba" style={{backgroundImage: "url('./img/call to action1.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div> 
+                     <div class="imagenAbajo" style={{backgroundImage: "url('./img/call to action2.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
+                    <div>
+                        <h2>What are you waiting for?</h2>
+                        <h2>Feel free to check our itineraries and activities!</h2>
+                        <button type="button" className="btn btn-link border border-dark"><NavLink className="nav-link text-dark" exact to="/cities">Check Cities!</NavLink></button> 
+                    </div>
+                    <div class="imagenAbajo" style={{backgroundImage: "url('./img/call to action3.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
+                    <div class="imagenArriba" style={{backgroundImage: "url('./img/call to action4.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
                 </div>
                 <div className="body">                    
                     <ContentCarousel cities = {this.infoCities}/>
