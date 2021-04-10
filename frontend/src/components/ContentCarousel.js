@@ -10,7 +10,7 @@ const ContentCarousel = ({cities}) =>{
 
     return (
         <div>
-            <h1 class="carouselTitle">Popular MyTineraries</h1>
+            <h1 class=" carouselTitle">Popular MyTineraries</h1>
         <Carousel fade activeIndex={index} onSelect={handleSelect}>
             {cities.map(cityGroup =>{                
                 return <Carousel.Item className="carousel-item">
@@ -20,7 +20,7 @@ const ContentCarousel = ({cities}) =>{
                         return <div className="carousel-img" key ={city.id} style={{backgroundImage: `url('${foto.default}')`}}><h3 class="cityName">{city.name}</h3></div>
                     })}
                     </div>                
-                    </Carousel.Item>
+                    </Carousel.Item >
             })}          
         </Carousel>
         </div>
