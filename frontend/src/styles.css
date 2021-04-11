@@ -52,8 +52,8 @@ body{
 }
 .carousel{
   background-color: black;
-  max-width: 99.1vw;
-  min-width: 99.1vw;
+  max-width: 98.8vw;
+  min-width: 98.8vw;
   max-height: 90vh;
   min-height: 90vh;
   overflow: hidden;
@@ -157,10 +157,9 @@ body{
 }
 
 .btn-link:hover{
-  background-color: #fff;
   box-shadow: 0px 13px 44px -10px rgba(0,0,0,1);
-
 }
+
 .carouselTitle{
   box-shadow: 15px 13px 44px 30px rgba(0,0,0,0.75);
   margin: 0;
@@ -180,12 +179,12 @@ body{
 }
 
 .carousel-img:hover{
-  box-shadow: 0px 0px 40px -5px rgba(255, 255, 255, 0.75);
+  box-shadow: 0px 0px 30px -10px rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
 
 .carousel-img{
-  box-shadow: 0px 0px 40px -20px rgba(255, 255, 255, 0.75);
+  box-shadow: 0px 0px 35px -20px rgba(255, 255, 255, 0.75);
   border-radius: 30px;
   width: 40%;
   height: 30vh;
@@ -199,11 +198,10 @@ body{
   text-align: center;
 }
 .carousel-slides{
-  padding: 0vh 0 0 0;
   min-width: 100%;
   max-width: 100%;
   position: relative;
-  left: 8vw;
+  left: 7vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -286,7 +284,7 @@ body{
     width: 50%;
     position: relative;
     top: 50%;
-    left: 45%;
+    left: 50%;
   
   }
   
@@ -358,20 +356,20 @@ body{
     box-shadow: 0px 0px 40px -20px rgba(255, 255, 255, 0.75);
     border-radius: 30px;
     width: 80%;
-    height: 15vh;
+    height: 16vh;
     background-position:center;
     background-size:cover; 
     background-repeat: no-repeat;
   }
   .carousel-inner *{
-    margin: 0.2em 1em 1.5em 1em;
+    margin: 0.2em 1em 0.5em 1em;
   }
   .carousel{
     background-color: black;
     max-width: 100vw;
     min-width: 100vw;
-    max-height: 90vh;
-    min-height: 90vh; 
+    max-height: 85vh;
+    min-height: 85vh; 
     overflow: hidden;
   }
   .carousel-slides{
@@ -399,14 +397,14 @@ body{
     align-items: center;
   }
   .hero{
-    background-position: -300px ;
+    background-position:left;
     
   }
 }
 
 @media screen and (min-width: 600px) and (max-width: 768px) {
   .hero{
-    background-position: -330px;
+    background-position:left;
     
   }
 }

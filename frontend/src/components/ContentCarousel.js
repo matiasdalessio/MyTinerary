@@ -17,7 +17,7 @@ const ContentCarousel = ({cities}) =>{
                     <div className="carousel-slides" >
                     {cityGroup.map(city => {
                         const foto = require(`../assets/${city.img}`)
-                        return <div className="carousel-img" key ={city.id} style={{backgroundImage: `url('${foto.default}')`}}><h3 class="cityName">{city.name}</h3></div>
+                        return <div className="carousel-img" key={city.id} style={{backgroundImage: `url('${foto.default}')`}}><h3 class="cityName">{city.name}</h3></div>
                     })}
                     </div>                
                     </Carousel.Item >

@@ -2,7 +2,7 @@ import React from "react"
 import Header from '../components/Header'
 import Footer from "../components/Footer"
 import ContentCarousel from "../components/ContentCarousel"
-import {NavLink, Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 class Home extends React.Component{
 
@@ -30,21 +30,21 @@ class Home extends React.Component{
     render() {
         return(
             <div className="granContenedor">
-                <div id="hero" class= "hero" style={{backgroundImage: `url('./img/heroimg.jpg')`}}>
+                <div id="hero" className= "hero" style={{backgroundImage: `url('./img/heroimg.jpg')`}}>
                     <h1>MyTinerary</h1>
                     <h2>¡Find your perfect trip, designed by insiders who know and love their cities!</h2>
                 </div>
                 <Header />
                 <div className="callToAction">
-                     <div class="imgCallToAction" style={{backgroundImage: "url('./img/call to action1.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div> 
-                     <div class="imgCallToAction" style={{backgroundImage: "url('./img/call to action2.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
+                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action1.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div> 
+                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action2.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
                     <div>
                         <h2>What are you waiting for?</h2>
                         <h2>Feel free to check our itineraries and activities!</h2>
                         <button type="button" className="btn btn-link border border-dark"><NavLink className="nav-link text-dark" exact to="/cities">Go There!</NavLink></button> 
                     </div>
-                    <div class="imgCallToAction" style={{backgroundImage: "url('./img/call to action3.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
-                    <div class="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
+                    <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action3.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
+                    <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')", width:"500px",  height:"500px", backgroundPosition:"center", backgroundSize: "contain", backgroundRepeat: "no-repeat"}}></div>
                 </div>
                 <div className="body">                    
                     <ContentCarousel cities = {this.infoCities}/>
