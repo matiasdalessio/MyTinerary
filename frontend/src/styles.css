@@ -83,6 +83,7 @@ body{
 }
 
 .navbar-nav .nav-link:hover{
+  text-shadow: 1px 0px 5px rgba(0,0,0,1);
   color: white !important;
 }
 .nav-link{
@@ -267,7 +268,7 @@ body{
 
 
 }
-@media screen and (min-width: 400px) and (max-width: 798px) {
+@media screen and (min-width: 300px) and (max-width: 798px) {
   
   .hero h2{
     border: 5px solid rgb(37, 37, 37, 0.5);
@@ -283,7 +284,7 @@ body{
     background-color: rgb(37, 37, 37, 0.6);
     width: 50%;
     position: relative;
-    top: 50%;
+    top: 30%;
     left: 50%;
   
   }
@@ -308,7 +309,10 @@ body{
   }
 
 }
-@media screen and (min-width: 400px) and (max-width: 991px) {
+@media screen and (min-width: 300px) and (max-width: 991px) {
+  .headerDer{
+    margin-top: 5vh !important;
+  }
 
   .responsiveNav{
     position: relative;
@@ -328,7 +332,11 @@ body{
     align-items: unset;
     justify-content: unset;
   }
+  .navbar-nav *{
+    margin: 0 0 0 5px;
+  }
   .navbar-nav{
+    border-radius: 5px;
     color: white;
     background-color: rgba(0,0,0,0.75);
     padding-top: 0.5em;
@@ -385,7 +393,7 @@ body{
 
 }
 
-@media screen and (min-width: 400px) and (max-width: 600px) {
+@media screen and (min-width: 300px) and (max-width: 600px) {
   .carousel-slides{
     min-width: 100%;
     max-width: 100%;
