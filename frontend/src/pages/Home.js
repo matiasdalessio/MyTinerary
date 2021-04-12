@@ -6,6 +6,12 @@ import {NavLink, Link} from 'react-router-dom'
 
 class Home extends React.Component{
 
+    toTop= () => {window.scroll({
+        top:0,
+        left:0,
+        behavior:'smooth'
+    })}
+
     infoCities =[   
     [ 
         {id:1 , name: "Abu Dabi", img: 'Abu Dabi.jpg'},
@@ -27,7 +33,12 @@ class Home extends React.Component{
     ]
     ]
 
+    componentDidMount(){
+        this.toTop()
+    }
+
     render() {
+ 
         return(
             <div className="granContenedor">
                 <div id="hero" className= "hero" style={{backgroundImage: "url('./img/heroimg.jpg')"}}>

@@ -7,7 +7,7 @@ const Footer = () =>{
         <footer className="footer">
             <div>
                 <h2>MyTinerary 2021 All rights Reserved</h2>
-                <p>Bonita St 458 - Morro Bay - California | <span><a className="mapa" target="_blank" href="https://goo.gl/maps/DHZfj36PPGogvtV56">Map</a></span></p>
+                <p>Bonita St 458 - Morro Bay - California | <span><a rel="noreferrer" className="mapa" target="_blank" href="https://goo.gl/maps/DHZfj36PPGogvtV56">Map</a></span></p>
             </div>
             <div class="icons">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-facebook" viewBox="0 0 16 16">
