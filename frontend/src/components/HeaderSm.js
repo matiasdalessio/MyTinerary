@@ -9,8 +9,8 @@ export default function HeaderSm() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="">
-        <NavLink className="nav-link text-dark" exact to="/">Home</NavLink>
-        <NavLink className="nav-link text-dark" exact to="/cities">Cities</NavLink>
+          <NavLink className="nav-link text-dark" exact to="/">Home</NavLink>
+          <NavLink className="nav-link text-dark" exact to="/cities">Cities</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

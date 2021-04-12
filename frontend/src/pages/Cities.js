@@ -8,10 +8,9 @@ class Cities extends React.Component{
 
     render() {
         return(
-            <div className="granContenedor">
-                <div class= "hero" style={{backgroundImage: `url('./img/travolta.gif')`, width:'100%', height: '150vh', backgroundPosition:'center', backgroundSize:'cover', backgroundRepeat: 'no-repeat',  }}>
-                <h1 className="animate__animated animate__fadeInDownBig">MyTinerary</h1>
-                    <h2 className="animate__animated  animate__fadeInRightBig">¡Find your perfect trip, designed by insiders who know and love their cities!</h2>
+             <div className="granContenedor">
+                <div id="heroMontaña" className= "hero" style={{backgroundImage: "url('./img/heromontañas.jpeg')"}}>
+                    <h1 className="sloganCities animate__animated animate__fadeInDown">¡Find your perfect trip, designed by insiders who know and love their cities!</h1>
                 </div>
                 <Header />
                 <div className="body">

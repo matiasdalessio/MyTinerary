@@ -14,17 +14,48 @@ body{
   align-items: center;
   width : 100%;
 }
+.logo{
+  width:25vh;
+  height:25vh;
+  background-position:center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.genericUser{
+  width:80px;
+  height:80px;
+  background-position:center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 .carousel-indicators{
   display: none;
 
 }
-.hero{
+.sloganCities{
+  background-color: rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 5px rgba(0,0,0,1) !important;
+}
+.heroMontaña{
+  z-index: 1;
   width:100%;
-  height: 150vh;
+  height: 120vh;
   background-position:center;
   background-size:cover;
   background-repeat: no-repeat;
+  box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
+
+}
+.hero{
+  z-index: 1;
+  width:100%;
+  height: 120vh;
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
 }
  ul button{
   box-shadow: 2px 2px 44px -5px rgba(0,0,0,0.75);
@@ -65,10 +96,7 @@ body{
 .sr-only{
   display: none;
 }
-.hero{
-  background-color: black !important;
-  box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
-}
+
 .active{
   box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
   color: white !important;
@@ -107,9 +135,9 @@ body{
   display: flex !important;
 }
 
-.hero h2{
-  border: 5px solid rgb(37, 37, 37, 0.5);
-  box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
+.hero h1{
+  /* background-color: #5990bb69; */
+  text-shadow: 1px 0px 10px rgba(0,0,0,1);
   font-size: 2vw;
   text-align: center;
   display: flex;
@@ -118,40 +146,24 @@ body{
   padding: 30px;
   border-radius: 0 50px ;
   color: white;
-  background-color: rgb(37, 37, 37, 0.6);
-  width: 30%;
+  width: 50%;
   position: relative;
-  top: 50%;
-  left: 60%;
-
-}
-
-.hero h1{
-  border: 5px solid rgb(37, 37, 37, 0.5);
-  box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
-  font-size: 4vw;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  border-radius: 0 50px ;
-  color: white;
-  background-color: rgb(37, 37, 37, 0.6);
-  width: 30%;
-  position: relative;
-  top: 15%;
-  left: 34%;
+  top: 18%;
+  left: 25% ;
 
 }
 .callToAction img{
   border: 0px !important;
 }
 
-.imagenArriba{
-  position: initial !important;
-  top: 80%;
+.imgCallToAction{
+  width:500px;
+  height:500px;
+  background-position:center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
+
 .callToAction{
   background-color: #faeedf;
   display: flex;
@@ -160,12 +172,25 @@ body{
   width: 100%;
   text-align: center;
 } 
+.textoYBoton{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-.btn-link .nav-link{
-  width: 100px;
+}
+.btnCta:hover{
+  box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.2);
+  background-color: black;
+  color: white !important;
+}
+.btnCta{
+  border-radius: 0 50px !important ;
+  border: 1px solid black;
+  width: 150px;
   font-size: 20px;
   border-radius: 0;
-  padding: 0;
+  padding: 1em;
 }
 
 .btn-link:hover{
@@ -280,31 +305,12 @@ body{
 
 
 }
-@media screen and (min-width: 300px) and (max-width: 798px) {
-  
-  .hero h2{
-    border: 5px solid rgb(37, 37, 37, 0.5);
-    box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
-    font-size: 4vw;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    border-radius: 0 50px ;
-    color: white;
-    background-color: rgb(37, 37, 37, 0.6);
-    width: 50%;
-    position: relative;
-    top: 30%;
-    left: 50%;
-  
-  }
+@media screen and (min-width: 300px) and (max-width: 991px) {
+
   
   .hero h1{
-    border: 5px solid rgb(37, 37, 37, 0.5);
-    box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
-    font-size: 8vw;
+    text-shadow: 1px 0px 10px rgba(0,0,0,1);
+    font-size: 5vw;
     text-align: center;
     display: flex;
     align-items: center;
@@ -312,19 +318,15 @@ body{
     padding: 30px;
     border-radius: 0 50px ;
     color: white;
-    background-color: rgb(37, 37, 37, 0.6);
-    width: 50%;
+    width: 90%;
     position: relative;
-    top: 15%;
-    left: 25%;
+    top: 18%;
+    left: 5% ;
   
   }
 
 }
 @media screen and (min-width: 300px) and (max-width: 991px) {
-  .headerDer{
-    margin-top: 5vh !important;
-  }
 
   .responsiveNav{
     position: relative;

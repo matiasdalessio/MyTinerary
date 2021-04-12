@@ -12,8 +12,8 @@ const ContentCarousel = ({cities}) =>{
         <div>
             <h1 class=" carouselTitle">Popular MyTineraries</h1>
         <Carousel activeIndex={index} onSelect={handleSelect}>
-            {cities.map(cityGroup =>{                
-                return <Carousel.Item className="carousel-item">
+            {cities.map((cityGroup, index) =>{                
+                return <Carousel.Item key= {index} className="carousel-item">
                     <div className=" carousel-slides" >
                     {cityGroup.map(city => {
                         const foto = require(`../assets/${city.img}`)
