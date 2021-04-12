@@ -31,8 +31,8 @@ class Home extends React.Component{
         return(
             <div className="granContenedor">
                 <div id="hero" className= "hero" style={{backgroundImage: `url('./img/heroimg.jpg')`}}>
-                    <h1>MyTinerary</h1>
-                    <h2>¡Find your perfect trip, designed by insiders who know and love their cities!</h2>
+                    <h1 className="animate__animated animate__fadeInDownBig">MyTinerary</h1>
+                    <h2 className="animate__animated  animate__fadeInRightBig">¡Find your perfect trip, designed by insiders who know and love their cities!</h2>
                 </div>
                 <Header />
                 <div className="callToAction">

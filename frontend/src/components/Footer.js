@@ -26,8 +26,8 @@ const Footer = () =>{
             <div className="navFooter">
                 <Link className="nav-link text-dark" exact to="/">Home</Link>
                 <Link className="nav-link text-dark" exact to="/cities">Cities</Link>
-                <Link className="nav-link text-dark" exact to="/">Sing In</Link>
-                <Link className="nav-link text-dark" exact to="/">Sing Up</Link>
+                <Link className="nav-link text-dark" exact to="/">Log In</Link>
+                <Link className="nav-link text-dark" exact to="/">Sign Up</Link>
             </div>
         </div>
     )

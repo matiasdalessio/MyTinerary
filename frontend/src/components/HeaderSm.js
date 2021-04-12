@@ -5,7 +5,7 @@ import { Nav, Navbar } from "react-bootstrap";
 
 export default function HeaderSm() {
   return ( 
-    <Navbar className="navbar responsiveNav" collapseOnSelect expand="lg" >
+    <Navbar className="animate__animated animate__fadeInRight navbar responsiveNav" collapseOnSelect expand="lg" >
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="">
