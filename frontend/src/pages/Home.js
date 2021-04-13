@@ -2,7 +2,7 @@ import React from "react"
 import Header from '../components/Header'
 import Footer from "../components/Footer"
 import ContentCarousel from "../components/ContentCarousel"
-import {NavLink, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Home extends React.Component{
 
@@ -44,7 +44,6 @@ class Home extends React.Component{
                 <div id="hero" className= "hero" style={{backgroundImage: "url('./img/heroimg.jpg')"}}>
                     <h1 className="animate__animated animate__fadeInDown">¡Find your perfect trip, designed by insiders who know and love their cities!</h1>
                 </div>
-                <Header />
                 <div className="callToAction">
                      <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action1.png')"}}></div> 
                      <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action2.png')"}}></div>
@@ -60,7 +59,6 @@ class Home extends React.Component{
                     <ContentCarousel cities = {this.infoCities}/>
                     
                 </div>
-                <Footer />
             </div>
         
         )
