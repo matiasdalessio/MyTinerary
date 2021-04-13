@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import HeaderSm from "../components/HeaderSm"
 
-const Header = () =>{ {
+const Header = () =>{ 
     return(
         <header className= "header">
             <div className= "logo animate__animated animate__fadeInLeft"style={{backgroundImage: "url('./img/LOGO.png')"}}>
@@ -17,6 +17,6 @@ const Header = () =>{ {
             </ul>
             </div>
         </header>        
-     )}}
+     )}
 
 export default Header

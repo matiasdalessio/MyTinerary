@@ -3,10 +3,11 @@
   padding: 0;
 }
 
-body{
-  background-color: black;
+.body{
+  background-color: #F6EDE2;
   width: 100%;
 }
+
 .granContenedor{
   display: flex;
   flex-direction: column;
@@ -38,10 +39,10 @@ body{
   background-color: rgba(0,0,0,0.2);
     text-shadow: 1px 1px 5px rgba(0,0,0,1) !important;
 }
-.heroMontaña{
+#heroMontaña{
   z-index: 1;
   width:100%;
-  height: 120vh;
+  height: 60vh;
   background-position:center;
   background-size:cover;
   background-repeat: no-repeat;
@@ -152,6 +153,38 @@ body{
   left: 25% ;
 
 }
+.cityBanners{
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cityBanner{
+  margin: 2vh 0;
+  border-radius: 30px;
+  width: 80%;
+  height: 40vh;
+  background-position:center;
+  background-size:cover; 
+  background-repeat: no-repeat;
+}
+.tituloCities *{
+  margin: 5vh 4vw;
+}
+.tituloCities{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avionH1Cities{
+  z-index: 1;
+  width:150px;
+  background-position:center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
 .callToAction img{
   border: 0px !important;
 }
@@ -163,6 +196,7 @@ body{
   background-size: contain;
   background-repeat: no-repeat;
 }
+
 
 .callToAction{
   background-color: #faeedf;
@@ -219,6 +253,7 @@ body{
   box-shadow: 0px 0px 30px -10px rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
+
 
 .carousel-img{
   box-shadow: 0px 0px 35px -20px rgba(255, 255, 255, 0.75);
