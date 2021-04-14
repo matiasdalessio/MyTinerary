@@ -28,7 +28,6 @@ const ContentCities = () =>{
             resultado: cities
         })
 
-
         const filtro = ((e) => {
             const aBuscar = e.target.value
             setInfo({
@@ -45,17 +44,23 @@ const ContentCities = () =>{
             </div>
             
             <div className="tituloCities">
-                <input  type='text' name="finder" onChange={filtro}></input>
+                <input placeholder="Search a City" className="finder" type='text'  onChange={filtro}></input>
             </div>
             <div className= "cityBanners">
             {info.resultado.length >0 
                 ? info.resultado.map(city =>{
                 const imgBanner= require(`../assets/${city.img}`);
-                <CityBanner key={city.id} name={city.name} img={imgBanner}/>
-                return <NavLink exact to={`/city/`}> <div className="cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> <h1 class="cityName">{city.name}</h1>  
-                </div></NavLink>
-            }) : <div className="cityBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> <h1 class="cityName">Looks like the city that you're looking for doesn't exist here yet... <p>Try another one!</p> </h1>
-            </div>}
+                <CityBanner cities={city.id}/>
+                return <NavLink exact to={`/city/${city.id}`}> 
+                            <div className="cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
+                                <h1 class="cityName">{city.name}</h1>  
+                            </div>
+                        </NavLink>
+            }): <div className="cityBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 
+                    <h1 class="cityName">Looks like the city that you're looking for doesn't exist here yet... 
+                        <p>Try another one!</p> 
+                    </h1>
+                </div>}
             </div>
         </main>
 

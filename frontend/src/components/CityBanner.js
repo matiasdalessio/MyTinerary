@@ -1,13 +1,27 @@
+import React from "react"
+import ContentCarousel from "../components/ContentCarousel"
+import {Link} from 'react-router-dom'
 
 
-const CityBanner = ({name,img}) =>{
-    console.log(img)
+class CityBanner extends React.Component{
 
+    toTop= () => {window.scroll({
+        top:0,
+        left:0,
+        behavior:'smooth'
+    })}
 
-    return(
-        <h1>hola</h1>
-        
-    )
+    
+    componentDidMount(){
+        this.toTop()
+    }
+
+    render() {
+ 
+        return(
+            <h1>hola</h1>
+        )
+    }
 
 }
 

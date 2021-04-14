@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cities" component={Cities} />
-          <Route exact path="/city/" component={CityBanner} />
+          <Route path="/city/" component={CityBanner} />
           <Route path="/error" component={Home} />
           <Redirect to="/error" />
         </Switch>
