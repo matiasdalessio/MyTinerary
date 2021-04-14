@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 import Cities from "./pages/Cities";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CityBanner from "./components/CityBanner";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cities" component={Cities} />
+          <Route exact path="/city/" component={CityBanner} />
           <Route path="/error" component={Home} />
           <Redirect to="/error" />
         </Switch>

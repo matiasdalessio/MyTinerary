@@ -1,12 +1,13 @@
-import Buscador from "./Buscador"
-import CityBanner from "./CityBanner"
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import CityBanner from './CityBanner';
 
 
 
 const ContentCities = () =>{
 
     const cities= [   
-            {id:1 , name: "Abu Dabi", img: 'Abu Dabi.jpg'},
+            {id:1 , name: "Abu Dhabi", img: 'Abu Dhabi.jpg'},
             {id:2 , name: "Bakú", img: 'Baku.jpg'},
             {id:3 , name: "Bariloche", img: 'Bariloche.jpg'},
             {id:4 , name: "Dublin", img: 'Dublin.jpg'},
@@ -23,6 +24,18 @@ const ContentCities = () =>{
             {id:15 , name: "Los Angeles", img: 'Los Angeles.jpeg'},
         ]
 
+        const [info, setInfo] = useState({
+            resultado: cities
+        })
+
+
+        const filtro = ((e) => {
+            const aBuscar = e.target.value
+            setInfo({
+                resultado: cities.filter(city => city.name.toLowerCase().indexOf(aBuscar.trim().toLowerCase())=== 0 )            
+    
+            })
+        })
     return(
         <main className="body">
             <div className="tituloCities">
@@ -30,13 +43,19 @@ const ContentCities = () =>{
                 <h1>Cities</h1>
                 <img className="avionH1Cities" src="./img/avionH1CitiesR.png" alt="avion derecha"/>
             </div>
-            <Buscador />
+            
+            <div className="tituloCities">
+                <input  type='text' name="finder" onChange={filtro}></input>
+            </div>
             <div className= "cityBanners">
-            {cities.map(city =>{
-                const imgBanner= require(`../assets/${city.img}`)
-                return <CityBanner key ={city.id} name={city.name} img={imgBanner}/>
-
-            })}
+            {info.resultado.length >0 
+                ? info.resultado.map(city =>{
+                const imgBanner= require(`../assets/${city.img}`);
+                <CityBanner key={city.id} name={city.name} img={imgBanner}/>
+                return <NavLink exact to={`/city/`}> <div className="cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> <h1 class="cityName">{city.name}</h1>  
+                </div></NavLink>
+            }) : <div className="cityBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> <h1 class="cityName">Looks like the city that you're looking for doesn't exist here yet... <p>Try another one!</p> </h1>
+            </div>}
             </div>
         </main>
 

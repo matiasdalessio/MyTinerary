@@ -163,11 +163,26 @@
 .cityBanner{
   margin: 2vh 0;
   border-radius: 30px;
-  width: 80%;
+  width: 80vw;
   height: 40vh;
   background-position:center;
   background-size:cover; 
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cityBanners a {
+  text-decoration: none !important;
+}
+.cityBanner .cityName{
+ 
+  color: white;
+  width: 100%;
+  background-color: rgba(0,0,0,0.6);
+  text-align: center;
 }
 .tituloCities *{
   margin: 5vh 4vw;
@@ -264,7 +279,7 @@
   background-size:cover; 
   background-repeat: no-repeat;
 }
-.cityName{
+.carousel-img .cityName{
   border-radius: 30px;
   background-color: rgba(0,0,0,0.4);
   text-align: center;
