@@ -1,6 +1,7 @@
 import React from "react"
 import Home from "./pages/Home";
 import './styles.css'
+import './preloader.css'
 import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 import Cities from "./pages/Cities";
 import Header from "./components/Header";

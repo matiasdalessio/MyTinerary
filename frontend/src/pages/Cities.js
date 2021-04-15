@@ -31,7 +31,7 @@ class Cities extends React.Component{
     render() {
         return(
             <div className="granContenedor">
-                <div id="heroMontaña" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}>
+                <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}>
                 </div>
                 <main className="body">
                     <div className="tituloCities">

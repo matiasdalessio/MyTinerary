@@ -13,7 +13,7 @@ class Home extends React.Component{
     infoCities =[   
     [ 
         {id:1 , name: "Abu Dhabi", img: 'Abu Dhabi.jpg'},
-        {id:2 , name: "Bakú", img: 'Bakú.jpeg'},
+        {id:2 , name: "Baku", img: 'Baku.jpg'},
         {id:3 , name: "Bariloche", img: 'Bariloche.jpg'},
         {id:4 , name: "Dublin", img: 'Dublin.jpg'},
     ],

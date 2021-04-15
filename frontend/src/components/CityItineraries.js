@@ -22,7 +22,12 @@ class CityItineraries extends React.Component{
     render(){
         if (this.state.city.length === 0) {
             return(
-                <h1>cargando...</h1>
+                <div class="sk-folding-cube">
+  <div class="sk-cube1 sk-cube"></div>
+  <div class="sk-cube2 sk-cube"></div>
+  <div class="sk-cube4 sk-cube"></div>
+  <div class="sk-cube3 sk-cube"></div>
+</div>
             )
         }
 
@@ -31,11 +36,11 @@ class CityItineraries extends React.Component{
         
                 <main >
                     <div className="granContenedor">
-                        <div id="heroMontaña" className= "hero" style={{backgroundImage: `url('${imgBanner.default}')`}}>
+                        <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgBanner.default}')`}}>
                         </div>
                         <div className="tituloCities">
                             <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
-                            <h1>Cities</h1>
+                            <h1>{this.state.city.name} - {this.state.city.pais}</h1>
                             <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                         </div>
                         </div>
@@ -46,9 +51,9 @@ class CityItineraries extends React.Component{
                             </h1>
                         </div>
                         </div>
-                        <div className="d-flex ">
+                        <div className="d-flex justify-content-center ">
                             <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/">Back to Home</NavLink>
-                            <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/">Back to Cities</NavLink>
+                            <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/cities">Back to Cities</NavLink>
                         </div>
                     
                 </main>
