@@ -3,6 +3,9 @@
   padding: 0;
 }
 
+body{
+  background-color: #F6EDE2;
+}
 .body{
   background-color: #F6EDE2;
   width: 100%;
@@ -40,6 +43,8 @@
     text-shadow: 1px 1px 5px rgba(0,0,0,1) !important;
 }
 #heroMontaña{
+  border-bottom: 30px solid black;
+  border-radius: 0  0 50px 50px ;
   z-index: 1;
   width:100%;
   height: 60vh;
@@ -50,6 +55,8 @@
 
 }
 .hero{
+  border-bottom: 30px solid black;
+  border-radius: 0  0 50px 50px ;
   z-index: 1;
   width:100%;
   height: 120vh;
@@ -88,8 +95,8 @@
 }
 .carousel{
   background-color: black;
-  max-width: 98.8vw;
-  min-width: 98.8vw;
+  max-width: 99.1vw;
+  min-width: 99.1vw;
   max-height: 90vh;
   min-height: 90vh;
   overflow: hidden;
@@ -154,7 +161,10 @@
 
 }
 .cityBanners{
+  box-shadow: 15px 13px 44px 20px rgba(0,0,0,1);
+  background-color: black;
   margin: 5vh auto;
+  padding: 7vh 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -173,7 +183,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.finder:focus{
+  outline: none ;
+}
 .finder{
   font-size: 50px;
   padding:2vh;
@@ -250,6 +262,19 @@
   border-radius: 0;
   padding: 1em;
 }
+.btnHomeEnCities:hover{
+  background-color: rgb(0, 0, 0) ;
+  color: white !important;
+}
+.btnHomeEnCities{
+  border-radius: 0 50px !important ;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: white;
+  width: 300px;
+  font-size: 20px;
+  margin: 5vh 5vw;
+  padding: 1em;
+}
 
 .btn-link:hover{
   box-shadow: 0px 13px 44px -10px rgba(0,0,0,1);
@@ -277,6 +302,8 @@
   box-shadow: 0px 0px 30px -10px rgba(255, 255, 255, 0.75);
   cursor: pointer;
 }
+.cityBanner {   height: 40vh; transition: height 1s;  }
+.cityBanner:hover {    height: 60vh;  transition: height 1s; }
 
 
 .carousel-img{

@@ -1,6 +1,6 @@
 import React from "react"
 import ContentCarousel from "../components/ContentCarousel"
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 class Home extends React.Component{
 
@@ -48,7 +48,7 @@ class Home extends React.Component{
                     <div className="textoYBoton">
                         <h2>What are you waiting for?</h2>
                         <h2>Feel free to check our itineraries and activities!</h2>
-                        <Link className="nav-link btnCta text-dark" exact to="/cities">Go There!</Link> 
+                        <NavLink className="nav-link btnCta text-dark" exact to="/cities">Go There!</NavLink> 
                     </div>
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action3.png')"}}></div>
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')"}}></div>
