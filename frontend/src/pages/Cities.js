@@ -15,7 +15,7 @@ class Cities extends React.Component{
     }
     componentDidMount(){
         this.toTop()
-        axios.get('http://localhost:4000/api/totalCities')
+        axios.get('http://localhost:4000/api/cities')
         .then(response =>this.setState ({cities: response.data.respuesta, original: [...response.data.respuesta]}))
         
     }    
@@ -29,6 +29,18 @@ class Cities extends React.Component{
     })
 
     render() {
+        if (this.state.cities.length === 0) {
+            return(
+                <div className="preloader">
+                    <div className="sk-folding-cube">
+                        <div className="sk-cube1 sk-cube"></div>
+                        <div className="sk-cube2 sk-cube"></div>
+                        <div className="sk-cube4 sk-cube"></div>
+                        <div className="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
+            )
+        }
         return(
             <div className="granContenedor">
                 <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}>
@@ -46,7 +58,7 @@ class Cities extends React.Component{
                     {this.state.cities.length >0 
                         ? this.state.cities.map(city =>{
                         const imgBanner= require(`../assets/${city.img}`)
-                        return <NavLink key={city.id} to={`/city/${city.id}`}> 
+                        return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                     <div className="cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
                                         <h1 className="cityName">{city.name}</h1> 
                                     </div>

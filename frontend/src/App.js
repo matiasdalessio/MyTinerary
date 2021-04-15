@@ -13,8 +13,8 @@ function App() {
   
 
   return (
-    <BrowserRouter>
-        <Header />
+    <BrowserRouter id="pageBody">
+        <Header className="header"/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/cities" component={Cities} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="/error" component={Home} />
           <Redirect to="/error" />
         </Switch>
-        <Footer />
+        <Footer className="footer"/>
       </BrowserRouter>
 
     
@@ -30,3 +30,4 @@ function App() {
 }
 
 export default App;
+

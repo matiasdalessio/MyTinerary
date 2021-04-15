@@ -5,13 +5,17 @@ import { NavLink } from "react-router-dom";
 
 
 class CityItineraries extends React.Component{
+    toTop= () => {window.scroll({
+        top:0, 
+        left:0,
+    })}
     
     state={
         city:[]
     }
-
     componentDidMount() {
-        axios.get(`http://localhost:4000/api/cities/${this.props.match.params.id}`)
+        this.toTop()
+        axios.get(`http://localhost:4000/api/city/${this.props.match.params.id}`)
         .then(response =>this.setState({city: response.data.respuesta}))
         
     }
@@ -22,25 +26,27 @@ class CityItineraries extends React.Component{
     render(){
         if (this.state.city.length === 0) {
             return(
-                <div class="sk-folding-cube">
-  <div class="sk-cube1 sk-cube"></div>
-  <div class="sk-cube2 sk-cube"></div>
-  <div class="sk-cube4 sk-cube"></div>
-  <div class="sk-cube3 sk-cube"></div>
-</div>
+                <div className="preloader">
+                    <div className="sk-folding-cube">
+                        <div className="sk-cube1 sk-cube"></div>
+                        <div className="sk-cube2 sk-cube"></div>
+                        <div className="sk-cube4 sk-cube"></div>
+                        <div className="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
             )
         }
 
-        const imgBanner= require(`../assets/${this.state.city.img}`)
+        const imgcityItinerary= require(`../assets/${this.state.city.img}`)
             return (
         
                 <main >
                     <div className="granContenedor">
-                        <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgBanner.default}')`}}>
+                        <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgcityItinerary.default}')`}}>
                         </div>
                         <div className="tituloCities">
                             <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
-                            <h1>{this.state.city.name} - {this.state.city.pais}</h1>
+                            <h1>{this.state.city.name} - {this.state.city.country}</h1>
                             <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                         </div>
                         </div>
