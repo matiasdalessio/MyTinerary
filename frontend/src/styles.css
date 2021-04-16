@@ -430,13 +430,22 @@ body{
     padding: 1vh;
     border-radius: 0 30px ;
   }
+  .icons a svg:hover *{
+    color: rgba(0, 0, 0, 0.548);
+  }
   .icons{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
   .icons *{
+    cursor: pointer;
+    color: black;
     margin: 0 2vw !important;
+  }
+  .icons a svg{
+    margin: 0 !important;
+    padding: 0;
   }
   
   .navFooter *{
