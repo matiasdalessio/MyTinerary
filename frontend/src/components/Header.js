@@ -13,10 +13,10 @@ const Header = () =>{
             </div>   
             <HeaderSm />    
             <ul className="nav-item">
-                <button style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/img/generic-user-icon.jpg'})`}} className="nav-link genericUser text-dark " data-bs-toggle="dropdown" ></button>
+                <button style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/img/generic-user-icon.jpg'})`}} className="nav-link genericUser  " data-bs-toggle="dropdown" ></button>
                 <ul className="dropdown-menu">
-                    <li><Link className="dropdown-item  text-dark" to="/">Log In</Link></li>
-                    <li><Link className="dropdown-item  text-dark" to="/">Sign Up</Link></li>
+                    <li><Link className="dropdown-item  " to="/">Log In</Link></li>
+                    <li><Link className="dropdown-item  " to="/">Sign Up</Link></li>
                 </ul>
             </ul>
             </div>

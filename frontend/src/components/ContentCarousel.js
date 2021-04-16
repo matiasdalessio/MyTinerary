@@ -12,7 +12,7 @@ const ContentCarousel = ({cities}) =>{
     return (
         <div>
             <h1 className=" carouselTitle">Popular MyTineraries</h1>
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel fade activeIndex={index} onSelect={handleSelect}>
             {cities.map((cityGroup, index) =>{                
                 return <Carousel.Item key= {index} className="carousel-item">
                     <div className=" carousel-slides" >

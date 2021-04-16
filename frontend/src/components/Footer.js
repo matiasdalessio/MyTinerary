@@ -32,10 +32,10 @@ const Footer = () =>{
                 </a>
             </div>
             <div className="navFooter">
-                <NavLink className="nav-link text-dark" exact to="/">Home</NavLink>
-                <NavLink className="nav-link text-dark" exact to="/cities">Cities</NavLink>
-                <Link className="nav-link text-dark"  to="/">Log In</Link>
-                <Link className="nav-link text-dark"  to="/">Sign Up</Link>
+                <NavLink className="nav-link " exact to="/">Home</NavLink>
+                <NavLink className="nav-link " exact to="/cities">Cities</NavLink>
+                <Link className="nav-link "  to="/">Log In</Link>
+                <Link className="nav-link "  to="/">Sign Up</Link>
             </div>
         </footer>
     )

@@ -60,8 +60,8 @@ class CityItineraries extends React.Component{
                             </h1>
                         </div>
                         <div className="d-flex justify-content-center ">
-                            <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/">Back to Home</NavLink>
-                            <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/cities">Back to Cities</NavLink>
+                            <NavLink className="nav-link btnHomeEnCities " exact to="/">Back to Home</NavLink>
+                            <NavLink className="nav-link btnHomeEnCities " exact to="/cities">Back to Cities</NavLink>
                         </div>
                         </div>
                         

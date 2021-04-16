@@ -69,7 +69,7 @@ class Cities extends React.Component{
                                 <p>Try another one!</p> 
                             </h1>
                         </div>}
-                        <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/">Back to Home</NavLink>
+                        <NavLink className="nav-link btnHomeEnCities" exact to="/">Back to Home</NavLink>
                     </div>
                 </main>
             </div>

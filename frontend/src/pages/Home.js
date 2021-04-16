@@ -48,7 +48,7 @@ class Home extends React.Component{
                     <div className="textoYBoton">
                         <h2>What are you waiting for?</h2>
                         <h2>Feel free to check our itineraries and activities!</h2>
-                        <NavLink className="nav-link btnCta text-dark" exact to="/cities">Go There!</NavLink> 
+                        <NavLink className="nav-link btnCta" exact to="/cities">Go There!</NavLink> 
                     </div>
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action3.png')"}}></div>
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')"}}></div>

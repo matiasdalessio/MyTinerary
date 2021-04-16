@@ -7,6 +7,7 @@ import Cities from "./pages/Cities";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CityBanner from "./components/CityItineraries";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
