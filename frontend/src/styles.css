@@ -4,10 +4,11 @@ html *{font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
 
-body{
+body, html, #root{
   background-color: #F6EDE2;
 }
 .main{
+  background-color: #F6EDE2;
   width: 100%;
 }
 

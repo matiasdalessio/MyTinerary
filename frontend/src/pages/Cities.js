@@ -11,7 +11,8 @@ class Cities extends React.Component{
     })}
 
     state={
-        cities:[]
+        cities: 0,
+        loader: false
     }
     componentDidMount(){
         this.toTop()
@@ -29,18 +30,18 @@ class Cities extends React.Component{
     })
 
     render() {
-        // if (this.state.cities.length === 0) {
-        //     return(
-        //         <div className="preloader">
-        //             <div className="sk-folding-cube">
-        //                 <div className="sk-cube1 sk-cube"></div>
-        //                 <div className="sk-cube2 sk-cube"></div>
-        //                 <div className="sk-cube4 sk-cube"></div>
-        //                 <div className="sk-cube3 sk-cube"></div>
-        //             </div>
-        //         </div>
-        //     )
-        // }
+        if (this.state.cities === 0) {
+            return(
+                <div className="main preloader">
+                    <div className="sk-folding-cube">
+                        <div className="sk-cube1 sk-cube"></div>
+                        <div className="sk-cube2 sk-cube"></div>
+                        <div className="sk-cube4 sk-cube"></div>
+                        <div className="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
+            )
+        }
         return(
             <div className="granContenedor">
                 <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}>
