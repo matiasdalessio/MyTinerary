@@ -53,7 +53,7 @@ class Home extends React.Component{
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action3.png')"}}></div>
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')"}}></div>
                 </div>
-                <div className="body">                    
+                <div className="main">                    
                     <ContentCarousel cities = {this.infoCities}/>
                     
                 </div>

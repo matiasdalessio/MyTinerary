@@ -1,3 +1,11 @@
+.preloader{
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  position: relative;
+  top: 50vh;
+  left: 0vw;
+}
 .sk-folding-cube {
   margin: 20px auto;
   width: 80px;

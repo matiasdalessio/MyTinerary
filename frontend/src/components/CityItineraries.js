@@ -40,27 +40,31 @@ class CityItineraries extends React.Component{
         const imgcityItinerary= require(`../assets/${this.state.city.img}`)
             return (
         
-                <main >
+                <main className="main">
                     <div className="granContenedor">
                         <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgcityItinerary.default}')`}}>
                         </div>
                         <div className="tituloCities">
                             <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
-                            <h1>{this.state.city.name} - {this.state.city.country}</h1>
+                            <div>
+                            <h1>{this.state.city.name}</h1>
+                            <h2>{this.state.city.country}</h2>
+                            </div>
                             <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                         </div>
                         </div>
                         <div className="cityBanners">
-                        <div className="cityBanner" style={{backgroundImage: `url('/img/mapa.jpg')`}}> 
-                            <h1 className="cityName">PAGE UNDER CONSTRUCTION     
+                        <div className="itineraryBanner" style={{backgroundImage: `url('/img/mapa.jpg')`}}> 
+                            <h1 className="itineraryTitle">PAGE UNDER CONSTRUCTION     
                                 <p>please wait just another week...</p> 
                             </h1>
-                        </div>
                         </div>
                         <div className="d-flex justify-content-center ">
                             <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/">Back to Home</NavLink>
                             <NavLink className="nav-link btnHomeEnCities text-dark" exact to="/cities">Back to Cities</NavLink>
                         </div>
+                        </div>
+                        
                     
                 </main>
             

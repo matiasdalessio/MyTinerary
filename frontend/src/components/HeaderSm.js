@@ -1,19 +1,17 @@
 import React from "react";
 import {NavLink} from 'react-router-dom'
-import { Nav, Navbar } from "react-bootstrap";
+
 
 
 export default function HeaderSm() {
   return ( 
-    <Navbar className="animate__animated animate__fadeInRight navbar responsiveNav" collapseOnSelect expand="lg" >
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="">
-          <NavLink className="nav-link text-dark" exact to="/">Home</NavLink>
-          <NavLink className="nav-link text-dark" exact to="/cities">Cities</NavLink>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+      <ul className="animate__animated animate__fadeInRight nav-item">
+            <button style={{backgroundImage: `url(${process.env.PUBLIC_URL + '/img/burger.png'})`}} className="nav-link responsiveNav text-dark " data-bs-toggle="dropdown" ></button>
+            <ul className="dropdown-menu responsiveDropdown">
+                <li><NavLink className="dropdown-item  text-dark" exact to="/">Home</NavLink></li>
+                <li><NavLink className="dropdown-item  text-dark" exact to="/Cities">Cities</NavLink></li>
+            </ul>
+      </ul> 
 
   );
 }

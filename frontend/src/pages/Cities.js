@@ -45,7 +45,7 @@ class Cities extends React.Component{
             <div className="granContenedor">
                 <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}>
                 </div>
-                <main className="body">
+                <main className="main">
                     <div className="tituloCities">
                         <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
                         <h1>Available cities</h1>
@@ -61,6 +61,7 @@ class Cities extends React.Component{
                         return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                     <div className="cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
                                         <h1 className="cityName">{city.name}</h1> 
+                                        <p className="parrafoBanner">Located in the province of Río Negro, Argentina, situated in the foothills of the Andes on the southern shores of Nahuel Huapi Lake. After development of extensive public works and Alpine-styled architecture, the city emerged in the 1930s and 1940s as a major tourism centre with skiing, trekking and mountaineering facilities. In addition, it has numerous restaurants, cafés, and chocolate shops. Click here to see all the possible Itineraries!</p>
                                     </div>
                                 </NavLink>
                     }): <div className="cityBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 
