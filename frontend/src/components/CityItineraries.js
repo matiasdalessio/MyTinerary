@@ -3,7 +3,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 
-
 class CityItineraries extends React.Component{
     toTop= () => {window.scroll({
         top:0, 
@@ -17,16 +16,12 @@ class CityItineraries extends React.Component{
         this.toTop()
         axios.get(`http://localhost:4000/api/city/${this.props.match.params.id}`)
         .then(response =>this.setState({city: response.data.respuesta}))
-        
-    }
-    
-    
-
+    }  
     
     render(){
         if (this.state.city.length === 0) {
             return(
-                <div className="preloader">
+                <div className="animate__animated animate__fadeIn preloader">
                     <div className="sk-folding-cube">
                         <div className="sk-cube1 sk-cube"></div>
                         <div className="sk-cube2 sk-cube"></div>
@@ -38,8 +33,8 @@ class CityItineraries extends React.Component{
         }
 
         const imgcityItinerary= require(`../assets/${this.state.city.img}`)
-            return (
-        
+
+        return (        
                 <main className="main">
                     <div className="granContenedor">
                         <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgcityItinerary.default}')`}}>
@@ -47,13 +42,13 @@ class CityItineraries extends React.Component{
                         <div className="tituloCities">
                             <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
                             <div>
-                            <h1>{this.state.city.name}</h1>
-                            <h2>{this.state.city.country}</h2>
+                                <h1>{this.state.city.name}</h1>
+                                <h2>{this.state.city.country}</h2>
                             </div>
                             <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                         </div>
-                        </div>
-                        <div className="cityBanners">
+                    </div>
+                    <div className="cityBanners">
                         <div className="itineraryBanner" style={{backgroundImage: `url('/img/mapa.jpg')`}}> 
                             <h1 className="itineraryTitle">PAGE UNDER CONSTRUCTION     
                                 <p>please wait just another week...</p> 
@@ -63,16 +58,9 @@ class CityItineraries extends React.Component{
                             <NavLink className="nav-link btnHomeEnCities " exact to="/">Back to Home</NavLink>
                             <NavLink className="nav-link btnHomeEnCities " exact to="/cities">Back to Cities</NavLink>
                         </div>
-                        </div>
-                        
-                    
+                    </div>                              
                 </main>
-            
-          
-              
-            )
-
-
+        )
     ;}
   }
   

@@ -20,9 +20,10 @@ const citiesControllers = {
     
     },
     addCity: async (req,res) => {
-        const {name, country, img} = req.body
+        const {name, country, img, info} = req.body
+        console.log(req.body)
         try {
-            const cityToAdd = new City({name: name, country: country, img: img})
+            const cityToAdd = new City({name: name, country: country, img: img, info: info})
             await cityToAdd.save()
             const cities = await City.find()
             res.json({success: true, respuesta: cities})
@@ -49,6 +50,5 @@ const citiesControllers = {
         }
     },
 }
-
 
 module.exports = citiesControllers

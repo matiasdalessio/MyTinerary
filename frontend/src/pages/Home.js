@@ -19,7 +19,7 @@ class Home extends React.Component{
     ],
     [
         {id:5 , name: "Kirkjufell", img: 'Kirkjufell.jpg'},
-        {id:6 , name: "Le Castellet", img: 'Le Castellet.jpg'},
+        {id:6 , name: "Mallorca", img: 'Mallorca.jpg'},
         {id:7 , name: "Montreal", img: 'Montreal.jpg'},
         {id:8 , name: "Nürburg", img: 'Nürburg.png'},
     ],
@@ -43,8 +43,8 @@ class Home extends React.Component{
                     <h1 className="animate__animated animate__fadeInDown">¡Find your perfect trip, designed by insiders who know and love their cities!</h1>
                 </div>
                 <div className="callToAction">
-                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action1.png')"}}></div> 
-                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action2.png')"}}></div>
+                    <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action1.png')"}}></div> 
+                    <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action2.png')"}}></div>
                     <div className="textoYBoton">
                         <h2>What are you waiting for?</h2>
                         <h2>Feel free to check our itineraries and activities!</h2>
@@ -57,11 +57,9 @@ class Home extends React.Component{
                     <ContentCarousel cities = {this.infoCities}/>
                     
                 </div>
-            </div>
-        
+            </div>        
         )
     }
-
 }
 
 export default Home

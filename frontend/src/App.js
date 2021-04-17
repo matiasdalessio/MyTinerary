@@ -11,22 +11,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  
 
   return (
     <BrowserRouter id="pageBody">
         <Header className="header"/>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/cities" component={Cities} />
-          <Route path="/city/:id" component={CityBanner} />
-          <Route path="/error" component={Home} />
-          <Redirect to="/error" />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/cities" component={Cities} />
+            <Route path="/city/:id" component={CityBanner} />
+            <Route path="/error" component={Home} />
+            <Redirect to="/error" />
         </Switch>
         <Footer className="footer"/>
-      </BrowserRouter>
-
-    
+      </BrowserRouter>    
   );
 }
 

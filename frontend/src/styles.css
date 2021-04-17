@@ -71,7 +71,7 @@ body, html, #root{
   } 
   
   .dropdown-menu{
-    text-align: center;
+    text-align: center !important;
     color: rgb(177, 177, 177) !important;
     background-color: rgba(0,0,0,0.75) !important;
   }
@@ -163,8 +163,10 @@ body, html, #root{
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.85);
     background-color: #F6EDE2;
     color: black !important;
+    transition: box-shadow 0.5s, background-color 0.5s;
   }
   .btnCta{
+    transition: box-shadow 0.5s, background-color 0.5s;
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.85);
     margin-top: 2vh;
     color: white !important;
@@ -177,7 +179,7 @@ body, html, #root{
   }
                                                        /* CAROUSEL */
 
-  .carousel-indicators .active{
+  .carousel-indicators .active{    
     background-color: white !important;
   }
   .carousel{
@@ -262,7 +264,7 @@ body, html, #root{
     border-radius: 0  0 50px 50px ;
     z-index: 1;
     width:100%;
-    height: 60vh;
+    height: 50vh;
     background-position:center;
     background-size:cover;
     background-repeat: no-repeat;
@@ -273,7 +275,7 @@ body, html, #root{
   }
 
   .tituloCities *{
-    margin: 5vh 4vw;
+    margin: 2vh 4vw;
     text-align: center;
   }
   .tituloCities{
@@ -298,7 +300,7 @@ body, html, #root{
   }
   .finder{
     font-size: 30px;
-    padding:2vh;
+    padding:0;
     border-bottom: 5px solid black !important;
     text-align: center;
     width: 80vw;
@@ -315,15 +317,18 @@ body, html, #root{
     justify-content: center;
     align-items: center;
   }
+  
   .cityBanners a {
     text-decoration: none !important;
   }
   .cityBanner{
+    background-color: transparent;
+    background-blend-mode: soft-light;
     margin: 2vh 0;
     border-radius: 30px;
     width: 80vw;
     height: 40vh;
-    transition: height 0.7s, width 0.7s;
+    transition: width 0.7s, background-color 1s;
     background-position:center;
     background-size:cover; 
     background-repeat: no-repeat;
@@ -332,13 +337,12 @@ body, html, #root{
     justify-content: center;
     align-items: center;
   }
-  
+ 
   .cityBanner:hover {  
-    width: 85vw; 
-    height: 45vh;  
+    width: 90vw; 
     background-color: #494949;
     background-blend-mode: soft-light;
-    transition: height 0.7s, width 0.7s, background-color 0.5s; 
+    transition: width 1.5s, background-color 0.5s; 
   }
   .parrafoBanner{
     margin-top: 6vh;
@@ -363,8 +367,14 @@ body, html, #root{
   .cityBanner .cityName{
     color: white;
     width: 100%;
-    background-color: rgba(0,0,0,0.6);
+    background-color:#00000079;
+    transition: background-color 0.5s;
     text-align: center;
+  }
+  .cityBanner:hover .cityName{
+    background-color: #00000000;
+    transition: background-color 0.5s;
+
   }
   .btnHomeEnCities:hover{
     background-color: rgb(0, 0, 0) ;
@@ -444,7 +454,9 @@ body, html, #root{
     border-radius: 0 30px ;
   }
   .icons a svg:hover *{
-    color: rgba(0, 0, 0, 0.548);
+    background-color: black !important;
+    color: rgba(0, 0, 0, 0.404);
+    transition: 0.5s;
   }
   .icons{
     display: flex;
@@ -452,11 +464,13 @@ body, html, #root{
     flex-wrap: wrap;
   }
   .icons *{
+    transition: 0.5s;
     cursor: pointer;
     color: black;
     margin: 0 2vw !important;
   }
   .icons a svg{
+    transition: 1s;
     margin: 0 !important;
     padding: 0;
   }
@@ -466,6 +480,7 @@ body, html, #root{
   }
   
   .mapa{
+    text-decoration: underline;
     color: black;
   }
 
@@ -490,6 +505,9 @@ body, html, #root{
     margin: 5vh 5vw;
     margin-bottom: 10vh;
     padding: 1em;
+  }
+  .parrafoBanner{
+    font-size: 1.5vw !important;  
   }
   }
 
@@ -594,6 +612,9 @@ body, html, #root{
     .tituloCities h1{
       font-size: 10vw;
     }
+    .parrafoBanner{
+      font-size: 2vw !important;  
+    }
   }
   
   
@@ -640,6 +661,12 @@ body, html, #root{
     }
     .itineraryTitle{
       text-align: center;
+    }
+    
+  }
+  @media screen and (min-width: 1px) and (max-width: 500px) {
+    .parrafoBanner{
+      display: none;  
     }
   }
 

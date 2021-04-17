@@ -6,8 +6,6 @@ const validator = require('../config/validator')
 
 const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = citiesControllers
 
-
-
 router.route('/cities')
 .get(getAllCities)
 .post(validator, addCity)

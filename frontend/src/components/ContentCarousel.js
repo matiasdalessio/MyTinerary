@@ -12,20 +12,22 @@ const ContentCarousel = ({cities}) =>{
     return (
         <div>
             <h1 className=" carouselTitle">Popular MyTineraries</h1>
-        <Carousel fade activeIndex={index} onSelect={handleSelect}>
-            {cities.map((cityGroup, index) =>{                
-                return <Carousel.Item key= {index} className="carousel-item">
-                    <div className=" carousel-slides" >
-                    {cityGroup.map(city => {
-                        const foto = require(`../assets/${city.img}`)
-                        return <div className="carousel-img" key={city.id} style={{backgroundImage: `url('${foto.default}')`}}><h3 className="cityName">{city.name}</h3></div>
-                    })}
-                    </div>                
-                    </Carousel.Item >
-            })}          
-        </Carousel>
+            <Carousel fade activeIndex={index} onSelect={handleSelect}>
+                {cities.map((cityGroup, index) =>{                
+                    return <Carousel.Item key= {index} className="carousel-item">
+                                <div className=" carousel-slides" >
+                                    {cityGroup.map(city => {
+                                        const foto = require(`../assets/${city.img}`)
+                                        return  <div className="carousel-img" key={city.id} style={{backgroundImage: `url('${foto.default}')`}}>
+                                                    <h3 className="cityName">{city.name}</h3>
+                                                </div>
+                                    })}
+                                </div>                
+                            </Carousel.Item >
+                })}          
+            </Carousel>
         </div>
-      );
+    );
 }
 
 export default ContentCarousel
