@@ -23,12 +23,12 @@ const citiesControllers = {
         const {name, country, img, info} = req.body
         console.log(req.body)
         try {
-            const cityToAdd = new City({name: name, country: country, img: img, info: info})
+            const cityToAdd = new City({name, country, img, info})
             await cityToAdd.save()
             const cities = await City.find()
             res.json({success: true, respuesta: cities})
         } catch(error) { 
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Please try again later...'})
         }         
     },
     deleteCity: async (req, res) => {
@@ -37,7 +37,7 @@ const citiesControllers = {
             const deletedCity = await City.findOneAndDelete({_id: cityId})
             res.json({success: true, respuesta: deletedCity}) 
         } catch(error) {
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },
     updateCity: async (req, res) => {
@@ -46,7 +46,7 @@ const citiesControllers = {
             const modifiedCity = await City.findOneAndUpdate({_id: cityId}, {...req.body}, {new: true})
             res.json({success: true, respuesta: modifiedCity})
         } catch(error) {
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },
 }

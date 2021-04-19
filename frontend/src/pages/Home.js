@@ -8,8 +8,7 @@ class Home extends React.Component{
 
     toTop= () => {window.scroll({
         top:0,
-        left:0,
-        behavior:'smooth'
+        left:0
     })}
 
     infoCities =[   

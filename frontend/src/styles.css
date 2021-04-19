@@ -340,7 +340,7 @@ body, html, #root{
     transition: transform 1s, background-color 0.5s; 
   }
   .parrafoBanner{
-    margin-top: 6vh;
+    margin-top: 0vh;
     text-align: justify;
     width: 50vw;
     font-size: 1vw;
@@ -350,7 +350,7 @@ body, html, #root{
     transition: opacity 0.7s;
   }
   .cityBanner:hover > .parrafoBanner{  
-    margin-top: 6vh;
+    margin-top: 0vh;
     text-align: justify;
     font-size: 1vw;
     position: relative;
@@ -362,7 +362,6 @@ body, html, #root{
   .cityBanner .cityName{
     color: white;
     width: 100%;
-    margin-top: 2vh;
     background-color:#00000079;
     transition: background-color 0.5s;
     text-align: center;
@@ -506,7 +505,7 @@ body, html, #root{
 
   .error{
     background-color: #F6EDE2;
-    margin-top: 25vh;
+    margin-top: 30vh;
     height: 100vh;
   }
 
@@ -568,6 +567,14 @@ body, html, #root{
   .parrafoBanner{
     font-size: 1.5vw !important;  
   }
+  }
+  .cityBanner .cityName{
+    color: white;
+    width: 100%;
+    margin-top: 15vh;
+    background-color:#00000079;
+    transition: background-color 0.5s;
+    text-align: center;
   }
 
   @media screen and (min-width: 300px) and (max-width: 991px) {
@@ -678,6 +685,11 @@ body, html, #root{
   
   
   @media screen and (min-width: 1px) and (max-width: 768px) {
+    .error{
+      background-color: #F6EDE2;
+      margin-top: 35vh ;
+      height: 100vh;
+    }
   
     .imgCallToAction{
       display: none;
@@ -726,6 +738,27 @@ body, html, #root{
   @media screen and (min-width: 1px) and (max-width: 500px) {
     .parrafoBanner{
       display: none;  
+    }
+    .cityBanner .cityName{
+      color: white;
+      width: 100%;
+      margin-top: 0vh;
+      background-color:#00000079;
+      transition: background-color 0.5s;
+      text-align: center;
+    }
+    .errorBanner .cityName{
+      color: white;
+      width: 100%;
+      font-size: 30px;
+      background-color:#00000079;
+      transition: background-color 0.5s;
+      text-align: center;
+    }
+    .error{
+      background-color: #F6EDE2;
+      margin-top: 50vh ;
+      height: 100vh;
     }
   }
 

@@ -9,8 +9,7 @@ class Cities extends React.Component{
 
     toTop= () => {window.scroll({
         top:0, 
-        left:0,
-        behavior:'smooth'
+        left:0
     })}
 
     state={
@@ -19,7 +18,7 @@ class Cities extends React.Component{
 
     componentDidMount(){
         this.toTop()
-        axios.get('http://localhost:4000/api/cities')
+        axios.get('http://192.168.0.147:4000/api/cities')
         .then(response =>this.setState ({cities: response.data.respuesta, original: [...response.data.respuesta]}))
         .catch(error => this.props.history.push('/error'))    
     }    
@@ -64,7 +63,7 @@ class Cities extends React.Component{
                             const imgBanner= require(`../assets/${city.img}`)
                             return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                         <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
-                                            <h1 className="cityName">{city.name}</h1> 
+                                            <h1 className="cityName">{city.name} - {city.country}</h1> 
                                             <p className="parrafoBanner">{city.info}</p>
                                         </div>
                                     </NavLink>
