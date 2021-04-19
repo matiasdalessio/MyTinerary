@@ -1,6 +1,8 @@
 import axios from "axios"
 import React from "react"
 import { NavLink } from 'react-router-dom';
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 
 class Cities extends React.Component{
@@ -12,7 +14,7 @@ class Cities extends React.Component{
     })}
 
     state={
-        cities: 0,
+        cities: null,
     }
 
     componentDidMount(){
@@ -22,7 +24,7 @@ class Cities extends React.Component{
         .catch(error => this.props.history.push('/error'))    
     }    
 
-    filtro = ((e) => {
+    cityFinder = ((e) => {
         const aBuscar = e.target.value
         this.setState({
             cities: this.state.original.filter(city => city.name.toLowerCase().indexOf(aBuscar.trim().toLowerCase())=== 0 )  
@@ -30,7 +32,7 @@ class Cities extends React.Component{
     })
 
     render() {
-        if (this.state.cities === 0) {
+        if (this.state.cities === null) {
             return(
                 <div className="animate__animated animate__fadeIn main preloader">
                     <div className="sk-folding-cube">
@@ -45,8 +47,8 @@ class Cities extends React.Component{
         
         return(
             <div className="granContenedor">
-                <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}>
-                </div>
+                <Header className="header"/>
+                <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}/>
                 <main className="main">
                     <div className="tituloCities">
                         <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
@@ -54,7 +56,7 @@ class Cities extends React.Component{
                         <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                     </div>
                     <div className="tituloCities">
-                        <input placeholder="Search a City" className="finder" type='text'  onChange={this.filtro}></input>
+                        <input placeholder="Search a City" className="finder" type='text'  onChange={this.cityFinder}></input>
                     </div>
                     <div className= "cityBanners">
                         {this.state.cities.length >0 
@@ -62,7 +64,7 @@ class Cities extends React.Component{
                             const imgBanner= require(`../assets/${city.img}`)
                             return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                         <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
-                                            <h1 className="cityName">{city.name} - {city.country}</h1> 
+                                            <h1 className="cityName">{city.name}</h1> 
                                             <p className="parrafoBanner">{city.info}</p>
                                         </div>
                                     </NavLink>
@@ -75,6 +77,7 @@ class Cities extends React.Component{
                         <NavLink className="nav-link btnHomeEnCities" exact to="/">Back to Home</NavLink>
                     </div>
                 </main>
+                <Footer className="footer"/>
             </div>        
         )
     }

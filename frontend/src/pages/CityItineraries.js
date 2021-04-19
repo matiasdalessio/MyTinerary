@@ -1,6 +1,8 @@
 import axios from "axios";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 
 class CityItineraries extends React.Component{
@@ -10,7 +12,7 @@ class CityItineraries extends React.Component{
     })}
     
     state={
-        city:[]
+        city:null
     }
     componentDidMount() {
         this.toTop()
@@ -22,7 +24,7 @@ class CityItineraries extends React.Component{
     }  
     
     render(){
-        if (this.state.city.length === 0) {
+        if (this.state.city === null) {
             return(
                 <div className="animate__animated animate__fadeIn preloader">
                     <div className="sk-folding-cube">
@@ -37,7 +39,9 @@ class CityItineraries extends React.Component{
 
         const imgcityItinerary= require(`../assets/${this.state.city.img}`)
 
-        return (        
+        return (   
+            <div>     
+                <Header className="header"/>
                 <main className="main">
                     <div className="granContenedor">
                         <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgcityItinerary.default}')`}}>
@@ -63,6 +67,8 @@ class CityItineraries extends React.Component{
                         </div>
                     </div>                              
                 </main>
+                <Footer className="footer"/>
+            </div>
         )
     ;}
   }

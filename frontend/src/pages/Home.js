@@ -1,6 +1,8 @@
 import React from "react"
 import ContentCarousel from "../components/ContentCarousel"
 import {NavLink} from 'react-router-dom'
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 class Home extends React.Component{
 
@@ -39,7 +41,8 @@ class Home extends React.Component{
  
         return(
             <div className="granContenedor">
-                <div id="hero" className= "hero" style={{backgroundImage: "url('./img/heroimg.jpg')"}}>
+                <Header className="header"/>
+                <div className= "hero" style={{backgroundImage: "url('./img/heroimg.jpg')"}}>
                     <h1 className="animate__animated animate__fadeInDown">¡Find your perfect trip, designed by insiders who know and love their cities!</h1>
                 </div>
                 <div className="callToAction">
@@ -54,9 +57,9 @@ class Home extends React.Component{
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')"}}></div>
                 </div>
                 <div className="main">                    
-                    <ContentCarousel cities = {this.infoCities}/>
-                    
+                    <ContentCarousel cities = {this.infoCities}/>            
                 </div>
+                <Footer className="footer"/>
             </div>        
         )
     }

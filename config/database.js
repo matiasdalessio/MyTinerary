@@ -6,5 +6,5 @@ mongoose.connect(process.env.MONGO_URI, {
     useUnifiedTopology: true,
     useFindAndModify: false
 }) 
-.then(() => console.log("tamo activo"))
+.then(() => console.log("Connected to Database"))
 .catch(error => console.log(error))
