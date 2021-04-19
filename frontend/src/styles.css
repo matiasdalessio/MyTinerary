@@ -117,7 +117,7 @@ body, html, #root{
     background-position:center;
     background-size:cover;
     background-repeat: no-repeat;
-    box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 44px 8px rgba(0,0,0,1);
   }  
   .hero h1{
     text-shadow: 1px 0px 10px rgba(0,0,0,1);
@@ -194,7 +194,7 @@ body, html, #root{
     display: none;
   }
   .carouselTitle{
-    box-shadow: 15px 13px 44px 30px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 44px 8px rgba(0,0,0,1);
     margin: 0;
     padding: 3vh 0 0 0;
     color: white;
@@ -268,7 +268,7 @@ body, html, #root{
     background-position:center;
     background-size:cover;
     background-repeat: no-repeat;
-    box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 44px 8px rgba(0,0,0,0.6);
   }
   .tituloCities h1{
     font-size: 3vw;
@@ -290,11 +290,7 @@ body, html, #root{
     background-position:center;
     background-size:cover;
     background-repeat: no-repeat;
-  }
-  .sloganCities{
-    background-color: rgba(0,0,0,0.2);
-      text-shadow: 1px 1px 5px rgba(0,0,0,1) !important;
-  }  
+  } 
   .finder:focus{
     outline: none ;
   }
@@ -308,7 +304,7 @@ body, html, #root{
     background-color: transparent;
   }  
   .cityBanners{
-    box-shadow: 15px 13px 44px 20px rgba(0,0,0,1);
+    box-shadow: 0px 0px 44px 8px rgba(0,0,0,0.6);
     background-color: black;
     margin: 5vh auto;
     padding: 7vh 0;
@@ -328,7 +324,7 @@ body, html, #root{
     border-radius: 30px;
     width: 80vw;
     height: 40vh;
-    transition: width 0.7s, background-color 1s;
+    transition: transform 1s, background-color 0.5s; 
     background-position:center;
     background-size:cover; 
     background-repeat: no-repeat;
@@ -339,10 +335,10 @@ body, html, #root{
   }
  
   .cityBanner:hover {  
-    width: 90vw; 
+    transform: scale(1.08);
     background-color: #494949;
     background-blend-mode: soft-light;
-    transition: width 1.5s, background-color 0.5s; 
+    transition: transform 1s, background-color 0.5s; 
   }
   .parrafoBanner{
     margin-top: 6vh;
@@ -376,6 +372,28 @@ body, html, #root{
     transition: background-color 0.5s;
 
   }
+  .notFound{
+    margin: 2vh 0;
+    border-radius: 30px;
+    width: 80vw;
+    height: 40vh;
+    background-position:center;
+    background-size:cover; 
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .notFound .cityName{
+    color: white;
+    width: 100%;
+    background-color:#00000079;
+    transition: background-color 0.5s;
+    text-align: center;
+  }
+
   .btnHomeEnCities:hover{
     background-color: rgb(0, 0, 0) ;
     color: white !important;
@@ -482,6 +500,47 @@ body, html, #root{
   .mapa{
     text-decoration: underline;
     color: black;
+  }
+
+                                                     /* ERROR */
+
+  .error{
+    background-color: #F6EDE2;
+    margin-top: 20vh;
+    height: 100vh;
+  }
+
+  .divErrorBanner{
+    box-shadow: 15px 13px 44px 8px rgba(0, 0, 0, 1) !important;
+    width: 100%;
+    background-color: black;
+  }
+
+  .errorBanner{
+    border: 3px solid black;
+    margin: 2vh 0;
+    border-radius: 30px;
+    width: 80vw;
+    height: 40vh;
+    background-position:center;
+    background-size:cover; 
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .errorBanner .cityName{
+    color: white;
+    width: 100%;
+    background-color:#00000079;
+    transition: background-color 0.5s;
+    text-align: center;
+  }
+
+  .errorNav{
+    border: 3px solid black;
   }
 
 

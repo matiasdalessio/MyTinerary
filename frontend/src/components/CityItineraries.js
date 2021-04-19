@@ -15,7 +15,10 @@ class CityItineraries extends React.Component{
     componentDidMount() {
         this.toTop()
         axios.get(`http://localhost:4000/api/city/${this.props.match.params.id}`)
-        .then(response =>this.setState({city: response.data.respuesta}))
+        .then(response =>response.data.success
+            ? this.setState({city: response.data.respuesta})
+            : this.props.history.push('/error'))      
+        .catch(error => this.props.history.push('/error')) 
     }  
     
     render(){

@@ -18,7 +18,8 @@ class Cities extends React.Component{
     componentDidMount(){
         this.toTop()
         axios.get('http://localhost:4000/api/cities')
-        .then(response =>this.setState ({cities: response.data.respuesta, original: [...response.data.respuesta]}))       
+        .then(response =>this.setState ({cities: response.data.respuesta, original: [...response.data.respuesta]}))
+        .catch(error => this.props.history.push('/error'))    
     }    
 
     filtro = ((e) => {
@@ -40,7 +41,7 @@ class Cities extends React.Component{
                     </div>
                 </div>
             )
-        }
+        } 
         
         return(
             <div className="granContenedor">
@@ -61,13 +62,13 @@ class Cities extends React.Component{
                             const imgBanner= require(`../assets/${city.img}`)
                             return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                         <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
-                                            <h1 className="cityName">{city.name}</h1> 
+                                            <h1 className="cityName">{city.name} - {city.country}</h1> 
                                             <p className="parrafoBanner">{city.info}</p>
                                         </div>
                                     </NavLink>
                             }) : 
-                            <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 
-                                <h1 className="cityName">Looks like the city that you're looking for doesn't exist here yet... 
+                            <div className="animate__animated animate__fadeIn  notFound" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 
+                                <h1 className="cityName ">Oh no! Looks like that city doesn't exist here yet... 
                                     <p>Try another one!</p> 
                                 </h1>
                             </div>}

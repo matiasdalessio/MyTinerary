@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CityBanner from "./components/CityItineraries";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Error from "./pages/Error";
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/cities" component={Cities} />
             <Route path="/city/:id" component={CityBanner} />
-            <Route path="/error" component={Home} />
+            <Route path="/error" component={Error} />
             <Redirect to="/error" />
         </Switch>
         <Footer className="footer"/>
