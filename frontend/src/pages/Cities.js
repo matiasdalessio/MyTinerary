@@ -1,8 +1,9 @@
-import axios from "axios"
 import React from "react"
 import { NavLink } from 'react-router-dom';
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import { connect } from "react-redux"
+import citiesActions from "../redux/actions/citiesActions";
 
 
 class Cities extends React.Component{
@@ -12,26 +13,14 @@ class Cities extends React.Component{
         left:0
     })}
 
-    state={
-        cities: null,
+
+    componentDidMount(){  
+        this.toTop()
+        this.props.loadCities()            
     }
 
-    componentDidMount(){
-        this.toTop()
-        axios.get('http://192.168.0.147:4000/api/cities')
-        .then(response =>this.setState ({cities: response.data.respuesta, original: [...response.data.respuesta]}))
-        .catch(error => this.props.history.push('/error'))    
-    }    
-
-    cityFinder = ((e) => {
-        const aBuscar = e.target.value
-        this.setState({
-            cities: this.state.original.filter(city => city.name.toLowerCase().indexOf(aBuscar.trim().toLowerCase())=== 0 )  
-        })
-    })
-
     render() {
-        if (this.state.cities === null) {
+        if (this.props.cities === null) {
             return(
                 <div className="animate__animated animate__fadeIn main preloader">
                     <div className="sk-folding-cube">
@@ -55,11 +44,11 @@ class Cities extends React.Component{
                         <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                     </div>
                     <div className="tituloCities">
-                        <input placeholder="Search a City" className="finder" type='text'  onChange={this.cityFinder}></input>
+                        <input placeholder="Search a City" className="finder" type='text'  onChange={(e) => this.props.findCity(e.target.value)}></input>
                     </div>
                     <div className= "cityBanners">
-                        {this.state.cities.length >0 
-                            ? this.state.cities.map(city =>{
+                        {this.props.cities.length >0 
+                            ? this.props.cities.map(city =>{
                             const imgBanner= require(`../assets/${city.img}`)
                             return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                         <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
@@ -81,5 +70,17 @@ class Cities extends React.Component{
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        cities: state.onlyOne.cities
+    }
+}
 
-export default Cities
+const mapDispatchToProps = {
+    loadCities: citiesActions.fetchCities,
+    findCity: citiesActions.findCity
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)
+

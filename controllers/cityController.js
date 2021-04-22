@@ -21,7 +21,6 @@ const citiesControllers = {
     },
     addCity: async (req,res) => {
         const {name, country, img, info} = req.body
-        console.log(req.body)
         try {
             const cityToAdd = new City({name, country, img, info})
             await cityToAdd.save()

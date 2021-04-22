@@ -304,6 +304,7 @@ body, html, #root{
   }  
   .cityBanners{
     box-shadow: 0px 0px 44px 8px rgba(0,0,0,0.6);
+    width: 100%;
     background-color: black;
     margin: 5vh auto;
     padding: 7vh 0;
@@ -442,6 +443,39 @@ body, html, #root{
   .itineraryTitle h1{
     font-size: 50px !important;
   }
+
+  .itinerary{
+    margin: 2vh 0;
+    border-radius: 30px;
+    width: 80vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .authorDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .avatarAuthor{
+    border-radius: 100px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .itineraryObservations{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .itineraryObservations *{
+    margin: 0 2vw;
+  }
+
 
 
                                                        /* FOOTER */
