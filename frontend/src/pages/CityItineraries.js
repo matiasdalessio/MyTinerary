@@ -23,7 +23,7 @@ class CityItineraries extends React.Component{
 
     
     render(){
-        if (this.props.city === null) {
+        if (this.props.city === null || this.props.city._id !== this.props.match.params.id) {
             return(
                 <div className="animate__animated animate__fadeIn preloader">
                     <div className="sk-folding-cube">

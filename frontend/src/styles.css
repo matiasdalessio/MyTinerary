@@ -444,14 +444,16 @@ body, html, #root{
     font-size: 50px !important;
   }
 
-  .itinerary{
-    margin: 2vh 0;
+  .itineraryBanner{
+    margin: 2vh auto;
     border-radius: 30px;
     width: 80vw;
-    height: 40vh;
+    height: auto;
+    background-size:cover; 
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -474,6 +476,16 @@ body, html, #root{
   }
   .itineraryObservations *{
     margin: 0 2vw;
+  }
+
+  .hidden {
+    display: none;
+    transition: display 1s;
+
+  }
+  .show{
+    display: flex;
+    transition: display 1s;
   }
 
 

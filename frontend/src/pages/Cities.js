@@ -16,7 +16,7 @@ class Cities extends React.Component{
 
     componentDidMount(){  
         this.toTop()
-        this.props.loadCities()            
+        this.props.loadCities()           
     }
 
     render() {

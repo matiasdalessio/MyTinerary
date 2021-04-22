@@ -3,9 +3,10 @@ import React, { useState } from "react";
 
 export default function Itineraries() {
 
-  const [viewMore, setViewMore] = useState({
+  const [toggleItineraries, setToggleItineraries] = useState({
     button: false,
-    text: "View More"
+    text: "View All",
+    class:"btnCta hidden"
   })
 
   const prueba = [
@@ -25,16 +26,16 @@ export default function Itineraries() {
   ]
 
   const showMoreShowLess = ((e) => {
-    setViewMore(viewMore.button 
-      ? {button: false, text: "View More"}
-      : {button: true, text: "View Less"}
+    setToggleItineraries(toggleItineraries.button 
+      ? {button: false, text: "View All", class:"hidden"}
+      : {button: true, text: "View Less", class:"show"}
     )}
   )
 
   return ( 
 
       <div className="cityBanners">
-        <div className="animate__animated animate__fadeIn itinerary" style={{backgroundColor: "white"}}> 
+        <div className="animate__animated animate__fadeIn itineraryBanner" style={{backgroundImage: `url('/img/itineraryBackground.jpg')`}}> 
                 <h1 className="">{prueba[0].itineraryName}</h1> 
                 <div className="authorDiv">
                     <div className="avatarAuthor" style={{backgroundColor: "lightblue"}}></div>
@@ -46,7 +47,13 @@ export default function Itineraries() {
                   <p className="">💰{prueba[0].price}</p>
                 </div>
                 <p className="">{prueba[0].hashtags}</p>
-            <button className= "btnCta" onClick={(e) => showMoreShowLess(e.target.textContent)}>{viewMore.text}</button>
+                <div className={toggleItineraries.class}> <div className="animate__animated animate__fadeIn  errorBanner" style={{backgroundImage: `url('/img/mapa.jpg')`}}> 
+                        <h1 className="cityName">PAGE UNDER CONSTRUCTION
+                            <p>Please wait just another week</p> 
+                        </h1>
+                    </div>
+                </div>                
+            <button className= "btnCta" onClick={(e) => showMoreShowLess(e.target.textContent)}>{toggleItineraries.text}</button>
           </div>
       </div>
         
