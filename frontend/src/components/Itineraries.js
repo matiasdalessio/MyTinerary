@@ -9,8 +9,7 @@ const Itineraries = ({itinerary}) => {
     text: "View All",
     class:"btnCta hidden"
   })
-
-
+  
   const showMoreShowLess = ((e) => {
     setToggleItineraries(toggleItineraries.button 
       ? {button: false, text: "View All", class:"hidden"}
@@ -18,8 +17,7 @@ const Itineraries = ({itinerary}) => {
     )}
   )
 
-  return ( 
-
+  return (
       <div className="itineraryBanners">
         <div className="animate__animated animate__fadeIn itineraryBanner" style={{backgroundImage: `url('/img/itineraryBackground.jpg')`}}> 
                 <h1 className="itineraryTitle">{itinerary.itineraryName}</h1> 
@@ -28,11 +26,11 @@ const Itineraries = ({itinerary}) => {
                     <h3>{itinerary.author.userName}</h3>
                 </div>
                 <div className="itineraryObservations">
-                  <p className="">Likes: ❤ {itinerary.like}</p>
-                  <p className="">Duration:{"🕒".repeat(itinerary.duration)}</p>
-                  <p className="">Price: {"💰".repeat(itinerary.price)}</p>
+                  <p className="likes">Likes: ❤ {itinerary.like}</p>
+                  <p className="duration">Duration:{"🕒".repeat(itinerary.duration)}</p>
+                  <p className="price">Price: {"💰".repeat(itinerary.price)}</p>
                 </div>
-                <p className="">
+                <p className="hashtags">
                     {itinerary.hashtags.map(hashtag =>{
                     return hashtag + " "
                     })}
@@ -46,9 +44,9 @@ const Itineraries = ({itinerary}) => {
             <button className= "btnReadMore" onClick={(e) => showMoreShowLess(e.target.textContent)}>{toggleItineraries.text}</button>
           </div>
       </div>
-        
   );
 }
+
 const mapStateToProps = state => {
   return {
       itineraries: state.cityReducer.itineraries

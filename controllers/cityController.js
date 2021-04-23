@@ -6,7 +6,7 @@ const citiesControllers = {
             const cities = await City.find()
             res.json({success: true, respuesta: cities})
         } catch(error) {
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint and if it still not working, please try again later...'})
         }
     },
     getSingleCity: async (req,res) => {
@@ -15,7 +15,7 @@ const citiesControllers = {
             const selectedCity = await City.findOne({_id: cityId})
             res.json({success: true, respuesta: selectedCity})
         } catch(error) {
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint or the ID and if it still not working, please try again later...'})
         }
     
     },
@@ -27,7 +27,7 @@ const citiesControllers = {
             const cities = await City.find()
             res.json({success: true, respuesta: cities})
         } catch(error) { 
-            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Please try again later...'})
+            res.json({success: false, respuesta: 'Oops! Verify the endpoint and if it still not working means an error has ocurred with the server. Please try again later...'})
         }         
     },
     deleteCity: async (req, res) => {

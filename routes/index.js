@@ -5,7 +5,7 @@ const itinerariesControllers = require('../controllers/itineraryController')
 const validatorCities = require('../config/validatorCities')
 const validatorItineraries = require('../config/validatorItineraries')
 
-const {getAllItinerary, addItinerary, getCityItinerary, getSingleItinerary, deleteItinerary, updateItinerary} = itinerariesControllers
+const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary} = itinerariesControllers
 const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = citiesControllers
 
 router.route('/cities')
@@ -18,17 +18,15 @@ router.route('/city/:id')
 .put(updateCity)
 
 router.route('/city/itineraries/:id')
-.get(getCityItinerary)
+.get(getCityItineraries)
 
 router.route('/itineraries')
-.get(getAllItinerary)
+.get(getAllItineraries)
 .post(validatorItineraries, addItinerary)
 
 router.route('/itinerary/:id')
 .get(getSingleItinerary)
 .delete(deleteItinerary)
 .put(updateItinerary)
-
-
 
 module.exports = router

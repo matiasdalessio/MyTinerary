@@ -10,7 +10,6 @@ const itinerarySchema = new mongoose.Schema({
         cityID:	{type: mongoose.Types.ObjectId, ref: 'city'},
         comments:[{type:String, default: 0}],
         usersLiked:[{type:String, default: 0}]
-
 })
 
 const Itinerary = mongoose.model ('itinerary', itinerarySchema )

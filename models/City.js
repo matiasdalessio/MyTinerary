@@ -5,7 +5,6 @@ const citySchema = new mongoose.Schema({
     country: {type: String, required: true},
     img: {type: String, required: true},
     info: {type: String, required: true}
-
 })
 
 const City = mongoose.model ('city', citySchema )

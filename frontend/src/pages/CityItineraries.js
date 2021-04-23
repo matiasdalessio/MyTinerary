@@ -5,9 +5,15 @@ import Footer from "../components/Footer"
 import Itineraries from "../components/Itineraries"
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import citiesActions from "../redux/actions/citiesActions";
 
 
 class CityItineraries extends React.Component{
+    
+    state={
+        city: null,
+        loading: true,
+    }
 
     toTop= () => {window.scroll({
         top:0, 
@@ -16,26 +22,29 @@ class CityItineraries extends React.Component{
 
     componentDidMount() {
         this.toTop()
-        if (this.props.cities.length > 0) {
+        if (this.props.cities.length !== 0) {
             this.setState({
                 city: this.props.cities.find(city => city._id === this.props.match.params.id),
-                loading : false, itineraries: this.props.itineraries.filter(itinerary => itinerary.cityID._id === this.props.match.params.id)
-            })            
+                loading : false
+            })             
         } else {
-            (this.props.history.push('/cities'))            
-        }                
+            this.props.fetchCities()         
+        }  
+        this.props.loadItineraries(this.props.match.params.id)              
     }
 
-    state={
-        itineraries: null,
-        city: null,
-        loading: true
+    componentDidUpdate(prevProps){
+        if (prevProps.cities.length === 0 && this.props.cities.length !== 0) {
+            this.setState({
+                city: this.props.cities.find(city => city._id === this.props.match.params.id), loading: false
+            })
+        }   
     }
     
-    render(){
+    render(){         
         if (this.state.loading) {
             return(
-                <div className="animate__animated animate__fadeIn preloader">
+                <div className="main preloader">
                     <div className="sk-folding-cube">
                         <div className="sk-cube1 sk-cube"></div>
                         <div className="sk-cube2 sk-cube"></div>
@@ -57,14 +66,14 @@ class CityItineraries extends React.Component{
                         <div className="tituloCities">
                             <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
                             <div>
-                                <h1>{this.state.city.name}</h1>
-                                <h2>¡Here is some of our Itineraries!</h2>
+                                <h1>{this.state.city.name}</h1>                              
                             </div>
                             <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
                         </div>
+                        <h2 className="itinerariesSubtitle">¡Here is some of our Itineraries!</h2>
                         <div className="cityBanners">
-                            { this.state.itineraries.length > 0 
-                            ? this.state.itineraries.map((itinerary, index) =>{
+                            { this.props.itineraries !== null &&  this.props.itineraries.length !== 0
+                            ? this.props.itineraries.map((itinerary, index) =>{
                                 return <Itineraries  key= {index} itinerary ={itinerary}/>                                
                                 })
                             :   <div className= "cityBanners divErrorBanner">
@@ -84,7 +93,7 @@ class CityItineraries extends React.Component{
                 </main>
                 <Footer className="footer"/>
             </div>
-        )
+        )  
     ;}
 }
   
@@ -98,6 +107,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
+    fetchCities: citiesActions.fetchCities,
     loadItineraries: itinerariesActions.loadItineraries
 }
 

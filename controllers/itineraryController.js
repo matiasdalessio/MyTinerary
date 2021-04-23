@@ -1,23 +1,23 @@
 const Itinerary = require('../models/Itinerary')
 
 const citiesControllers = {
-    getAllItinerary: async (req,res) => {
+    getAllItineraries: async (req,res) => {
         try {
             const itineraries = await Itinerary.find().populate('cityID')
             res.json({success: true, respuesta: itineraries})
         } catch(error) {
             console.log(error)
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint and if it still not working, please try again later...'})
         }
     },
-    getCityItinerary: async (req,res) => {
+    getCityItineraries: async (req,res) => {
         const itineraryId = (req.params.id)
         try {
             const selectedItineraries = await Itinerary.find({cityID: itineraryId})
             res.json({success: true, respuesta: selectedItineraries})
         } catch(error) {
             console.log(error)
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint or the ID and if it still not working, please try again later...'})
         }    
     },
     getSingleItinerary: async (req,res) => {
@@ -28,7 +28,7 @@ const citiesControllers = {
             res.json({success: true, respuesta: selectedItinerary})
         } catch(error) {
             console.log(error)
-            res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint and if it still not working, please try again later...'})
         }    
     },
     addItinerary: async (req,res) => {
@@ -39,7 +39,7 @@ const citiesControllers = {
             res.json({success: true, respuesta: itineraries})
         } catch(error) { 
             console.log(error)
-            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Please try again later...'})
+            res.json({success: false, respuesta: 'Oops! Verify the endpoint and if it still not working means an error has ocurred with the server. Please try again later...'})
         }         
     },
     deleteItinerary: async (req, res) => {

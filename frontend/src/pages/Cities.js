@@ -9,21 +9,33 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 
 class Cities extends React.Component{
 
+    state={
+        cities:[]
+    }
+
     toTop= () => {window.scroll({
         top:0, 
-        left:0
+        left:0,
+        behavior:"smooth"
     })}
 
     componentDidMount(){  
         this.toTop()
-        this.props.loadCities()  
-        this.props.loadItineraries()         
+        this.props.fetchCities()   
+        this.props.cleanItineraries() 
+        this.setState({cities: this.props.cities})
+    }
+    
+    componentDidUpdate(prevProps){
+        if (prevProps.cities.length === 0 && this.props.cities.length !==0) {
+            this.setState({cities: this.props.cities})
+        }  
     }
 
     render() {
-        if (this.props.cities.length === 0) {
+        if (this.state.cities.length === 0) {
             return(
-                <div className="animate__animated animate__fadeIn main preloader">
+                <div className="main preloader">
                     <div className="sk-folding-cube">
                         <div className="sk-cube1 sk-cube"></div>
                         <div className="sk-cube2 sk-cube"></div>
@@ -78,9 +90,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    loadCities: citiesActions.fetchCities,
+    fetchCities: citiesActions.fetchCities,
     findCity: citiesActions.findCity,
-    loadItineraries: itinerariesActions.loadItineraries
+    cleanItineraries: itinerariesActions.cleanItineraries
 }
 
 

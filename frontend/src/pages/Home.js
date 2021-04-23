@@ -8,7 +8,8 @@ class Home extends React.Component{
 
     toTop= () => {window.scroll({
         top:0,
-        left:0
+        left:0,
+        behavior:"smooth"
     })}
 
     infoCities =[   
@@ -37,7 +38,7 @@ class Home extends React.Component{
     }
 
     render() {
- 
+         
         return(
             <div className="granContenedor">
                 <Header className="header"/>
