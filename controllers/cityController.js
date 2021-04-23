@@ -12,8 +12,8 @@ const citiesControllers = {
     getSingleCity: async (req,res) => {
         const cityId = (req.params.id)
         try {
-            const citySeleccionada = await City.findOne({_id: cityId})
-            res.json({success: true, respuesta: citySeleccionada})
+            const selectedCity = await City.findOne({_id: cityId})
+            res.json({success: true, respuesta: selectedCity})
         } catch(error) {
             res.json({success: false, respuesta: 'Oops! something happened. Reload the Page and try again'})
         }

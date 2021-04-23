@@ -13,13 +13,6 @@ const citiesActions = {
             dispatch ({type: 'FIND_CITY', payload: e})
         }
     },
-    fetchSingleCity: (id) => {
-        return (dispatch, getState) => {
-            axios.get(`http://192.168.0.147:4000/api/city/${id}`)
-            .then(response => dispatch({type: 'FETCH_SINGLE_CITY', payload: response.data.respuesta}))
-            .catch(error => (this.props.history.push('/error'))) 
-        }
-    }
 }
 
 export default citiesActions

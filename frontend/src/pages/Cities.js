@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { connect } from "react-redux"
 import citiesActions from "../redux/actions/citiesActions";
+import itinerariesActions from "../redux/actions/itinerariesActions";
 
 
 class Cities extends React.Component{
@@ -13,14 +14,14 @@ class Cities extends React.Component{
         left:0
     })}
 
-
     componentDidMount(){  
         this.toTop()
-        this.props.loadCities()           
+        this.props.loadCities()  
+        this.props.loadItineraries()         
     }
 
     render() {
-        if (this.props.cities === null) {
+        if (this.props.cities.length === 0) {
             return(
                 <div className="animate__animated animate__fadeIn main preloader">
                     <div className="sk-folding-cube">
@@ -72,13 +73,14 @@ class Cities extends React.Component{
 }
 const mapStateToProps = state => {
     return {
-        cities: state.onlyOne.cities
+        cities: state.cityReducer.cities
     }
 }
 
 const mapDispatchToProps = {
     loadCities: citiesActions.fetchCities,
-    findCity: citiesActions.findCity
+    findCity: citiesActions.findCity,
+    loadItineraries: itinerariesActions.loadItineraries
 }
 
 

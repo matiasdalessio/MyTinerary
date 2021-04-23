@@ -1,10 +1,10 @@
 const initialState = {
-    cities: null,
-    city: null
+    cities: [],
+    city: [],
+    itineraries:[]
 }
 
-
-const onlyReducer = (state = initialState, action) => {
+const citiesReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'FETCH_CITIES':
             return {
@@ -17,14 +17,9 @@ const onlyReducer = (state = initialState, action) => {
                 ...state,
                 cities: state.original.filter(city => city.name.toLowerCase().indexOf(action.payload.trim().toLowerCase())=== 0 )           
             }
-        case 'FETCH_SINGLE_CITY':
-            return {
-                ...state,
-                city: action.payload              
-            }
         default:
             return state
     }
 }
 
-export default onlyReducer
+export default citiesReducer
