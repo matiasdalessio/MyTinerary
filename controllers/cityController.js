@@ -16,16 +16,14 @@ const citiesControllers = {
             res.json({success: true, respuesta: selectedCity})
         } catch(error) {
             res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint or the ID and if it still not working, please try again later...'})
-        }
-    
+        }    
     },
     addCity: async (req,res) => {
         const {name, country, img, info} = req.body
         try {
             const cityToAdd = new City({name, country, img, info})
             await cityToAdd.save()
-            const cities = await City.find()
-            res.json({success: true, respuesta: cities})
+            res.json({success: true, respuesta: cityToAdd})
         } catch(error) { 
             res.json({success: false, respuesta: 'Oops! Verify the endpoint and if it still not working means an error has ocurred with the server. Please try again later...'})
         }         
