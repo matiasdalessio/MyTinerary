@@ -6,14 +6,14 @@ const Itineraries = ({itinerary}) => {
 
   const [toggleItineraries, setToggleItineraries] = useState({
     button: false,
-    text: "View All",
+    text: "View More",
     class:"btnCta hidden"
   })
   
   const showMoreShowLess = ((e) => {
     setToggleItineraries(toggleItineraries.button 
-      ? {button: false, text: "View All", class:"hidden"}
-      : {button: true, text: "View Less", class:"show"}
+      ? {button: false, text: "View More", class:"hidden"}
+      : {button: true, text: "View Less", class:"showMore"}
     )}
   )
 
@@ -28,14 +28,14 @@ const Itineraries = ({itinerary}) => {
                 <div className="itineraryObservations">
                   <p className="likes">Likes: ❤ {itinerary.like}</p>
                   <p className="duration">Duration:{"🕒".repeat(itinerary.duration)}</p>
-                  <p className="price">Price: {"💰".repeat(itinerary.price)}</p>
+                  <p className="price">Price: {"💵".repeat(itinerary.price)}</p>
                 </div>
                 <p className="hashtags">
                     {itinerary.hashtags.map(hashtag =>{
                     return hashtag + " "
                     })}
                 </p>
-                <div className={toggleItineraries.class}> <div className="animate__animated animate__fadeIn  errorBanner" style={{backgroundImage: `url('/img/mapa.jpg')`}}> 
+                <div className={toggleItineraries.class}> <div className="errorBanner" style={{backgroundImage: `url('/img/mapa.jpg')`}}> 
                         <h1 className="cityName">PAGE UNDER CONSTRUCTION
                             <p>Please wait just another week</p> 
                         </h1>

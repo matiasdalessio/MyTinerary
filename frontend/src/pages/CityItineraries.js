@@ -21,6 +21,7 @@ class CityItineraries extends React.Component{
     })}
 
     componentDidMount() {
+        this.props.loadItineraries(this.props.match.params.id) 
         this.toTop()
         if (this.props.cities.length !== 0) {
             this.setState({
@@ -29,16 +30,15 @@ class CityItineraries extends React.Component{
             })             
         } else {
             this.props.fetchCities()         
-        }  
-        this.props.loadItineraries(this.props.match.params.id)              
+        }               
     }
 
     componentDidUpdate(prevProps){
         if (prevProps.cities.length === 0 && this.props.cities.length !== 0) {
             this.setState({
                 city: this.props.cities.find(city => city._id === this.props.match.params.id), loading: false
-            })
-        }   
+            })            
+        } 
     }
     
     render(){         

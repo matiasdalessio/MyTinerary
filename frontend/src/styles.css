@@ -438,6 +438,7 @@ body, html, #root{
     justify-content: center;
     align-items: center;
   }
+
   .itineraryBanner{
     background-color: #4949499e;
     background-blend-mode: soft-light;
@@ -445,7 +446,7 @@ body, html, #root{
     border-radius: 30px;
     width: 80vw;
     height: auto;
-    transition: height 0.7s;
+    transition: height 0.7s, background-color 0.5s, box-shadow 0.5s, transform 0.5s;
     background-position:center;
     background-size:cover; 
     background-repeat: no-repeat;
@@ -453,6 +454,13 @@ body, html, #root{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+  .itineraryBanner:hover{
+    background-color: #494949c5;
+    background-blend-mode: soft-light;
+    transform: scale(1.02);
+    box-shadow: 0px 0px 40px -10px rgba(255, 255, 255, 0.925);
+    transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
   }
 
   .authorDiv{
@@ -501,12 +509,9 @@ body, html, #root{
 
   .hidden {
     display: none;
-    transition: display 1s;
-
   }
-  .show{
+  .showMore{
     display: flex;
-    transition: display 1s;
   }
 
 
@@ -572,7 +577,7 @@ body, html, #root{
 
   .error{
     background-color: var(--main-bg-color);
-    margin-top: 30vh;
+    margin-top: 35vh;
     height: 100vh;
   }
 
@@ -636,7 +641,14 @@ body, html, #root{
     padding: 1em;
   }
   .parrafoBanner{
-    font-size: 1.5vw !important;  
+    margin-top: 0vh;
+    text-align: justify;
+    width: 60vw !important;
+    font-size: 1.1vw !important;
+    position: relative;
+    color: var(--main-bg-color);
+    opacity: 0;
+    transition: opacity 0.7s;
   }
   .cityBanner .cityName{
     color: var(--main-bg-color);

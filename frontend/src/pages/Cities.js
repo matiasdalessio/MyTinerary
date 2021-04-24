@@ -29,7 +29,7 @@ class Cities extends React.Component{
     componentDidUpdate(prevProps){
         if (prevProps.cities.length === 0 && this.props.cities.length !==0) {
             this.setState({cities: this.props.cities})
-        }  
+        } 
     }
 
     render() {
