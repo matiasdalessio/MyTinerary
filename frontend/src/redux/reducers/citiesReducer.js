@@ -1,6 +1,5 @@
 const initialState = {
     cities: [],
-    city: [],
     itineraries:[]
 }
 

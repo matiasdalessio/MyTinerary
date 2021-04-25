@@ -36,12 +36,13 @@ class CityItineraries extends React.Component{
     componentDidUpdate(prevProps){
         if (prevProps.cities.length === 0 && this.props.cities.length !== 0) {
             this.setState({
-                city: this.props.cities.find(city => city._id === this.props.match.params.id)
+                city: this.props.cities.find(city => city._id === this.props.match.params.id), loading: false
             })            
         } 
     }  
     
     render(){         
+        console.log(this.props)
         if (this.state.loading) {
             return(
                 <div className="main preloader">
@@ -101,7 +102,8 @@ const mapStateToProps = state => {
     return {
         cities: state.cityReducer.cities,
         city: state.cityReducer.city,
-        itineraries: state.itineraryReducer.itineraries
+        itineraries: state.itineraryReducer.itineraries,
+        success: state.itineraryReducer.success
     }
 }
 

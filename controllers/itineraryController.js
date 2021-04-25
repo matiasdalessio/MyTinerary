@@ -11,17 +11,20 @@ const citiesControllers = {
         }
     },
     getCityItineraries: async (req,res) => {
-        const itineraryId = (req.params.id)
+        const cityId = (req.params.id)
         try {
-            const selectedCityItineraries = await Itinerary.find({cityID: itineraryId})
-            res.json({success: true, respuesta: selectedCityItineraries})
+            const selectedCityItineraries = await Itinerary.find({cityID: cityId})
+            if (selectedCityItineraries.length != 0) {
+                res.json({success: true, respuesta: selectedCityItineraries})
+            } else{
+            res.json({success: false, respuesta: null})
+        }
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint or the ID and if it still not working, please try again later...'})
         }    
     },
     getSingleItinerary: async (req,res) => {
-        console.log(req.params)
         const itineraryId = (req.params.id)
         try {
             const selectedItinerary = await Itinerary.findOne({_id: itineraryId}).populate('cityID')
