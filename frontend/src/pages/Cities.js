@@ -21,7 +21,7 @@ class Cities extends React.Component{
 
     componentDidMount(){  
         this.toTop()
-        this.props.fetchCities()   
+        this.props.fetchCities(this.props)   
         this.props.cleanItineraries() 
         this.setState({cities: this.props.cities})
     }
