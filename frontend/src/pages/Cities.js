@@ -71,7 +71,7 @@ class Cities extends React.Component{
                                     </NavLink>
                             }) : 
                             <div className="animate__animated animate__fadeIn  notFound" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 
-                                <h1 className="cityName ">Oh no! Looks like that city doesn't exist here yet... 
+                                <h1 className="cityName cityNotFound">Oh no! Looks like that city doesn't exist here yet... 
                                     <p>Try another one!</p> 
                                 </h1>
                             </div>}

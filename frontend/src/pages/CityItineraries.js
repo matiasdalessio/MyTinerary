@@ -21,7 +21,7 @@ class CityItineraries extends React.Component{
     })}
 
     componentDidMount() {
-        this.props.loadItineraries(this.props.match.params.id) 
+        this.props.loadItineraries(this.props.match.params.id, this.props) 
         this.toTop()
         if (this.props.cities.length !== 0) {
             this.setState({
@@ -36,7 +36,7 @@ class CityItineraries extends React.Component{
     componentDidUpdate(prevProps){
         if (prevProps.cities.length === 0 && this.props.cities.length !== 0) {
             this.setState({
-                city: this.props.cities.find(city => city._id === this.props.match.params.id), loading: false
+                city: this.props.cities.find(city => city._id === this.props.match.params.id)
             })            
         } 
     }  
@@ -78,9 +78,8 @@ class CityItineraries extends React.Component{
                                 })
                             :   <div className= "cityBanners divErrorBanner notFoundItineraries">
                                     <div className="animate__animated animate__fadeIn  errorBanner" style={{backgroundImage: `url('/img/itineraryBackground.jpg')`}}> 
-                                        <h1 className="cityName">We don't have any itineraries here right now 
-                                            <p>Try another city!</p> 
-                                        </h1>
+                                        <h2 className="cityName">We don't have any itineraries here right now</h2>
+                                        <h3 className="cityName">Try another city!</h3> 
                                     </div>
                                 </div>
                             }                                                   

@@ -360,13 +360,8 @@ body, html, #root{
     transition: opacity 0.7s;
   }
   .cityBanner:hover > .parrafoBanner{  
-    margin-top: 0vh;
-    text-align: justify;
     font-size: 1vw;
-    position: relative;
-    color: var(--main-bg-color);
     opacity: 1;
-    width: 50vw;  
     transition: opacity 0.7s;
   }
   .cityBanner .cityName{
@@ -610,6 +605,7 @@ body, html, #root{
 
   }
   .errorBanner .cityName{
+    margin: 2vh 0;
     border-radius: 30px;
     color: var(--main-bg-color);
     width: 100%;
@@ -645,15 +641,10 @@ body, html, #root{
     padding: 1em;
   }
   .parrafoBanner{
-    margin-top: 0vh;
-    text-align: justify;
     width: 60vw !important;
     font-size: 1.1vw !important;
-    position: relative;
-    color: var(--main-bg-color);
-    opacity: 0;
-    transition: opacity 0.7s;
   }
+
   .cityBanner .cityName{
     color: var(--main-bg-color);
     width: 100%;
@@ -669,16 +660,34 @@ body, html, #root{
   @media screen and (min-width: 300px) and (max-width: 991px) {
   
     .responsiveNav{
+      background-color: var(--main-bg-color);
       display: block !important;
       width:80px;
       height:80px;
       background-position:center;
       background-size: 50px;
       background-repeat: no-repeat;
-      position: relative;
+      position: absolute;
       top: 6em;
       left: 100%;
     }  
+    .dropdown-menu{
+      position: relative;
+      top: -9.5vh !important;
+      left: 10vh !important;
+    }
+    .header{
+      position: absolute;
+      z-index: 2;
+      top: -3%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 1vh auto;
+      padding: 0 2vw;
+    }
     .navbar{
       display: none !important;
     }
@@ -718,7 +727,7 @@ body, html, #root{
     }
     .hero h1{
       text-shadow: 1px 0px 10px rgba(0,0,0,1);
-      font-size: 5vw;
+      font-size: 4.5vw;
       text-align: center;
       display: flex;
       align-items: center;
@@ -726,10 +735,10 @@ body, html, #root{
       padding: 30px;
       border-radius: 0 50px ;
       color: var(--main-bg-color);
-      width: 90%;
+      width: 80%;
       position: relative;
-      top: 22%;
-      left: 5% ;
+      top: 20%;
+      left: 10% ;
     
     }
     .tituloCities h1{
@@ -766,6 +775,16 @@ body, html, #root{
     }
     .parrafoBanner{
       font-size: 2vw !important;  
+    }
+    .hero h1{
+      font-size: 4.5vw;
+      width: 60%;
+      top: 20%;
+      left: 25% ;
+    
+    }
+    h1.cityName.cityNotFound{
+      font-size: 6vw;
     }
   }
   

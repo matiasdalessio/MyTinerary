@@ -7,6 +7,7 @@ import Cities from "./pages/Cities";
 import CityBanner from "./pages/CityItineraries";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Error from "./pages/Error";
+import ServerDown from "./pages/ServerDown";
 
 
 
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/cities" component={Cities} />
             <Route path="/city/:id" component={CityBanner} />
+            <Route path="/serverdown" component={ServerDown} />
             <Route path="/error" component={Error} />
             <Redirect to="/error" />
         </Switch>
