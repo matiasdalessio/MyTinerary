@@ -34,7 +34,7 @@ class CityItineraries extends React.Component{
         }               
     }
 
-    componentDidUpdate(prevProps){
+    componentDidUpdate(){
         if(this.props.city.length !==0 && this.state.city.length ===0 ) {
             this.setState({
                 city: this.props.city, loading: false

@@ -1,5 +1,4 @@
 const initialState = {
-    cities: [],
     itineraries:[],
     success: true,
 }
