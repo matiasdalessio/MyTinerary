@@ -22,7 +22,7 @@ URL: https://192.168.0.147:4000/
 
 ## Responses
 
-_Every GET request, response with a JSON object with two properties: the state of the request and the response with the data required. for example:_
+_Every GET request, response with a JSON object with two properties: the state of the request on boolean and the response with the object or array of objets (depends of the quantity) required. for example:_
 
 ### Requesting all Cities (/api/cities) :
 
@@ -41,21 +41,6 @@ _Every GET request, response with a JSON object with two properties: the state o
     ...
  ```
 
-### Requesting one single City (/api/city/607a2f28745e5322941e0016) :
-
-```javascript
-{
-  "success": true,
-  "respuesta": {
-    "_id": "607a2f28745e5322941e0016",
-    "name": "Baku",
-    "country": "Azerbaijan",
-    "img": "Baku.jpg",
-    "info": "Capital and largest city of Azerbaijan, as well as the largest city on the Caspian Sea and of the Caucasus region. Baku is located 28 metres (92 ft) below sea level, which makes it the lowest lying national capital in the world and also the largest city in the world located below sea level. Click here to see all the possible Itineraries!",
-    "__v": 0
-  }
-}
-```
 
 ### Requesting all available Itineraries in a single City (/api/city/itineraries/6081cbacb3e2822148f6b6e6) :
 
@@ -108,81 +93,8 @@ _Every GET request, response with a JSON object with two properties: the state o
   ]
 }
 ```
-### Requesting all the available Itineraries (/api/itineraries) :
 
-```javascript
-{
-  "success": true,
-  "respuesta": [
-    {
-      "author": {
-        "userName": "Athan Travis",
-        "imageURL": "https://images.generated.photos/rQ3NjmDfVvwNFBNJFGBq5U1lc3nWWywi7v8gKzSv7KQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzAy/NjExNjQuanBn.jpg"
-      },
-      "like": 0,
-      "hashtags": [
-        "#Health",
-        "#Beauty",
-        "#Nature",
-        "#FunTrip!"
-      ],
-      "comments": [],
-      "usersLiked": [],
-      "_id": "6081cbacb3e2822148f6b6e6",
-      "itineraryName": "Mountain Trip",
-      "price": 2,
-      "duration": 5,
-      "cityID": {
-        "_id": "607a2f28745e5322941e0016",
-        "name": "Baku",
-        "country": "Azerbaijan",
-        "img": "Baku.jpg",
-        "info": "Capital and largest city of Azerbaijan, as well as the largest city on the Caspian Sea and of the Caucasus region. Baku is located 28 metres (92 ft) below sea level, which makes it the lowest lying national capital in the world and also the largest city in the world located below sea level. Click here to see all the possible Itineraries!",
-        "__v": 0
-      },
-      "__v": 0
-    },
-    ...
-  }
-```
-
-### Requesting one single Itinerary (/api/itinerary/6081cbacb3e2822148f6b6e6) :
-
-```javascript
-{
-  "success": true,
-  "respuesta": {
-    "author": {
-      "userName": "Athan Travis",
-      "imageURL": "https://images.generated.photos/rQ3NjmDfVvwNFBNJFGBq5U1lc3nWWywi7v8gKzSv7KQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zLzAy/NjExNjQuanBn.jpg"
-    },
-    "like": 0,
-    "hashtags": [
-      "#Health",
-      "#Beauty",
-      "#Nature",
-      "#FunTrip!"
-    ],
-    "comments": [],
-    "usersLiked": [],
-    "_id": "6081cbacb3e2822148f6b6e6",
-    "itineraryName": "Mountain Trip",
-    "price": 2,
-    "duration": 5,
-    "cityID": {
-      "_id": "607a2f28745e5322941e0016",
-      "name": "Baku",
-      "country": "Azerbaijan",
-      "img": "Baku.jpg",
-      "info": "Capital and largest city of Azerbaijan, as well as the largest city on the Caspian Sea and of the Caucasus region. Baku is located 28 metres (92 ft) below sea level, which makes it the lowest lying national capital in the world and also the largest city in the world located below sea level. Click here to see all the possible Itineraries!",
-      "__v": 0
-    },
-    "__v": 0
-  }
-}
-```
-
-_Every PUT, POST and DELETE request, response with a JSON object with two properties: the state of the request and the response with the object added, modified o deleted. for example:_
+_Every PUT, POST and DELETE request, response with a JSON object with two properties: the state of the request on boolean and the response with the object added, modified o deleted. for example:_
 
 ### POST a City (/api/cities) :
 
@@ -195,51 +107,6 @@ _Every PUT, POST and DELETE request, response with a JSON object with two proper
     "country": "Azerbaijan",
     "img": "Baku.jpg",
     "info": "Capital and largest city of Azerbaijan, as well as the largest city on the Caspian Sea and of the Caucasus region. Baku is located 28 metres (92 ft) below sea level, which makes it the lowest lying national capital in the world and also the largest city in the world located below sea level. Click here to see all the possible Itineraries!",
-    "__v": 0
-  }
-}
-```
-
-### POST an Itinerary (/api/itineraries) :
-
-```javascript
-{
-  "success": true,
-  "respuesta": {
-    "like": 0,
-    "hashtags": [
-      "#Snow",
-      "#Winter",
-      "#Sledders",
-      "#SuperFun!"
-    ],
-    "comments": [],
-    "usersLiked": [],
-    "_id": "6083784da486990ba81ddea1",
-    "itineraryName": "Mountain Sled on Piedras Blancas!",
-    "author": {
-      "userName": "Paula Ruiz",
-      "imageURL": "https://uifaces.co/our-content/donated/oedmUmVc.jpg"
-    },
-    "price": 3,
-    "duration": 2,
-    "cityID": "607a2f2c745e5322941e0017",
-    "__v": 0
-  }
-}
-```
-
-### DELETE a City and update a City with PUT (/api/city/60837a4da486990ba81ddea4) :
-
-```javascript
-{
-  "success": true,
-  "respuesta": {
-    "_id": "60837a4da486990ba81ddea4",
-    "name": "test",
-    "country": "test",
-    "img": "test.jpg",
-    "info": "test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text test text",
     "__v": 0
   }
 }
