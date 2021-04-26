@@ -488,6 +488,12 @@ body, html, #root{
     font-size: 1.2em;
     margin: 3vh 1vw;
   }
+  .fa-heart{
+    cursor: pointer;
+    width: 25px;
+    color: red
+  }
+  
   .btnReadMore:hover{
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.85);
     background-color: var(--main-bg-color);
@@ -734,15 +740,6 @@ body, html, #root{
       align-items: center;
     }
     .hero h1{
-      text-shadow: 1px 0px 10px rgba(0,0,0,1);
-      font-size: 4.5vw;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      border-radius: 0 50px ;
-      color: var(--main-bg-color);
       width: 80%;
       position: relative;
       top: 20%;
@@ -788,7 +785,7 @@ body, html, #root{
       font-size: 4.5vw;
       width: 60%;
       top: 20%;
-      left: 25% ;
+      left: 27% ;
     
     }
     h1.cityName.cityNotFound{
