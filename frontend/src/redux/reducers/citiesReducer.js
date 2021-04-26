@@ -1,6 +1,7 @@
 const initialState = {
     cities: [],
-    itineraries:[]
+    itineraries:[],
+    city: []
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const citiesReducer = (state = initialState, action) => {
                 ...state,
                 cities: state.original.filter(city => city.name.toLowerCase().indexOf(action.payload.trim().toLowerCase())=== 0 )           
             }
+        case 'FETCH_SINGLE_CITY':
+            return {
+                ...state,
+                city: action.payload,            
+            }    
         default:
             return state
     }

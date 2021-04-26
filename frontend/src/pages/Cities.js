@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import { connect } from "react-redux"
 import citiesActions from "../redux/actions/citiesActions";
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import Loader from "../components/Loader";
 
 
 class Cities extends React.Component{
@@ -35,14 +36,7 @@ class Cities extends React.Component{
     render() {
         if (this.state.cities.length === 0) {
             return(
-                <div className="main preloader">
-                    <div className="sk-folding-cube">
-                        <div className="sk-cube1 sk-cube"></div>
-                        <div className="sk-cube2 sk-cube"></div>
-                        <div className="sk-cube4 sk-cube"></div>
-                        <div className="sk-cube3 sk-cube"></div>
-                    </div>
-                </div>
+                <Loader />
             )
         } 
         

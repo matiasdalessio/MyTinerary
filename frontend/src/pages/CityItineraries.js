@@ -6,12 +6,13 @@ import Itineraries from "../components/Itineraries"
 import { connect } from "react-redux";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import citiesActions from "../redux/actions/citiesActions";
+import Loader from "../components/Loader";
 
 
 class CityItineraries extends React.Component{
     
     state={
-        city: null,
+        city: [],
         loading: true,
     }
 
@@ -29,29 +30,24 @@ class CityItineraries extends React.Component{
                 loading : false
             })             
         } else {
-            this.props.fetchCities(this.props)         
+            this.props.fetchSingleCity(this.props.match.params.id, this.props)         
         }               
     }
 
     componentDidUpdate(prevProps){
-        if (prevProps.cities.length === 0 && this.props.cities.length !== 0) {
+        if(this.props.city.length !==0 && this.state.city.length ===0 ) {
             this.setState({
-                city: this.props.cities.find(city => city._id === this.props.match.params.id), loading: false
-            })            
-        } 
+                city: this.props.city, loading: false
+            })
+        }else if (this.props.cities.length === 0 && !this.props.success) {
+            this.props.history.push('/error')  
+        }
     }  
     
-    render(){         
-        if (this.state.loading) {
+    render(){    
+        if (this.state.loading ) {
             return(
-                <div className="main preloader">
-                    <div className="sk-folding-cube">
-                        <div className="sk-cube1 sk-cube"></div>
-                        <div className="sk-cube2 sk-cube"></div>
-                        <div className="sk-cube4 sk-cube"></div>
-                        <div className="sk-cube3 sk-cube"></div>
-                    </div>
-                </div>
+                <Loader />
             )
         }
         const imgcityItinerary= require(`../assets/${this.state.city.img}`)
@@ -108,6 +104,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     fetchCities: citiesActions.fetchCities,
+    fetchSingleCity: citiesActions.fetchSingleCity,
     loadItineraries: itinerariesActions.loadItineraries
 }
 
