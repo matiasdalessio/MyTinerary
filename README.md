@@ -3,7 +3,7 @@
 Obtain and modify Cities, one specific City, Itineraries, one specific Itinerary or all the available Itineraries in one City.
 
 ## Endpoints
-URL: https://192.168.0.147:4000/
+URL: https://localhost:4000/
 
 | Method | Endpoint | Description |
 | ------ | ------ | ------ |
