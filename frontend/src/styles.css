@@ -458,9 +458,8 @@ body, html, #root{
   .itineraryBanner:hover{
     background-color: #494949c5;
     background-blend-mode: soft-light;
-    transform: scale(1.02);
     box-shadow: 0px 0px 40px -10px rgba(255, 255, 255, 0.925);
-    transition: background-color 0.5s, box-shadow 0.5s, transform 0.5s;
+    transition: background-color 0.5s, box-shadow 0.5s;
   }
 
   .authorDiv{
@@ -493,7 +492,7 @@ body, html, #root{
     width: 25px;
     color: red
   }
-  
+
   .btnReadMore:hover{
     box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.85);
     background-color: var(--main-bg-color);

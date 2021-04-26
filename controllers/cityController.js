@@ -13,11 +13,16 @@ const citiesControllers = {
     getSingleCity: async (req,res) => {
         const cityId = (req.params.id)
         try {
-            const selectedCity = await City.findOne({_id: cityId})
-            res.json({success: true, respuesta: selectedCity})
+            const selectedCity = await City.find({_id: cityId})
+            console.log(selectedCity)
+            if (selectedCity.length != 0) {
+                res.json({success: true, respuesta: selectedCity[0]})
+            } else{
+            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint or the ID and if it still not working, please try again later...'})
+            }
         } catch(error) {
             console.log(error)
-            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint or the ID and if it still not working, please try again later...'})
+            res.json({success: false, respuesta: []})
         }    
     },
     addCity: async (req,res) => {

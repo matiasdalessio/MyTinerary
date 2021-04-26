@@ -1,6 +1,5 @@
 const initialState = {
     itineraries:[],
-    success: true,
 }
 
 
@@ -9,8 +8,7 @@ const citiesReducer = (state = initialState, action) => {
         case 'LOAD_ITINERARIES':
             return {
                 ...state,
-                itineraries: action.payload.respuesta,
-                success: action.payload.success      
+                itineraries: action.payload.respuesta     
             } 
         case 'CLEAN_ITINERARIES':
             return {

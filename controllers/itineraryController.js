@@ -17,7 +17,7 @@ const citiesControllers = {
             if (selectedCityItineraries.length != 0) {
                 res.json({success: true, respuesta: selectedCityItineraries})
             } else{
-            res.json({success: false, respuesta: null})
+            res.json({success: false, respuesta: []})
         }
         } catch(error) {
             console.log(error)

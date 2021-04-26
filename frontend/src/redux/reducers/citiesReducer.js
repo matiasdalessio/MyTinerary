@@ -1,6 +1,8 @@
 const initialState = {
-    cities: [],
-    city: []
+    filteredCities: [],
+    cityiesSpreaded: [],
+    city: [],
+    success: true
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -8,18 +10,19 @@ const citiesReducer = (state = initialState, action) => {
         case 'FETCH_CITIES':
             return {
                 ...state,
-                cities: action.payload,   
-                original: action.payload            
+                filteredCities: action.payload.respuesta,   
+                citiesSpreaded: action.payload.respuesta            
             }
         case 'FIND_CITY':
             return {
                 ...state,
-                cities: state.original.filter(city => city.name.toLowerCase().indexOf(action.payload.trim().toLowerCase())=== 0 )           
+                filteredCities: state.citiesSpreaded.filter(city => city.name.toLowerCase().indexOf(action.payload.trim().toLowerCase())=== 0 )           
             }
         case 'FETCH_SINGLE_CITY':
             return {
                 ...state,
-                city: action.payload,            
+                city: action.payload.respuesta,
+                success: action.payload.success            
             }    
         default:
             return state

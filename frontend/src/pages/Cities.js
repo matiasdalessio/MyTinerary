@@ -11,7 +11,7 @@ import Loader from "../components/Loader";
 class Cities extends React.Component{
 
     state={
-        cities:[]
+        filteredCities:[]
     }
 
     toTop= () => {window.scroll({
@@ -24,17 +24,17 @@ class Cities extends React.Component{
         this.toTop()
         this.props.fetchCities(this.props)   
         this.props.cleanItineraries() 
-        this.setState({cities: this.props.cities})
+        this.setState({filteredCities: this.props.filteredCities})
     }
     
     componentDidUpdate(prevProps){
-        if (prevProps.cities.length === 0 && this.props.cities.length !==0) {
-            this.setState({cities: this.props.cities})
+        if (prevProps.filteredCities.length === 0 && this.props.filteredCities.length !==0) {
+            this.setState({filteredCities: this.props.filteredCities})
         } 
     }
 
     render() {
-        if (this.state.cities.length === 0) {
+        if (this.state.filteredCities.length === 0) {
             return(
                 <Loader />
             )
@@ -54,8 +54,8 @@ class Cities extends React.Component{
                         <input placeholder="Search a City" className="finder" type='text'  onChange={(e) => this.props.findCity(e.target.value)}></input>
                     </div>
                     <div className= "cityBanners">
-                        {this.props.cities.length >0 
-                            ? this.props.cities.map(city =>{
+                        {this.props.filteredCities.length >0 
+                            ? this.props.filteredCities.map(city =>{
                             const imgBanner= require(`../assets/${city.img}`)
                             return <NavLink key={city._id} to={`/city/${city._id}`}> 
                                         <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
@@ -79,7 +79,7 @@ class Cities extends React.Component{
 }
 const mapStateToProps = state => {
     return {
-        cities: state.cityReducer.cities
+        filteredCities: state.cityReducer.filteredCities
     }
 }
 

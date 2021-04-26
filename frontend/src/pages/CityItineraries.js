@@ -22,14 +22,14 @@ class CityItineraries extends React.Component{
     })}
 
     componentDidMount() {
-        this.props.loadItineraries(this.props.match.params.id, this.props) 
         this.toTop()
-        if (this.props.cities.length !== 0) {
+        this.props.loadItineraries(this.props.match.params.id, this.props)
+        if (this.props.filteredCities.length !== 0) {        
             this.setState({
-                city: this.props.cities.find(city => city._id === this.props.match.params.id),
+                city: this.props.filteredCities.find(city => city._id === this.props.match.params.id),
                 loading : false
             })             
-        } else {
+        } else if (this.props.filteredCities.length === 0) {
             this.props.fetchSingleCity(this.props.match.params.id, this.props)         
         }               
     }
@@ -39,13 +39,14 @@ class CityItineraries extends React.Component{
             this.setState({
                 city: this.props.city, loading: false
             })
-        }else if (this.props.cities.length === 0 && !this.props.success) {
+        }else if (this.props.filteredCities.length === 0 && !this.props.success) {
             this.props.history.push('/error')  
         }
     }  
     
     render(){    
-        if (this.state.loading ) {
+
+        if (this.state.loading) {
             return(
                 <Loader />
             )
@@ -95,10 +96,10 @@ class CityItineraries extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        cities: state.cityReducer.cities,
+        filteredCities: state.cityReducer.filteredCities,
         city: state.cityReducer.city,
         itineraries: state.itineraryReducer.itineraries,
-        success: state.itineraryReducer.success
+        success: state.cityReducer.success
     }
 }
 
