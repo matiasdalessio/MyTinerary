@@ -7,7 +7,7 @@ const Itineraries = ({itinerary}) => {
   const [toggleItineraries, setToggleItineraries] = useState({
     button: false,
     text: "View More",
-    class:"btnCta hidden"
+    class:"hidden"
   })
   
   const showMoreShowLess = ((e) => {

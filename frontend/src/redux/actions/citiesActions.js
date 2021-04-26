@@ -4,7 +4,7 @@ const citiesActions = {
 
     fetchCities: (props) => {
         return (dispatch, getState) => {
-            axios.get(`http://192.168.0.147:4000/api/cities`)
+            axios.get(`http://localhost:4000/api/cities`)
             .then(response => response.data.success
                 ? dispatch({type: 'FETCH_CITIES', payload: response.data.respuesta})
                 : dispatch({type: 'FETCH_CITIES', payload: props.history.push('/error')}))

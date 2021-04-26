@@ -42,7 +42,6 @@ class CityItineraries extends React.Component{
     }  
     
     render(){         
-        console.log(this.props)
         if (this.state.loading) {
             return(
                 <div className="main preloader">

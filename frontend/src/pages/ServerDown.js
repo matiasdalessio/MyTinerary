@@ -19,11 +19,12 @@ class ServerDown extends React.Component{
     render() {
  
         return( 
-            <div className="granContenedor error">
+            <div className="granContenedor">
                 <Header className="header"/>
+                <div id="heroAvion" className= "hero" style={{backgroundImage: "url('/img/heroimg2.jpg')"}}/>    
                 <div className= "cityBanners divErrorBanner">
                     <div className="animate__animated animate__fadeIn  errorBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 
-                        <h1 className="cityName">Oops! there is some problems with the Server... 
+                        <h1 className="cityName">Oops! it seems there is some problems with the Server... 
                             <p>Wait a few minutes and try again!</p> 
                         </h1>
                     </div>
