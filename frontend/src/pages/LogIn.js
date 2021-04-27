@@ -28,11 +28,11 @@ class LogIn extends React.Component{
 
     send = async e => {
         e.preventDefault()
-        if (this.repeatpassword === this.password) {
+        if (this.state.repeatpassword === this.state.password) {
             const response = await axios.post('http://localhost:4000/cities', (this.state.name, this.state.lastname, this.state.email, this.state.country, this.state.password, this.state.imgurl))
             console.log(response)
         }   else {
-            return null
+            console.log("las constraseñas no coinciden")
         }             
     }
 
@@ -57,7 +57,7 @@ class LogIn extends React.Component{
                     <Header className="header"/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
                         <div className="formCard">
-                            <h2>Log in with your current account</h2>
+                            <h2>Sign up!</h2>
                             <form>
                                 <input type="text" placeholder="First Name" name="name" value={this.state.name} onChange={this.readInput} ></input>
                                 <input type="text" placeholder="Last Name" name="lastname" value={this.state.lastname} onChange={this.readInput} ></input>
@@ -71,7 +71,7 @@ class LogIn extends React.Component{
                                         return <option key={index}>{country.name}</option>
                                     })}
                                 </select>  
-                                <button onClick={this.send}>Send</button>                       
+                                <button className="submit" onClick={this.send}>Send</button>                       
                             </form>
                         </div>
                     </main>
