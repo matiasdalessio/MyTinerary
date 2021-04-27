@@ -8,6 +8,8 @@ import CityBanner from "./pages/CityItineraries";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Error from "./pages/Error";
 import ServerDown from "./pages/ServerDown";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 
 
 
@@ -20,6 +22,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/cities" component={Cities} />
             <Route path="/city/:id" component={CityBanner} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={LogIn} />
             <Route path="/serverdown" component={ServerDown} />
             <Route path="/error" component={Error} />
             <Redirect to="/error" />

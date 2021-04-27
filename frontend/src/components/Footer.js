@@ -34,8 +34,8 @@ const Footer = () =>{
             <div className="navFooter">
                 <NavLink className="nav-link " exact to="/">Home</NavLink>
                 <NavLink className="nav-link " exact to="/cities">Cities</NavLink>
-                <Link className="nav-link "  to="/">Log In</Link>
-                <Link className="nav-link "  to="/">Sign Up</Link>
+                <Link className="nav-link "  to="/login">Log In</Link>
+                <Link className="nav-link "  to="/signup">Sign Up</Link>
             </div>
         </footer>
     )

@@ -15,7 +15,8 @@ const Itineraries = ({itinerary}) => {
   const [toggleLike, setToggleLike] = useState ({
     liked: false,
     likedFill: heartEmpty,
-    likesCount: itinerary.like
+    likesCount: itinerary.like,
+    class:"empty"
   })
 
 
@@ -28,8 +29,8 @@ const Itineraries = ({itinerary}) => {
   )
   const likeToggle = ((e) => {
     setToggleLike(toggleLike.liked
-      ? {liked: false, likedFill: heartEmpty, likesCount: itinerary.like }
-      : {liked: true, likedFill: heartFilled, likesCount: itinerary.like +1 })
+      ? {liked: false, likedFill: heartEmpty, likesCount: itinerary.like, class: "empty"}
+      : {liked: true, likedFill: heartFilled, likesCount: itinerary.like +1, class: "filled" })
   })
 
   return (
@@ -42,7 +43,7 @@ const Itineraries = ({itinerary}) => {
                 </div>
                 <div className="itineraryObservations">
                   <p className="likes">Likes:
-                   <svg onClick={(e)=> likeToggle(e.target.className)} aria-hidden="true" focusable="true" data-prefix="far" data-icon="heart" className="svg-inline--fa fa-heart fa-w-16 " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d={toggleLike.likedFill}></path></svg> {toggleLike.likesCount}</p>
+                   <svg onClick={(e)=> likeToggle(e.target)} aria-hidden="true" focusable="true" data-prefix="far" data-icon="heart" className={toggleLike.class} role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d={toggleLike.likedFill}></path></svg> {toggleLike.likesCount}</p>
                   <p className="duration">Duration:{"🕒".repeat(itinerary.duration)}</p>
                   <p className="price">Price: {"💵".repeat(itinerary.price)}</p>
                 </div>
