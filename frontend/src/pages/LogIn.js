@@ -2,19 +2,19 @@ import React from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import axios from "axios"
+import { NavLink } from "react-router-dom"
 
 
 class LogIn extends React.Component{
+    toTop= () => {window.scroll({
+        top:0, 
+        left:0,
+        behavior:"smooth"
+    })}
 
     state={
-        repeatpassword: "",
-        lastname: "",
-        countries:[],
-        country: "",
         password:"",
-        imgurl: "",
         email: "",
-        name: "",
     }
 
     readInput = ((e) => {
@@ -28,51 +28,29 @@ class LogIn extends React.Component{
 
     send = async e => {
         e.preventDefault()
-        if (this.state.repeatpassword === this.state.password) {
-            const response = await axios.post('http://localhost:4000/cities', (this.state.name, this.state.lastname, this.state.email, this.state.country, this.state.password, this.state.imgurl))
-            console.log(response)
-        }   else {
-            console.log("las constraseñas no coinciden")
-        }             
+        const response = await axios.post('http://localhost:4000/api/user/login', this.state)
+        console.log(response)           
     }
 
-    toTop= () => {window.scroll({
-        top:0, 
-        left:0,
-        behavior:"smooth"
-    })}
-
     componentDidMount(){  
-        this.toTop()
-        axios.get(`https://restcountries.eu/rest/v2/all`)
-        .then(response => this.setState({countries: response.data}))
-        .catch(error => console.log(error))        
+        this.toTop()     
     }    
 
     render() {
-        console.log(this.state)
         return(
             <div>
                 <div className="granContenedor">
                     <Header className="header"/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
                         <div className="formCard">
-                            <h2>Sign up!</h2>
+                            <h2>Log In!</h2>
                             <form>
-                                <input type="text" placeholder="First Name" name="name" value={this.state.name} onChange={this.readInput} ></input>
-                                <input type="text" placeholder="Last Name" name="lastname" value={this.state.lastname} onChange={this.readInput} ></input>
                                 <input type="text" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.readInput} ></input>
-                                <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>
-                                <input type="password" placeholder="Repeat Password" name="repeatpassword" value={this.state.repeatpassword} onChange={this.readInput}></input>
-                                <input type="text" placeholder="Profile Pic URL link" name="imgurl" value={this.state.imgurl} onChange={this.readInput}></input>      
-                                <select type="select" placeholder="Country" name="country" onChange={this.readInput}>
-                                    <option disabled selected>-- Choose your Country --</option>
-                                    {this.state.countries.map((country, index) =>{
-                                        return <option key={index}>{country.name}</option>
-                                    })}
-                                </select>  
+                                <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>  
                                 <button className="submit" onClick={this.send}>Send</button>                       
                             </form>
+                            <h2>Log in with Google</h2>
+                            <h2>Don't have an account?<NavLink exact to="/signup">Sign up!</NavLink></h2>
                         </div>
                     </main>
                     <Footer className="footer"/>
