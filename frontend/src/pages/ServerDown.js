@@ -20,7 +20,7 @@ class ServerDown extends React.Component{
  
         return( 
             <div className="granContenedor">
-                <Header className="header"/>
+                <Header/>
                 <div id="heroAvion" className= "hero" style={{backgroundImage: "url('/img/heroimg2.jpg')"}}/>    
                 <div className= "cityBanners divErrorBanner">
                     <div className="animate__animated animate__fadeIn  errorBanner" style={{backgroundImage: `url('./img/mapa.jpg')`}}> 

@@ -38,6 +38,7 @@ class SignUp extends React.Component{
         if (this.state.repeatpassword === this.state.password) {
             const response = await axios.post('http://localhost:4000/api/user/signup', this.state)
             console.log(response)
+            localStorage.setItem("loginInfo", JSON.stringify(response.respuesta)) 
         }   else {
             console.log("las constraseñas no coinciden")
         }             
@@ -54,7 +55,7 @@ class SignUp extends React.Component{
         return(
             <div>
                 <div className="granContenedor">
-                    <Header className="header"/>
+                    <Header/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
                         <div className="formCard">
                             <h2>Sign up!</h2>
@@ -71,10 +72,10 @@ class SignUp extends React.Component{
                                         return <option key={index}>{country.name}</option>
                                     })}
                                 </select>  
-                                <button className="submit" onClick={this.send}>Send</button>                       
+                                <button className="submit" onClick={this.send}>Sign up!</button>                       
                             </form>
-                            <h2>Sign up with Google</h2>
-                            <h2>Already have an account?<NavLink exact to="/login">Log in!</NavLink></h2>
+                            <h4>Sign up with Google</h4>
+                            <h4>Already have an account?<NavLink exact to="/login"> Log in!</NavLink></h4>
                         </div>
                     </main>
                     <Footer className="footer"/>

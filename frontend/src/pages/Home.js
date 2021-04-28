@@ -41,7 +41,7 @@ class Home extends React.Component{
          
         return(
             <div className="granContenedor">
-                <Header className="header"/>
+                <Header/>
                 <div className= "hero" style={{backgroundImage: "url('./img/heroimg.jpg')"}}>
                     <h1 className="animate__animated animate__fadeInDown">¡Find your perfect trip, designed by insiders who know and love their cities!</h1>
                 </div>

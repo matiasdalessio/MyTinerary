@@ -55,7 +55,7 @@ class CityItineraries extends React.Component{
 
         return (   
             <div>     
-                <Header className="header"/>
+                <Header/>
                 <main className="main">
                     <div className="granContenedor">
                         <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgcityItinerary.default}')`}}>

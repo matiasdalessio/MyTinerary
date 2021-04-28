@@ -29,7 +29,14 @@ class LogIn extends React.Component{
     send = async e => {
         e.preventDefault()
         const response = await axios.post('http://localhost:4000/api/user/login', this.state)
-        console.log(response)           
+        if (response.data.success) {
+            console.log(response)
+        localStorage.setItem("loginInfo", JSON.stringify(response.data.respuesta))
+        alert(`Welcome ${JSON.parse(localStorage.getItem("loginInfo")).firstName}`)
+        this.props.history.push('/')      
+        } else{
+            alert("mandaste cualquiera, mono")
+        }                
     }
 
     componentDidMount(){  
@@ -37,20 +44,21 @@ class LogIn extends React.Component{
     }    
 
     render() {
+        // console.log(response)
         return(
             <div>
                 <div className="granContenedor">
-                    <Header className="header"/>
+                    <Header/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
                         <div className="formCard">
                             <h2>Log In!</h2>
                             <form>
                                 <input type="text" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.readInput} ></input>
                                 <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>  
-                                <button className="submit" onClick={this.send}>Send</button>                       
+                                <button className="submit" onClick={this.send}>Log In</button>                       
                             </form>
-                            <h2>Log in with Google</h2>
-                            <h2>Don't have an account?<NavLink exact to="/signup">Sign up!</NavLink></h2>
+                            <h4>Log in with Google</h4>
+                            <h4>Don't have an account?<NavLink exact to="/signup"> Sign up!</NavLink></h4>
                         </div>
                     </main>
                     <Footer className="footer"/>

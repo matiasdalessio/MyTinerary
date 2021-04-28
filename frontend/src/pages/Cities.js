@@ -42,7 +42,7 @@ class Cities extends React.Component{
         
         return(
             <div className="granContenedor">
-                <Header className="header"/>
+                <Header />
                 <div id="heroAvion" className= "hero" style={{backgroundImage: "url('./img/heroimg2.jpg')"}}/>
                 <main className="main">
                     <div className="tituloCities">

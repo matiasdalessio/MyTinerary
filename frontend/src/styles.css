@@ -38,7 +38,7 @@ body, html, #root{
     width:80px;
     height:80px;
     background-position:center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
   }
   button.nav-link.genericUser{
@@ -127,7 +127,8 @@ body, html, #root{
   }
 
   select{
-    height: 40px;
+    border-radius: 0 15px;
+    height: 5vh;
     width: 30vw;
     text-align-last:center;
   }
@@ -147,10 +148,11 @@ body, html, #root{
   .formCard form input{
     text-align: center;
     border-radius: 0 15px;
-    height: 3vw;
+    height: 5vh;
     width: 30vw;
   }
   .formCard *{
+    text-align: center;
     margin: 2vh auto;
   }
   form *{
@@ -176,7 +178,7 @@ body, html, #root{
     color: var(--main-bg-color) !important;
     background-color: var(--secundary-bg-color);
     border-radius: 0 50px !important ;  
-    width: 100px;
+    width: auto;
     height: 30px;
     font-size: 20px;
     padding: 1em;
