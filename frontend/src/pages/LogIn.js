@@ -1,8 +1,10 @@
 import React from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import axios from "axios"
 import { NavLink } from "react-router-dom"
+import { connect } from "react-redux"
+import loginActions from "../redux/actions/loginActions"
+import swal from 'sweetalert'
 
 
 class LogIn extends React.Component{
@@ -26,25 +28,23 @@ class LogIn extends React.Component{
         })
     })
 
+
     send = async e => {
         e.preventDefault()
-        const response = await axios.post('http://localhost:4000/api/user/login', this.state)
-        if (response.data.success) {
-            console.log(response)
-        localStorage.setItem("loginInfo", JSON.stringify(response.data.respuesta))
-        alert(`Welcome ${JSON.parse(localStorage.getItem("loginInfo")).firstName}`)
-        this.props.history.push('/')      
-        } else{
-            alert("mandaste cualquiera, mono")
-        }                
+        const respuesta = await this.props.logUser(this.state, this.props)
+        if (respuesta=== "Invalid User or Password") {
+            swal("Invalid User or Password", "Verify and try again!", "error")
+        } else {
+            swal("Loged in correctly!", respuesta, "success")
+        }         
     }
+
 
     componentDidMount(){  
         this.toTop()     
     }    
 
     render() {
-        // console.log(response)
         return(
             <div>
                 <div className="granContenedor">
@@ -68,5 +68,14 @@ class LogIn extends React.Component{
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        userLogged: state.loginReducer.userLogged
+    }
+}
+const mapDispatchToProps = {
+    logUser: loginActions.logUser
+}
 
-export default LogIn
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn)

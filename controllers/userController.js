@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bcryptjs = require('bcryptjs')
 
 const userController = {
     getUsers: async (req,res) => {
@@ -11,21 +12,21 @@ const userController = {
         }
     },
     newUser: async (req, res) => {
-        console.log(req.body)
-        const {firstName, lastName, email, password, country, img} = req.body
+        var {firstName, lastName, email, password, country, img} = req.body
         const existentMail = await User.findOne({email})
         var respuesta;
         var error;    
+        password = bcryptjs.hashSync(password, 10)
         if (!existentMail) {
             try {
-                const usuarioGrabado = new User({firstName, lastName, email, password, country, img})
-                await usuarioGrabado.save()
-                respuesta = usuarioGrabado 
+                const createdUser = new User({firstName, lastName, email, password, country, img})
+                await createdUser.save()
+                respuesta = createdUser 
             } catch {
-                error = "it was an error in the register. please try again"
+                error = "There was an error in the register."
             }                  
        } else {
-           error = "the E-mail is already in use"
+           error = "The E-mail is already in use"
        }
        res.json({
            success: !error ? true : false,
@@ -38,10 +39,15 @@ const userController = {
         var respuesta;
         var error;
         const userExist = await User.findOne({email: email})
-        if (userExist && userExist.password === password) {
-            respuesta = userExist
+        if (userExist) {
+            const passwordMatch = bcryptjs.compareSync(password, userExist.password)
+            if (passwordMatch) {
+                respuesta = userExist
+            } else {
+                error = "Invalid User or Password"
+            }            
         } else {
-            error = "Usuario y/o contraseña incorrectos"
+            error = "Invalid User or Password"
         }
         res.json({
             success: !error ? true : false,

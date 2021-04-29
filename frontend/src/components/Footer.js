@@ -1,8 +1,31 @@
+import { connect } from 'react-redux'
 import {NavLink, Link} from 'react-router-dom'
+import loginActions from '../redux/actions/loginActions'
+import swal from 'sweetalert'
 
 
-const Footer = () =>{
+const Footer = (props) =>{
 
+    const logOut=(()=> {
+        swal({
+            title: "Are you sure that you want to Log Out?",
+            text: "You can Log in again, anyway",
+            icon: "warning",
+            buttons: ["No Way!", "I'm Sure!"],
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                props.removeUserInfo()
+                swal("Okay then, see you later!", {
+                    icon: "success",
+              });
+            } else {
+              swal("Okay! Let's keep looking!");
+            }
+          });
+    })
+    
     return(
         <footer className="footer">
             <div>
@@ -34,11 +57,29 @@ const Footer = () =>{
             <div className="navFooter">
                 <NavLink className="nav-link " exact to="/">Home</NavLink>
                 <NavLink className="nav-link " exact to="/cities">Cities</NavLink>
-                <Link className="nav-link "  to="/login">Log In</Link>
-                <Link className="nav-link "  to="/signup">Sign Up</Link>
+                {props.userLogged 
+                    ?<>
+                        <Link className="nav-link " onClick={(e)=>logOut(e.target)} to="/">Log Out</Link>
+                    </> 
+                    :<>
+                        <Link className="nav-link " to="/login">Log In</Link>
+                        <Link className="nav-link " to="/signup">Sign Up</Link>
+                    </>
+                    }
             </div>
         </footer>
     )
 }
 
-export default Footer
+const mapStateToProps = state => {
+    return {
+        userLogged: state.loginReducer.userLogged
+    }
+}
+const mapDispatchToProps = {
+    removeUserInfo :  loginActions.removeUserInfo,  
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)

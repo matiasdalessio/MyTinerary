@@ -1,10 +1,10 @@
 import React from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import axios from "axios"
 import { NavLink } from "react-router-dom"
 import loginActions from "../redux/actions/loginActions";
 import { connect } from "react-redux"
+import swal from 'sweetalert'
 
 
 class SignUp extends React.Component{
@@ -36,15 +36,21 @@ class SignUp extends React.Component{
     send = async e => {
         e.preventDefault()
         if (this.state.repeatpassword === this.state.password) {
-            const response = await axios.post('http://localhost:4000/api/user/signup', this.state)
-            console.log(response)
-            localStorage.setItem("loginInfo", JSON.stringify(response.respuesta)) 
-        }   else {
-            console.log("las constraseñas no coinciden")
-        }             
-    }
+            const respuesta = await this.props.newUser(this.state, this.props)
+                if (respuesta === "The E-mail is already in use") {
+                    swal("The E-mail is already in use", "Try another one!", "error")
+                }else if (respuesta === "There was an error in the register."){
+                    swal(respuesta, "Please verify all the required fields are completed.", "error")
+                }else{
+                    swal("Signed Up!", respuesta, "success")
+                }
+        } else{
+            swal("Passwords doesn't match!", "Please verify and try again.", "error")
+        }   
+                        
+    }    
 
-    
+
 
     componentDidMount(){  
         this.toTop()
@@ -66,8 +72,8 @@ class SignUp extends React.Component{
                                 <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>
                                 <input type="password" placeholder="Repeat Password" name="repeatpassword" value={this.state.repeatpassword} onChange={this.readInput}></input>
                                 <input type="text" placeholder="Profile Pic URL link" name="img" value={this.state.img} onChange={this.readInput}></input>      
-                                <select type="select" placeholder="Country" name="country" onChange={this.readInput}>
-                                    <option disabled selected>-- Choose your Country --</option>
+                                <select type="select" placeholder="Country" name="country" value={this.state.country} onChange={this.readInput}>
+                                    <option disabled value="">-- Choose your Country --</option>
                                     {this.props.countries.map((country, index) =>{
                                         return <option key={index}>{country.name}</option>
                                     })}
@@ -86,11 +92,13 @@ class SignUp extends React.Component{
 }
 const mapStateToProps = state => {
     return {
-        countries: state.loginReducer.countries
+        countries: state.loginReducer.countries,
+        userLogged: state.loginReducer.userLogged
     }
 }
 const mapDispatchToProps = {
-    fetchCountries :  loginActions.fetchCountries
+    fetchCountries :  loginActions.fetchCountries,
+    newUser: loginActions.newUser
 }
 
 

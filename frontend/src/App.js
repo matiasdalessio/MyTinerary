@@ -1,20 +1,22 @@
 import React from "react"
 import Home from "./pages/Home";
-import './styles.css'
-import './preloader.css'
 import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 import Cities from "./pages/Cities";
 import CityBanner from "./pages/CityItineraries";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Error from "./pages/Error";
 import ServerDown from "./pages/ServerDown";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import { connect } from "react-redux";
+import loginActions from "./redux/actions/loginActions";
+import './styles.css'
+import './preloader.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
-function App() {
+function App(props) {
+  if (!props.userLogged && localStorage.getItem('userLogged')) {    
+    props.forcedLoginByLS(JSON.parse(localStorage.getItem('userLogged')))
+  }
 
   return (
     <BrowserRouter>
@@ -22,15 +24,24 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/cities" component={Cities} />
             <Route path="/city/:id" component={CityBanner} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/login" component={LogIn} />
             <Route path="/serverdown" component={ServerDown} />
             <Route path="/error" component={Error} />
-            <Redirect to="/error" />
+            {!props.userLogged && <Route path="/signup" component={SignUp} />}
+            {!props.userLogged && <Route path="/login" component={LogIn} />}
+            <Redirect to="/" />
         </Switch>
-      </BrowserRouter>    
+      </BrowserRouter>  
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+      userLogged: state.loginReducer.userLogged
+  }
+}
+const mapDispatchToProps = {
+  forcedLoginByLS :  loginActions.forcedLoginByLS,
 
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App)

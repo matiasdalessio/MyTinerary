@@ -40,7 +40,7 @@ class CityItineraries extends React.Component{
                 city: this.props.city, loading: false
             })
         }else if (this.props.filteredCities.length === 0 && !this.props.success) {
-            this.props.history.push('/error')  
+            this.props.history.push('/')  
         }
     }  
     

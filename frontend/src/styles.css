@@ -34,6 +34,17 @@ body, html, #root{
     background-size: contain;
     background-repeat: no-repeat;
   }
+  .welcomeAndAvatar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .welcome{
+    text-shadow: 1px 0px 5px rgba(0,0,0,1);
+    margin-top: 1vh;
+    color: var(--main-bg-color);
+  }
   .genericUser{
     width:80px;
     height:80px;
