@@ -63,8 +63,8 @@ class SignUp extends React.Component{
                 <div className="granContenedor">
                     <Header/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
-                        <div className="formCard">
-                            <h2>Sign up!</h2>
+                        <div className="animate__animated animate__fadeInDown formCard">
+                            <h2>Join to our World of Adventures!</h2>
                             <form>
                                 <input type="text" placeholder="First Name" name="firstName" value={this.state.name} onChange={this.readInput} ></input>
                                 <input type="text" placeholder="Last Name" name="lastName" value={this.state.lastname} onChange={this.readInput} ></input>

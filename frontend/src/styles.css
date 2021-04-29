@@ -138,12 +138,14 @@ body, html, #root{
   }
 
   select{
+    box-shadow: 2px 2px 20px -5px rgba(0,0,0,0.75);
     border-radius: 0 15px;
     height: 5vh;
     width: 30vw;
     text-align-last:center;
   }
   .formCard{
+    box-shadow: 2px 2px 30px -5px rgba(0,0,0,0.75);
     border-radius: 30px;
     position: relative;
     top:3vh;
@@ -157,6 +159,7 @@ body, html, #root{
   }
 
   .formCard form input{
+    box-shadow: 2px 2px 20px -5px rgba(0,0,0,0.75);
     text-align: center;
     border-radius: 0 15px;
     height: 5vh;

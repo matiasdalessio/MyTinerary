@@ -50,8 +50,8 @@ class LogIn extends React.Component{
                 <div className="granContenedor">
                     <Header/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
-                        <div className="formCard">
-                            <h2>Log In!</h2>
+                        <div className="animate__animated animate__fadeInDown formCard">
+                            <h2>Log In with your account!</h2>
                             <form>
                                 <input type="text" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.readInput} ></input>
                                 <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>  

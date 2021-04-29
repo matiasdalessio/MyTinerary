@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import swal from 'sweetalert'
 
 
 const Itineraries = ({itinerary, userLogged}) => {
@@ -40,7 +41,7 @@ const Itineraries = ({itinerary, userLogged}) => {
         ? {liked: false, likedFill: heartEmpty, likesCount: itinerary.like, class: "empty"}
         : {liked: true, likedFill: heartFilled, likesCount: itinerary.like +1, class: "filled" })    
     } else{
-      alert("you must be logged to like an itinerary")
+      swal("You must be logged to like an itinerary", "", "error")
     }
     
   })
