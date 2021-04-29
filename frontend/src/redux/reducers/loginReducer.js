@@ -11,13 +11,15 @@ const citiesReducer = (state = initialState, action) => {
                 countries: action.payload          
             }
         case 'LOG_USER':
-            localStorage.setItem("userLogged", JSON.stringify(action.payload))
+            console.log(action.payload)
+            localStorage.setItem("userLogged", JSON.stringify({firstName: action.payload.firstName, img: action.payload.img}))
+            localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 userLogged: action.payload         
             }
         case 'LOG_OUT':
-            localStorage.removeItem("userLogged")
+            localStorage.clear()
             return {
                 ...state,
                 userLogged: null        

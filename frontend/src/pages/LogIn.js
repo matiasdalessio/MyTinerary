@@ -13,6 +13,7 @@ class LogIn extends React.Component{
         left:0,
         behavior:"smooth"
     })}
+    
 
     state={
         password:"",
@@ -33,7 +34,7 @@ class LogIn extends React.Component{
         e.preventDefault()
         const respuesta = await this.props.logUser(this.state, this.props)
         if (respuesta=== "Invalid User or Password") {
-            swal("Invalid User or Password", "Verify and try again!", "error")
+            swal("Invalid Username or Password", "Verify and try again!", "error")
         } else {
             swal("Loged in correctly!", respuesta, "success")
         }         
@@ -41,8 +42,11 @@ class LogIn extends React.Component{
 
 
     componentDidMount(){  
-        this.toTop()     
+        this.toTop()
+             
     }    
+
+    
 
     render() {
         return(
@@ -60,6 +64,7 @@ class LogIn extends React.Component{
                             <h4>Log in with Google</h4>
                             <h4>Don't have an account?<NavLink exact to="/signup"> Sign up!</NavLink></h4>
                         </div>
+                        
                     </main>
                     <Footer className="footer"/>
                 </div>  

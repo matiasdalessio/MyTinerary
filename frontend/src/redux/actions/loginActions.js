@@ -30,6 +30,7 @@ const loginActions = {
         return async (dispatch, getState) => {
            try {
                 const respuesta = await axios.post('http://localhost:4000/api/user/signup', userInfo)
+                console.log(respuesta)
                 if (!respuesta.data.success) {
                     return respuesta.data.error
                 }
@@ -38,15 +39,31 @@ const loginActions = {
                     payload: respuesta.data.respuesta
                     
                 })
-                return `Welcome ${respuesta.data.respuesta.firstName}!`
+                return `Welcome ${respuesta.data.respuesta.firstName}!`               
             }catch(error) {
                 return props.history.push('/serverdown')
             } 
         }
     },
     forcedLoginByLS: (userLS) => {
-        return (dispatch, getState) => {
-            dispatch({type: 'LOG_USER', payload: userLS})
+        return async (dispatch, getState) => {
+            try {
+                const respuesta = await axios.get('http://localhost:4000/api/user/loginLS', {
+                headers: {
+                    'Authorization': 'Bearer '+userLS.token
+                }
+            })
+                dispatch({type: 'LOG_USER', payload: {
+                    ...respuesta.data.respuesta,
+                    token: userLS.token
+                }})
+            } catch(err) {
+                if (err.response.status === 401) {
+                    alert("Me parece que me estás queriendo cagar con un token falso...")
+                }
+            }
+            
+            
         }
     },
     removeUserInfo: () => {

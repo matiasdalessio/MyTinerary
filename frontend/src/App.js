@@ -14,8 +14,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App(props) {
-  if (!props.userLogged && localStorage.getItem('userLogged')) {    
-    props.forcedLoginByLS(JSON.parse(localStorage.getItem('userLogged')))
+  if (!props.userLogged && localStorage.getItem('token')) {  
+    const userData = JSON.parse(localStorage.getItem('userLogged'))
+    const userLS= {
+      token: localStorage.getItem('token'),
+      ...userData
+    }
+    props.forcedLoginByLS(userLS)
   }
 
   return (

@@ -1,27 +1,22 @@
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const userController = {
-    getUsers: async (req,res) => {
-        try {
-            const users = await User.find()
-            res.json({success: true, respuesta: users})
-        } catch(error) {
-            console.log(error)
-            res.json({success: false, respuesta: 'Oops! an error has ocurred with the server. Verify the endpoint and if it still not working, please try again later...'})
-        }
-    },
     newUser: async (req, res) => {
         var {firstName, lastName, email, password, country, img} = req.body
         const existentMail = await User.findOne({email})
         var respuesta;
         var error;    
+        var createdUser;
         password = bcryptjs.hashSync(password, 10)
         if (!existentMail) {
             try {
-                const createdUser = new User({firstName, lastName, email, password, country, img})
+                console.log("estoy en el try del controller")
+                createdUser = new User({firstName, lastName, email, password, country, img})
                 await createdUser.save()
-                respuesta = createdUser 
+                const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
+                respuesta = token 
             } catch {
                 error = "There was an error in the register."
             }                  
@@ -30,7 +25,7 @@ const userController = {
        }
        res.json({
            success: !error ? true : false,
-           respuesta: respuesta,
+           respuesta: {token: respuesta, img: createdUser.img, firstName: createdUser.firstName},
            error: error
        })        
     },
@@ -42,7 +37,8 @@ const userController = {
         if (userExist) {
             const passwordMatch = bcryptjs.compareSync(password, userExist.password)
             if (passwordMatch) {
-                respuesta = userExist
+                const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
+                respuesta = token
             } else {
                 error = "Invalid User or Password"
             }            
@@ -51,15 +47,13 @@ const userController = {
         }
         res.json({
             success: !error ? true : false,
-            respuesta: respuesta,
+            respuesta: {token: respuesta, img: userExist.img, firstName: userExist.firstName},
             error: error
         })
     },
-    deleteUser: async (req, res) => {
-        const id = req.params.id
-        const deletedUser = await User.findOneAndDelete({_id: id})
-        res.json({success: true, respuesta: deletedUser})
-    }
+    forcedLogin: (req, res) => {
+        res.json({success: true, respuesta: {img: req.user.img, firstName: req.user.firstName}})
+    },
 }
 
 module.exports = userController

@@ -5,17 +5,15 @@ const itinerariesControllers = require('../controllers/itineraryController')
 const userController = require('../controllers/userController')
 const validatorCities = require('../config/validatorCities')
 const validatorItineraries = require('../config/validatorItineraries')
+const validatorUser = require('../config/validatorUser')
+const passport = require('passport')
 
-const {newUser, logIn, deleteUser, getUsers} = userController
+const {newUser, logIn, forcedLogin} = userController
 const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary} = itinerariesControllers
 const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = citiesControllers
 
 router.route('/user/signup')
-.post(newUser)
-.get(getUsers)
-
-router.route('/user/delete/:id')
-.delete(deleteUser)
+.post(validatorUser,newUser)
 
 router.route('/user/login')
 .post(logIn)
@@ -23,6 +21,9 @@ router.route('/user/login')
 router.route('/cities')
 .get(getAllCities)
 .post(validatorCities, addCity)
+
+router.route('/user/loginLS')
+.get(passport.authenticate('jwt', {session: false}), forcedLogin)
 
 router.route('/city/:id')
 .get(getSingleCity)
