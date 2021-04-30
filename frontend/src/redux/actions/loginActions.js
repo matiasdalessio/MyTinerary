@@ -31,7 +31,6 @@ const loginActions = {
         return async (dispatch, getState) => {
            try {
                 const respuesta = await axios.post('http://localhost:4000/api/user/signup', userInfo)
-                console.log(respuesta)
                 if (!respuesta.data.success) {
                     return respuesta.data.error
                 }

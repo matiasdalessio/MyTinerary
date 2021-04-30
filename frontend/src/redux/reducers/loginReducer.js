@@ -11,7 +11,6 @@ const citiesReducer = (state = initialState, action) => {
                 countries: action.payload          
             }
         case 'LOG_USER':
-            console.log(action.payload)
             localStorage.setItem("userLogged", JSON.stringify({firstName: action.payload.firstName, img: action.payload.img}))
             localStorage.setItem('token', action.payload.token)
             return {

@@ -13,6 +13,7 @@ import './preloader.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
+
 function App(props) {
   if (!props.userLogged && localStorage.getItem('token')) {  
     const userData = JSON.parse(localStorage.getItem('userLogged'))
@@ -21,6 +22,7 @@ function App(props) {
       ...userData
     }
     props.forcedLoginByLS(userLS, props)
+    return null
   }
 
   return (

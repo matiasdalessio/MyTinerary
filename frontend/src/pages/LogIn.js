@@ -32,12 +32,16 @@ class LogIn extends React.Component{
 
     send = async e => {
         e.preventDefault()
-        const respuesta = await this.props.logUser(this.state, this.props)
-        if (respuesta=== "Invalid User or Password") {
+        if (this.state.password.length < 3 || this.state.email.length < 5) {
             swal("Invalid Username or Password", "Verify and try again!", "error")
-        } else {
-            swal("Loged in correctly!", respuesta, "success")
-        }         
+        }else{
+            const respuesta = await this.props.logUser(this.state, this.props)
+            if (respuesta=== "Invalid User or Password") {
+                swal("Invalid Username or Password", "Verify and try again!", "error")
+            } else {
+                swal("Loged in correctly!", respuesta, "success")
+            }   
+        }      
     }
 
 
@@ -59,7 +63,7 @@ class LogIn extends React.Component{
                             <h4>Don't have an account?<NavLink exact to="/signup"> Sign up!</NavLink></h4>
                             <form>
                                 <input type="text" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.readInput} ></input>
-                                <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>  
+                                <input autoComplete="off" type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>  
                                 <button className="submit" onClick={this.send}>Log In</button>                       
                             </form>
                             <h4>Log in with Google</h4>                            

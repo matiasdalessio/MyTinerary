@@ -29,7 +29,7 @@ const validatorUser = (req, res, next) => {
         }),
         img: joi.string().required().trim()
     })
-    const validation = schema.validate(req.body, {abortEarly: false})
+    const validation = schema.validate(req.body, {abortEarly: true})
     if (validation.error) {
         return res.json({success: false, error: validation.error})
     }
