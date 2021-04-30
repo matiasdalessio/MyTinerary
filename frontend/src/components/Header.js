@@ -44,7 +44,7 @@ const Header = (props) =>{
                         <button style={{backgroundImage: `url("${imagen}")`}} className="nav-link genericUser" data-bs-toggle="dropdown" ></button>
                         {props.userLogged 
                         ?<ul className="dropdown-menu">
-                            <li><Link className="dropdown-item" onClick={(e)=>logOut(e.target)} to="/">Log Out</Link></li>
+                            <li><Link className="dropdown-item" onClick={(e)=>logOut(e.target)} >Log Out</Link></li>
                         </ul> 
                         :<ul className="dropdown-menu">
                             <li><Link className="dropdown-item" to="/login">Log In</Link></li>

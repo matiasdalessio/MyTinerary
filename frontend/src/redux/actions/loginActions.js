@@ -1,4 +1,5 @@
 import axios from "axios"
+import swal from 'sweetalert'
 
 const loginActions = {
     fetchCountries: (props) => {
@@ -45,7 +46,7 @@ const loginActions = {
             } 
         }
     },
-    forcedLoginByLS: (userLS) => {
+    forcedLoginByLS: (userLS, props) => {
         return async (dispatch, getState) => {
             try {
                 const respuesta = await axios.get('http://localhost:4000/api/user/loginLS', {
@@ -58,12 +59,13 @@ const loginActions = {
                     token: userLS.token
                 }})
             } catch(err) {
-                if (err.response.status === 401) {
-                    alert("Me parece que me estás queriendo cagar con un token falso...")
-                }
-            }
-            
-            
+                if (err.response.status > 399 && err.response.status < 499) {
+                    swal("Invalid Token", "Please Log in again", "error")
+                    dispatch({type: 'FORCED_LOGOUT', payload: null})
+                } else {
+                    return props.history.push('/serverdown')
+                } 
+            }           
         }
     },
     removeUserInfo: () => {

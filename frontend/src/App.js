@@ -20,7 +20,7 @@ function App(props) {
       token: localStorage.getItem('token'),
       ...userData
     }
-    props.forcedLoginByLS(userLS)
+    props.forcedLoginByLS(userLS, props)
   }
 
   return (

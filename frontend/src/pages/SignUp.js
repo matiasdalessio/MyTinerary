@@ -39,16 +39,15 @@ class SignUp extends React.Component{
         if (this.state.repeatpassword === this.state.password) {
             const respuesta = await this.props.newUser(this.state, this.props)
             console.log(respuesta)
-            if (respuesta.details) {
-                swal("Error!", respuesta.details[0].message, "error")                
-            }
-                else if (respuesta === "The E-mail is already in use") {
+                if (respuesta.details) {
+                    swal(respuesta.details[0].message,"", "error")                
+                } else if (respuesta === "The E-mail is already in use") {
                     swal("The E-mail is already in use", "Try another one!", "error")
                 }else if (respuesta === "There was an error in the register."){
                     swal("There was an error in the register.", "Please verify all the required fields are completed.", "error")
                 }else{
                     console.log("hola")
-                    swal("Signed Up!", "jasdjasdj", "success")
+                    swal("Signed Up!", respuesta, "success")
                 }
         } else{
             swal("Passwords doesn't match!", "Please verify and try again.", "error")
@@ -69,6 +68,7 @@ class SignUp extends React.Component{
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
                         <div className="animate__animated animate__fadeInDown formCard">
                             <h2>Join to our World of Adventures!</h2>
+                            <h4>Already have an account?<NavLink exact to="/login"> Log in!</NavLink></h4>
                             <form>
                                 <input type="text" placeholder="First Name" name="firstName" value={this.state.name} onChange={this.readInput} ></input>
                                 <input type="text" placeholder="Last Name" name="lastName" value={this.state.lastname} onChange={this.readInput} ></input>
@@ -85,7 +85,6 @@ class SignUp extends React.Component{
                                 <button className="submit" onClick={this.send}>Sign up!</button>                       
                             </form>
                             <h4>Sign up with Google</h4>
-                            <h4>Already have an account?<NavLink exact to="/login"> Log in!</NavLink></h4>
                         </div>
                     </main>
                     <Footer className="footer"/>

@@ -56,13 +56,13 @@ class LogIn extends React.Component{
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
                         <div className="animate__animated animate__fadeInDown formCard">
                             <h2>Log In with your account!</h2>
+                            <h4>Don't have an account?<NavLink exact to="/signup"> Sign up!</NavLink></h4>
                             <form>
                                 <input type="text" placeholder="E-Mail" name="email" value={this.state.email} onChange={this.readInput} ></input>
                                 <input type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.readInput}></input>  
                                 <button className="submit" onClick={this.send}>Log In</button>                       
                             </form>
-                            <h4>Log in with Google</h4>
-                            <h4>Don't have an account?<NavLink exact to="/signup"> Sign up!</NavLink></h4>
+                            <h4>Log in with Google</h4>                            
                         </div>
                         
                     </main>

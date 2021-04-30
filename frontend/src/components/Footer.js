@@ -59,7 +59,7 @@ const Footer = (props) =>{
                 <NavLink className="nav-link " exact to="/cities">Cities</NavLink>
                 {props.userLogged 
                     ?<>
-                        <Link className="nav-link " onClick={(e)=>logOut(e.target)} to="/">Log Out</Link>
+                        <Link className="nav-link " onClick={(e)=>logOut(e.target)}>Log Out</Link>
                     </> 
                     :<>
                         <Link className="nav-link " to="/login">Log In</Link>
