@@ -27,11 +27,14 @@ const validatorUser = (req, res, next) => {
         country: joi.string().trim().required().messages({
             "string.empty": "Your country is a required field",
         }),
-        img: joi.string().required().trim()
+        img: joi.string().required().trim().messages({
+            "string.empty": "Your must insert an image URL link ",
+        }),
+        loggedWithGoogle: joi.boolean()
     })
     const validation = schema.validate(req.body, {abortEarly: true})
     if (validation.error) {
-        return res.json({success: false, error: validation.error})
+        return res.json({success: false, error: validation.error.details[0]})
     }
     next()
 }

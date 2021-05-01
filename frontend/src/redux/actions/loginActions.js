@@ -14,7 +14,7 @@ const loginActions = {
            try {
                 const respuesta = await axios.post('http://localhost:4000/api/user/login', userInfo)
                 if (!respuesta.data.success) {
-                    return respuesta.data.error
+                    return respuesta.data
                 }
                 dispatch({
                     type: "LOG_USER",

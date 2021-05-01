@@ -12,11 +12,18 @@ const userController = {
         password = bcryptjs.hashSync(password, 10)
         if (!existentMail) {
             try {
-                console.log("estoy en el try del controller")
-                createdUser = new User({firstName, lastName, email, password, country, img})
-                await createdUser.save()
-                const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
-                respuesta = token 
+                if (country === "null") {
+                    createdUser = new User({firstName, lastName, email, password, country, img, loggedWithGoogle: true})
+                    await createdUser.save()
+                    const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
+                    respuesta = token 
+                } else{
+                    createdUser = new User({firstName, lastName, email, password, country, img})
+                    await createdUser.save()
+                    const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
+                    respuesta = token 
+                }
+                
             } catch {
                 error = "There was an error in the register."
             }                  
@@ -25,29 +32,34 @@ const userController = {
        }
        res.json({
            success: !error ? true : false,
-           respuesta: {token: respuesta, img: createdUser.img, firstName: createdUser.firstName},
+           respuesta: !error ? {token: respuesta, img: createdUser.img, firstName: createdUser.firstName}: null,
            error: error
        })        
     },
     logIn: async (req, res) => {
-        const {email, password} = req.body
+        const {email, password, country} = req.body
         var respuesta;
         var error;
         const userExist = await User.findOne({email: email})
         if (userExist) {
-            const passwordMatch = bcryptjs.compareSync(password, userExist.password)
-            if (passwordMatch) {
-                const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
-                respuesta = token
+            if (userExist.loggedWithGoogle && country === "null") {
+                const passwordMatch = bcryptjs.compareSync(password, userExist.password)
+                if (passwordMatch) {
+                    const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
+                    respuesta = token
+                } else {
+                    error = "Invalid User or Password"
+                } 
             } else {
-                error = "Invalid User or Password"
-            }            
+                error = "Google users must be logged by the Google button" 
+            }
+                       
         } else {
             error = "Invalid User or Password"
         }
         res.json({
             success: !error ? true : false,
-            respuesta: {token: respuesta, img: userExist.img, firstName: userExist.firstName},
+            respuesta:!error ? {token: respuesta, img: userExist.img, firstName: userExist.firstName} : null,
             error: error
         })
     },

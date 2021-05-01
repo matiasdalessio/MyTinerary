@@ -22,7 +22,6 @@ function App(props) {
       ...userData
     }
     props.forcedLoginByLS(userLS, props)
-    return null
   }
 
   return (
