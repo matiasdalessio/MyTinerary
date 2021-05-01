@@ -35,7 +35,9 @@ class LogIn extends React.Component{
         e && e.preventDefault()
         let userInfo= e ? this.state : googleUser
         const respuesta = await this.props.logUser(userInfo, this.props)
-        if (respuesta.error) {
+        if (!respuesta) {
+            return this.props.history.push('/serverdown')            
+        } else if (respuesta.error) {
             swal(respuesta.error, "Verify and try again!", "error")
         } else {
             swal("Loged in correctly!", respuesta, "success")
@@ -58,7 +60,7 @@ class LogIn extends React.Component{
                 <div className="granContenedor">
                     <Header/>
                     <main className= "backgroundSign" style={{backgroundImage: "url('./img/backgroundSign.jpg')"}}>
-                        <div className="animate__animated animate__fadeInDown formCard">
+                        <div className="animate__animated animate__fadeInDown formCard logIn">
                             <h2>Log In with your account!</h2>
                             <h4>Don't have an account?<NavLink exact to="/signup"> Sign up!</NavLink></h4>
                             <form>
@@ -80,8 +82,7 @@ class LogIn extends React.Component{
                                             cookiePolicy={'single_host_origin'}
                                         /> 
                                 </div>                      
-                            </form>
-                            <h4>Log in with Google</h4>                            
+                            </form>                          
                         </div>
                         
                     </main>

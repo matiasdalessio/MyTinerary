@@ -14,15 +14,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function App(props) {
-  if (!props.userLogged && localStorage.getItem('token')) {  
-    const userData = JSON.parse(localStorage.getItem('userLogged'))
-    const userLS= {
-      token: localStorage.getItem('token'),
-      ...userData
+class App extends React.Component{
+
+  componentDidMount() {
+    if (!this.props.userLogged && localStorage.getItem('token')) {  
+      const userData = JSON.parse(localStorage.getItem('userLogged'))
+      const userLS= {
+        token: localStorage.getItem('token'),
+        ...userData
+      }
+      this.props.forcedLoginByLS(userLS, this.props)
     }
-    props.forcedLoginByLS(userLS, props)
   }
+  render(){
 
   return (
     <BrowserRouter>
@@ -32,13 +36,13 @@ function App(props) {
             <Route path="/city/:id" component={CityBanner} />
             <Route path="/serverdown" component={ServerDown} />
             <Route path="/error" component={Error} />
-            {!props.userLogged && <Route path="/signup" component={SignUp} />}
-            {!props.userLogged && <Route path="/login" component={LogIn} />}
+            {!this.props.userLogged && <Route path="/signup" component={SignUp} />}
+            {!this.props.userLogged && <Route path="/login" component={LogIn} />}
             <Redirect to="/" />
         </Switch>
       </BrowserRouter>  
   );
-}
+}}
 
 const mapStateToProps = state => {
   return {

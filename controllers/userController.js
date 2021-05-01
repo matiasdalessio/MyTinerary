@@ -37,12 +37,14 @@ const userController = {
        })        
     },
     logIn: async (req, res) => {
+        console.log(req.body)
         const {email, password, country} = req.body
         var respuesta;
         var error;
         const userExist = await User.findOne({email: email})
+        console.log(userExist)
         if (userExist) {
-            if (userExist.loggedWithGoogle && country === "null") {
+            if (!userExist.loggedWithGoogle && !country) {
                 const passwordMatch = bcryptjs.compareSync(password, userExist.password)
                 if (passwordMatch) {
                     const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
@@ -50,10 +52,19 @@ const userController = {
                 } else {
                     error = "Invalid User or Password"
                 } 
-            } else {
-                error = "Google users must be logged by the Google button" 
-            }
-                       
+            } else if(userExist.loggedWithGoogle && country === "null"){
+                const passwordMatch = bcryptjs.compareSync(password, userExist.password)
+                if (passwordMatch) {
+                    const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
+                    respuesta = token
+                } else {
+                    error = "Invalid User or Password"
+                } 
+            } else if (!userExist.loggedWithGoogle && country === "null"){
+                error = "User Registered with Google can only log in with Google button"            
+            }else {
+                error = "User Registered without Google cannot log in with Google. Complete the fields to log in."
+            }                       
         } else {
             error = "Invalid User or Password"
         }
