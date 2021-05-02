@@ -25,7 +25,6 @@ const Header = (props) =>{
             }
           });
     })
-    
 
     const imagen = props.userLogged ? props.userLogged.img : "/img/generic-user-icon.jpg"
 
