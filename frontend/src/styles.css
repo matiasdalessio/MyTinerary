@@ -10,7 +10,6 @@ html *{
 }
 
 body, html, #root{
-  overflow-x: hidden;
   background-color: var(--main-bg-color);
 }
 .main{
@@ -41,6 +40,11 @@ body, html, #root{
     align-items: center;
   }
   .welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 2em;
     text-shadow: 1px 0px 5px rgba(0,0,0,1);
     margin-top: 1vh;
     color: var(--main-bg-color);
@@ -185,9 +189,15 @@ body, html, #root{
   .googleButton svg{
     margin-left: 1vw !important;
   }
-
+  .formCard h2{
+    margin: 1vw;
+  }
+  .formCard h4{
+    margin: 1vw;
+  }
   
   .formCard{
+    z-index: 5 !important;
     box-shadow: 2px 2px 30px -5px rgba(0,0,0,0.75);
     border-radius: 30px;
     position: relative;
@@ -853,7 +863,7 @@ body, html, #root{
       background-size: 50px;
       background-repeat: no-repeat;
       position: absolute;
-      top: 5em;
+      top: 7em;
       left: 100%;
     }  
     .genericUser{
@@ -904,7 +914,7 @@ body, html, #root{
       max-width: 40vw;
     }
    .formCard{
-      top:-15vh;
+      top:0vh;
       width: 55vw;
     }
     .logIn{
@@ -1277,49 +1287,53 @@ body, html, #root{
 
   @media screen and (min-width: 1px) and (max-width: 450px) {
 
+    .backgroundSign{
+      height: 80em;
+      background-position:left;
+    }
 
     svg{
       width: 20px;
-      height: 20px
+      height: 30px
     }
     .aclaration{
-      margin: 0 0 0 8vw !important;
-      font-size: 2vw;
-      width: 45vw;
+      margin: 1vw 0 1.5em 6vw !important;
+      font-size: 3vw;
+      width: 80vw;
     }
     .formCard form input{
       font-size: 15px;
       margin:  1vh 0 0 1vw !important;
-      height: 6vh;
-      width: 50vw;
+      height: 50px;
+      width: 80vw;
     }
     select{    
-      font-size: 10px !important;
+      font-size: 15px !important;
       margin:  0 0 0 1vw !important;
-      height: 5vh;
-      width: 50vw;
-      max-width: 50vw;
+      height: 50px;
+      width: 80vw;
+      max-width: 80vw;
     }
    .formCard{
-      top:5vh;
-      left: 7vw;
-      width: 65vw;
+      top: 5em;
+      left: 0;
+      width: 95vw;
     }
     .logIn{
-      top:-16vh;
+      top:-5em;
     }  
 
     .submit{
       margin: 4vh 3vw !important;
-      width: 25vw;
+      width: 35vw;
       border-radius: 0 30px !important;
       height: 50px;
-      font-size: 10px;
+      font-size: 15px;
     }
     .googleButton{
       border-radius: 0 30px !important;
-      font-size: 8px;
-      width: 30vw;
+      font-size: 12px;
+      width: 35vw;
     }  
     .googleButton svg{
       width: 28px;

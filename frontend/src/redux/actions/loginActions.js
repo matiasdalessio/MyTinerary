@@ -12,7 +12,7 @@ const loginActions = {
     logUser: (userInfo, props) => {
         return async (dispatch, getState) => {
            try {
-                const respuesta = await axios.post('http://192.168.0.147:4000/api/user/login', userInfo)
+                const respuesta = await axios.post('http://192.168.0.28:4000/api/user/login', userInfo)
                 console.log(respuesta)
                 if (!respuesta.data.success) {
                     return respuesta.data
@@ -24,14 +24,14 @@ const loginActions = {
                 })
                 return `Welcome back, ${respuesta.data.respuesta.firstName}!`
             }catch(error) {
-                return props.history.push('/serverdown')
+                return swal("Failed to try to connect with server", "Please try again in a few minutes", "error")
             } 
         }
     },
     newUser: (userInfo, props) => {
         return async (dispatch, getState) => {
            try {
-                const respuesta = await axios.post('http://192.168.0.147:4000/api/user/signup', userInfo)
+                const respuesta = await axios.post('http://192.168.0.28:4000/api/user/signup', userInfo)
                 if (!respuesta.data.success) {
                     return respuesta.data.error
                 }
@@ -42,14 +42,14 @@ const loginActions = {
                 })
                 return `Welcome ${respuesta.data.respuesta.firstName}!`               
             }catch(error) {
-                return props.history.push('/serverdown')
+                return swal("Failed to try to connect with server", "Please try again in a few minutes", "error")
             } 
         }
     },
     forcedLoginByLS: (userLS, props) => {
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('http://192.168.0.147:4000/api/user/loginLS', {
+                const respuesta = await axios.get('http://192.168.0.28:4000/api/user/loginLS', {
                 headers: {
                     'Authorization': 'Bearer '+userLS.token
                 }
@@ -59,6 +59,7 @@ const loginActions = {
                     token: userLS.token
                 }})
             } catch(error) {
+                console.log(error)
                 if (!error.response) {
                     return swal("Failed to try to connect with server", "Please try again in a few minutes", "error")
                 } else if (error.response.status && error.response.status > 399 && error.response.status < 499) {

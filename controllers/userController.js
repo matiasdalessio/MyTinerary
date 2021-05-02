@@ -61,9 +61,9 @@ const userController = {
                     error = "Invalid User or Password"
                 } 
             } else if (!userExist.loggedWithGoogle && country === "null"){
-                error = "User Registered without Google cannot log in with Google. Complete the fields to log in."            
+                error = "Users Registered without Google cannot log in with Google. Complete the fields to log in."            
             }else {
-                error = "User Registered with Google can only log in with Google button"
+                error = "Users Registered with Google can only log in with Google button"
             }                       
         } else {
             error = "Invalid User or Password"

@@ -9,8 +9,8 @@ import LogIn from "./pages/LogIn";
 import { connect } from "react-redux";
 import loginActions from "./redux/actions/loginActions";
 import './styles.css'
-import './preloader.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './preloader.css'
 
 
 
