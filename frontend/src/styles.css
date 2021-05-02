@@ -263,7 +263,7 @@ body, html, #root{
     border: none;
     transition: box-shadow 0.5s, background-color 0.5s;
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.85);
-    margin: 4vh 3vw !important;
+    margin: 4vh  !important;
     color: var(--main-bg-color) !important;
     background-color: var(--secundary-bg-color);
     border-radius: 0 50px !important ;  
@@ -892,10 +892,6 @@ body, html, #root{
       top: 7em;
     }
 
-
-
-
-
     svg{
       width: 20px;
       height: 20px
@@ -935,21 +931,6 @@ body, html, #root{
       width: 26px;
       margin-left: 1vw !important;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     .carousel-img{
       box-shadow: 0px 0px 40px -20px rgba(255, 255, 255, 0.75);
@@ -1039,10 +1020,6 @@ body, html, #root{
   
   @media screen and (min-width: 1px) and (max-width: 768px) {
 
-
-
-
-
    svg{
       width: 20px;
       height: 20px
@@ -1073,7 +1050,6 @@ body, html, #root{
     }  
 
     .submit{
-      margin: 4vh 3vw !important;
       width: 30vw;
       height: 50px;
       font-size: 15px;
@@ -1086,14 +1062,6 @@ body, html, #root{
       width: 22px;
       margin-left: 0.5vw !important;
     }
-
-
-
-
-
-
-
-
 
     .error{
       background-color: var(--main-bg-color);
@@ -1147,8 +1115,6 @@ body, html, #root{
   }
   @media screen and (min-width: 1px) and (max-width: 571px) {
 
-
-
     svg{
       width: 20px;
       height: 20px
@@ -1179,7 +1145,6 @@ body, html, #root{
     }  
 
     .submit{
-      margin: 4vh 3vw !important;
       width: 30vw;
       height: 50px;
       font-size: 15px;
@@ -1192,14 +1157,7 @@ body, html, #root{
       width: 28px;
       margin-left: 2vw !important;
     }
-
-
-
-
-
-
-
-
+    
     .parrafoBanner{
       display: none;  
     }
@@ -1327,7 +1285,6 @@ body, html, #root{
     }  
 
     .submit{
-      margin: 4vh 3vw !important;
       width: 35vw;
       border-radius: 0 30px !important;
       height: 50px;
@@ -1342,8 +1299,6 @@ body, html, #root{
       width: 35px;
       margin-left: 2vw !important;
     }
-
-
 
   }
 

@@ -32,7 +32,7 @@ const userController = {
        }
        res.json({
            success: !error ? true : false,
-           respuesta: !error ? {token: respuesta, img: createdUser.img, firstName: createdUser.firstName}: null,
+           respuesta: !error ? {token: respuesta, img: createdUser.img, firstName: createdUser.firstName, id:createdUser._id}: null,
            error: error
        })        
     },
@@ -70,12 +70,12 @@ const userController = {
         }
         res.json({
             success: !error ? true : false,
-            respuesta:!error ? {token: respuesta, img: userExist.img, firstName: userExist.firstName} : null,
+            respuesta:!error ? {token: respuesta, img: userExist.img, firstName: userExist.firstName, id:userExist._id} : null,
             error: error
         })
     },
     forcedLogin: (req, res) => {
-        res.json({success: true, respuesta: {img: req.user.img, firstName: req.user.firstName}})
+        res.json({success: true, respuesta: {img: req.user.img, firstName: req.user.firstName , id:req.user._id}})
     },
 }
 

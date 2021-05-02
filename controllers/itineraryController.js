@@ -64,6 +64,29 @@ const citiesControllers = {
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },
+    addLike: async (req, res) => {
+        console.log(req.body)
+        const itineraryId = req.params.id
+        try {
+            const likeAdded = await Itinerary.findOneAndUpdate({_id: itineraryId}, {usersLiked: req.body.userLoggedId}, {new: true})
+            res.json({success: true, respuesta: likeAdded})
+        } catch(error) {
+            console.log(error)
+            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
+        }
+    },
+    removeLike: async (req, res) => {
+        const itineraryId = req.params.id
+        console.log(req.body._id)
+        try {
+            const deletedItinerary = await Itinerary.findOneAndUpdate({_id: itineraryId}, {...usersLiked,usersLiked: req.body})
+            res.json({success: true, respuesta: deletedItinerary})
+        } catch(error) {
+            // console.log(error)
+            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
+        }
+    },
+
 }
 
 module.exports = citiesControllers

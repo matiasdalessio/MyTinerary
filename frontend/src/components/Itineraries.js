@@ -30,16 +30,21 @@ const Itineraries = ({itinerary, userLogged}) => {
 
   
   const likeToggle = (async () => {
+    console.log(itinerary.usersLiked.length)
+    console.log(userLogged.id)
+    var userLoggedId = {userName: userLogged.id}
+    console.log(userLoggedId)
     const id = itinerary._id
     if (userLogged) {
-      if (itinerary.usersLiked.map(user =>{
-        if (user.userName === userLogged._id) {return true} return false})) {
-          await axios.put(`http://localhost:4000/api/itinerary/${id}`, {usersLiked:[]})
-      }        
-      await axios.put(`http://localhost:4000/api/itinerary/${id}`, {usersLiked:[{userName:userLogged._id}]})
-      setToggleLike(toggleLike.liked
-        ? {liked: false, likedFill: heartEmpty, likesCount: itinerary.like, class: "empty"}
-        : {liked: true, likedFill: heartFilled, likesCount: itinerary.like +1, class: "filled" })    
+      const userFounded = itinerary.usersLiked.filter(user => user.userName === userLogged.id)
+      if (itinerary.usersLiked.length !== 0 && userFounded){
+        await axios.delete(`http://192.168.0.147:4000/api/itinerary/removeLike/${id}`, {userLoggedId})
+      } else{     
+        await axios.put(`http://192.168.0.147:4000/api/itinerary/addLike/${id}`, {userLoggedId})
+      } 
+    setToggleLike(toggleLike.liked
+      ? {liked: false, likedFill: heartEmpty, likesCount: itinerary.usersLiked.length, class: "empty"}
+      : {liked: true, likedFill: heartFilled, likesCount: +1, class: "filled" })    
     } else{
       swal("You must be logged to like an itinerary", "", "error")
     }

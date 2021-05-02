@@ -22,13 +22,7 @@ const citiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userLogged: null        
-            } 
-        case 'FORCED_LOGOUT':
-            localStorage.clear()
-            return {
-                ...state,
-                userLogged: null        
-            }                     
+            }              
         default:
             return state
     }

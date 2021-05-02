@@ -9,7 +9,7 @@ const validatorUser = require('../config/validatorUser')
 const passport = require('passport')
 
 const {newUser, logIn, forcedLogin} = userController
-const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary} = itinerariesControllers
+const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary, addLike, removeLike} = itinerariesControllers
 const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = citiesControllers
 
 router.route('/user/signup')
@@ -41,5 +41,10 @@ router.route('/itinerary/:id')
 .get(getSingleItinerary)
 .delete(deleteItinerary)
 .put(updateItinerary)
+
+router.route('/itinerary/addLike/:id')
+.put(addLike)
+router.route('/itinerary/removeLike/:id')
+.delete(removeLike)
 
 module.exports = router
