@@ -45,6 +45,6 @@ router.route('/itinerary/:id')
 router.route('/itinerary/addLike/:id')
 .put(addLike)
 router.route('/itinerary/removeLike/:id')
-.delete(removeLike)
+.put(removeLike)
 
 module.exports = router

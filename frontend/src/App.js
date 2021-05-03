@@ -12,8 +12,6 @@ import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './preloader.css'
 
-
-
 class App extends React.Component{
 
   componentDidMount() {
@@ -35,7 +33,6 @@ class App extends React.Component{
             <Route exact path="/cities" component={Cities} />
             <Route path="/city/:id" component={CityBanner} />
             <Route path="/serverdown" component={ServerDown} />
-            <Route path="/error" component={Error} />
             {!this.props.userLogged && <Route path="/signup" component={SignUp} />}
             {!this.props.userLogged && <Route path="/login" component={LogIn} />}
             <Redirect to="/" />

@@ -65,10 +65,10 @@ const citiesControllers = {
         }
     },
     addLike: async (req, res) => {
-        console.log(req.body)
+        var {usersLiked:{userName}} = req.body
         const itineraryId = req.params.id
         try {
-            const likeAdded = await Itinerary.findOneAndUpdate({_id: itineraryId}, {usersLiked: req.body.userLoggedId}, {new: true})
+            const likeAdded = await Itinerary.findOneAndUpdate({_id: itineraryId}, {usersLiked:[{userName}]}, {new: true})
             res.json({success: true, respuesta: likeAdded})
         } catch(error) {
             console.log(error)
@@ -77,12 +77,11 @@ const citiesControllers = {
     },
     removeLike: async (req, res) => {
         const itineraryId = req.params.id
-        console.log(req.body._id)
         try {
-            const deletedItinerary = await Itinerary.findOneAndUpdate({_id: itineraryId}, {...usersLiked,usersLiked: req.body})
+            const deletedItinerary = await Itinerary.findOneAndUpdate({_id: itineraryId}, {usersLiked: []})
             res.json({success: true, respuesta: deletedItinerary})
         } catch(error) {
-            // console.log(error)
+            console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },

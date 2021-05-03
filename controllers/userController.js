@@ -37,12 +37,10 @@ const userController = {
        })        
     },
     logIn: async (req, res) => {
-        console.log(req.body)
         const {email, password, country} = req.body
         var respuesta;
         var error;
         const userExist = await User.findOne({email: email})
-        console.log(userExist)
         if (userExist) {
             if (!userExist.loggedWithGoogle && !country) {
                 const passwordMatch = bcryptjs.compareSync(password, userExist.password)
