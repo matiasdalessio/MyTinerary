@@ -22,7 +22,7 @@ class Cities extends React.Component{
 
     componentDidMount(){  
         this.toTop()
-        this.props.fetchCities(this.props)   
+        this.props.fetchCities(this.props.history)   
         this.props.cleanItineraries() 
         this.setState({filteredCities: this.props.filteredCities})
     }

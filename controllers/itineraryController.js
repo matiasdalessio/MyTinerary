@@ -1,3 +1,4 @@
+const { rawListeners } = require('../models/Itinerary')
 const Itinerary = require('../models/Itinerary')
 
 const citiesControllers = {
@@ -65,21 +66,25 @@ const citiesControllers = {
         }
     },
     addLike: async (req, res) => {
-        var {usersLiked:{userName}} = req.body
+        console.log("add")
+        var {userInfo} = req.body
         const itineraryId = req.params.id
         try {
-            const likeAdded = await Itinerary.findOneAndUpdate({_id: itineraryId}, {usersLiked:[{userName}]}, {new: true})
-            res.json({success: true, respuesta: likeAdded})
+            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, { $push: { usersLiked: {...userInfo} } }, {new: true})
+            res.json({success: true, respuesta: selectedItinerary})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },
     removeLike: async (req, res) => {
+        console.log("remove")
         const itineraryId = req.params.id
+        console.log(req.params.id)
+        var {userId} = req.body
         try {
-            const deletedItinerary = await Itinerary.findOneAndUpdate({_id: itineraryId}, {usersLiked: []})
-            res.json({success: true, respuesta: deletedItinerary})
+            const deletedItinerary = await Itinerary.updateOne({_id: itineraryId}, { $pull: { usersLiked: {userId} } }, {new: true})
+            res.json({success: true, respuesta: selectedItinerary})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})

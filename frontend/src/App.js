@@ -2,7 +2,7 @@ import React from "react"
 import Home from "./pages/Home";
 import {BrowserRouter, Route, Redirect, Switch} from 'react-router-dom'
 import Cities from "./pages/Cities";
-import CityBanner from "./pages/CityItineraries";
+import CityItineraries from "./pages/CityItineraries";
 import ServerDown from "./pages/ServerDown";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
@@ -21,7 +21,7 @@ class App extends React.Component{
         token: localStorage.getItem('token'),
         ...userData
       }
-      this.props.forcedLoginByLS(userLS, this.props)
+      this.props.forcedLoginByLS(userLS)
     }
   }
   render(){
@@ -31,7 +31,7 @@ class App extends React.Component{
         <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/cities" component={Cities} />
-            <Route path="/city/:id" component={CityBanner} />
+            <Route path="/city/:id" component={CityItineraries} />
             <Route path="/serverdown" component={ServerDown} />
             {!this.props.userLogged && <Route path="/signup" component={SignUp} />}
             {!this.props.userLogged && <Route path="/login" component={LogIn} />}

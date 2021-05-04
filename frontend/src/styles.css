@@ -160,7 +160,7 @@ body, html, #root{
     padding-right: 0 !important;
   }
 
-  svg{
+  form div svg{
     color: rgba(0, 0, 0, 0.529);
     width: 30px;
     height: 25px
@@ -893,7 +893,7 @@ body, html, #root{
       top: 7em;
     }
 
-    svg{
+    form div svg{
       width: 20px;
       height: 20px
     }
@@ -1021,7 +1021,7 @@ body, html, #root{
   
   @media screen and (min-width: 1px) and (max-width: 768px) {
 
-   svg{
+    form div svg{
       width: 20px;
       height: 20px
     }
@@ -1116,7 +1116,7 @@ body, html, #root{
   }
   @media screen and (min-width: 1px) and (max-width: 571px) {
 
-    svg{
+    form div svg{
       width: 20px;
       height: 20px
     }
@@ -1254,7 +1254,7 @@ body, html, #root{
       background-position:left;
     }
 
-    svg{
+    form div svg{
       width: 20px;
       height: 30px
     }

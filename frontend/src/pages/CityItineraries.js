@@ -23,14 +23,14 @@ class CityItineraries extends React.Component{
 
     componentDidMount() {
         this.toTop()
-        this.props.loadItineraries(this.props.match.params.id, this.props)
+        this.props.loadItineraries(this.props.match.params.id, this.props.history)
         if (this.props.filteredCities.length !== 0) {        
             this.setState({
                 city: this.props.filteredCities.find(city => city._id === this.props.match.params.id),
                 loading : false
             })             
         } else if (this.props.filteredCities.length === 0) {
-            this.props.fetchSingleCity(this.props.match.params.id, this.props)         
+            this.props.fetchSingleCity(this.props.match.params.id, this.props.history)         
         }               
     }
 
@@ -71,7 +71,7 @@ class CityItineraries extends React.Component{
                         <div className="cityBanners">
                             { this.props.itineraries !== null &&  this.props.itineraries.length !== 0
                             ? this.props.itineraries.map((itinerary, index) =>{
-                                return <Itineraries  key= {index} itinerary ={itinerary}/>                                
+                                return <Itineraries  key= {index} itinerary ={itinerary} props= {this.props}/>                                
                                 })
                             :   <div className= "cityBanners divErrorBanner notFoundItineraries">
                                     <div className="animate__animated animate__fadeIn  errorBanner" style={{backgroundImage: `url('/img/itineraryBackground.jpg')`}}> 

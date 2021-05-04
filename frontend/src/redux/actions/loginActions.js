@@ -6,10 +6,10 @@ const loginActions = {
         return (dispatch, getState) => {
             axios.get(`https://restcountries.eu/rest/v2/all`)
             .then(response => dispatch({type: 'FETCH_COUNTRIES', payload: response.data}))
-            .catch(error => props.history.push('/serverdown')) 
+            .catch(error => props.push('/serverdown')) 
         }
     },
-    logUser: (userInfo, props) => {
+    logUser: (userInfo) => {
         return async (dispatch, getState) => {
            try {
                 const respuesta = await axios.post('http://localhost:4000/api/user/login', userInfo)
@@ -27,7 +27,7 @@ const loginActions = {
             } 
         }
     },
-    newUser: (userInfo, props) => {
+    newUser: (userInfo) => {
         return async (dispatch, getState) => {
            try {
                 const respuesta = await axios.post('http://localhost:4000/api/user/signup', userInfo)
@@ -45,7 +45,7 @@ const loginActions = {
             } 
         }
     },
-    forcedLoginByLS: (userLS, props) => {
+    forcedLoginByLS: (userLS) => {
         return async (dispatch, getState) => {
             try {
                 const respuesta = await axios.get('http://localhost:4000/api/user/loginLS', {

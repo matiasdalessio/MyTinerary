@@ -14,7 +14,6 @@ const citiesControllers = {
         const cityId = (req.params.id)
         try {
             const selectedCity = await City.find({_id: cityId})
-            console.log(selectedCity)
             if (selectedCity.length != 0) {
                 res.json({success: true, respuesta: selectedCity[0]})
             } else{

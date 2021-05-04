@@ -12,18 +12,10 @@ const userController = {
         password = bcryptjs.hashSync(password, 10)
         if (!existentMail) {
             try {
-                if (country === "null") {
-                    createdUser = new User({firstName, lastName, email, password, country, img, loggedWithGoogle: true})
-                    await createdUser.save()
-                    const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
-                    respuesta = token 
-                } else{
-                    createdUser = new User({firstName, lastName, email, password, country, img})
-                    await createdUser.save()
-                    const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
-                    respuesta = token 
-                }
-                
+                createdUser = new User({firstName, lastName, email, password, country, img, loggedWithGoogle: country === "null" })
+                await createdUser.save()
+                const token = jwt.sign({...createdUser}, process.env.SECRET_OR_KEY)
+                respuesta = token                
             } catch {
                 error = "There was an error in the register."
             }                  
@@ -42,15 +34,7 @@ const userController = {
         var error;
         const userExist = await User.findOne({email: email})
         if (userExist) {
-            if (!userExist.loggedWithGoogle && !country) {
-                const passwordMatch = bcryptjs.compareSync(password, userExist.password)
-                if (passwordMatch) {
-                    const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
-                    respuesta = token
-                } else {
-                    error = "Invalid User or Password"
-                } 
-            } else if(userExist.loggedWithGoogle && country === "null"){
+            if (!userExist.loggedWithGoogle && !country || userExist.loggedWithGoogle && country === "null") {
                 const passwordMatch = bcryptjs.compareSync(password, userExist.password)
                 if (passwordMatch) {
                     const token = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
