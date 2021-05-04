@@ -34,15 +34,9 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
   const likeToggle = (async () => {
     const itineraryId = itinerary._id
     if (userLogged) {
-      var userInfo = {userName: userLogged.firstName, img: userLogged.img, userId:userLogged.id}
-      var userId= userInfo.userId
-      if (userFounded){
-        await axios.put(`http://localhost:4000/api/itinerary/removeLike/${itineraryId}`, {userId})
-        loadItineraries(props.match.params.id, props.history)
-      } else{     
+      var userInfo = {userName: userLogged.firstName, img: userLogged.img, userId:userLogged.id, userFounded}
         await axios.put(`http://localhost:4000/api/itinerary/addLike/${itineraryId}`, {userInfo})
         loadItineraries(props.match.params.id, props.history)
-      }    
     } else{
       swal("You must be logged to like an itinerary", "", "error")
     }

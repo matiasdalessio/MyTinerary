@@ -65,32 +65,21 @@ const citiesControllers = {
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },
-    addLike: async (req, res) => {
+    addOrRemoveLike: async (req, res) => {
         console.log("add")
         var {userInfo} = req.body
+        var {userId} = userInfo
         const itineraryId = req.params.id
+        console.log(req.body)
         try {
-            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, { $push: { usersLiked: {...userInfo} } }, {new: true})
-            res.json({success: true, respuesta: selectedItinerary})
+            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, userInfo.userFounded ? { $pull: { usersLiked: {userId} } } : { $push: { usersLiked: {...userInfo} } }, {new: true})
+            res.json({success: true, respuesta: likeAdded})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
         }
     },
-    removeLike: async (req, res) => {
-        console.log("remove")
-        const itineraryId = req.params.id
-        console.log(req.params.id)
-        var {userId} = req.body
-        try {
-            const deletedItinerary = await Itinerary.updateOne({_id: itineraryId}, { $pull: { usersLiked: {userId} } }, {new: true})
-            res.json({success: true, respuesta: selectedItinerary})
-        } catch(error) {
-            console.log(error)
-            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
-        }
-    },
-
+    
 }
 
 module.exports = citiesControllers
