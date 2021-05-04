@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import swal from 'sweetalert'
 import itinerariesActions from "../redux/actions/itinerariesActions";
+import Activity from "./Activity";
 
 
-const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
+const Itineraries = ({userLogged, itinerary, addOrRemoveLike, props}) => {
 
   
 
@@ -13,16 +14,15 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
   const heartEmpty = "M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"
 
   var userFounded = userLogged && itinerary.usersLiked.find(user => user.userId === userLogged.id)
+  var itineraryId = itinerary._id
+  const [toggleItineraries, setToggleItineraries] = useState({button: false,text: "View More", class:"hidden",})
+  const [like, setLike] = useState({fetching:false})
+  const [activity, setActivity] = useState({activities:[]})
 
-  console.log(itinerary.usersLiked)
+  useEffect(()=> {
+    setLike({fetching:false})
+  },[itinerary])
 
-
-  const [toggleItineraries, setToggleItineraries] = useState({
-    button: false,
-    text: "View More",
-    class:"hidden",
-  })
-  
   const showMoreShowLess = ((e) => {
     setToggleItineraries(toggleItineraries.button 
       ? {button: false, text: "View More", class:"hidden"}
@@ -30,13 +30,16 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
     )}
   )
 
+ 
   
   const likeToggle = (async () => {
-    const itineraryId = itinerary._id
     if (userLogged) {
-      var userInfo = {userName: userLogged.firstName, img: userLogged.img, userId:userLogged.id, userFounded}
-        await axios.put(`http://localhost:4000/api/itinerary/addOrRemoveLike/${itineraryId}`, {userInfo})
-        loadItineraries(props.match.params.id, props.history)
+      setLike({fetching:true})
+      var paramsId = props.match.params.id
+      var addLike = {userName: userLogged.firstName, img: userLogged.img, userId:userLogged.id, paramsId}
+      var removeLike= {userId:userLogged.id, paramsId}
+      var sendData = userFounded ? removeLike: addLike
+      await addOrRemoveLike(sendData, props.history, itineraryId)        
     } else{
       swal("You must be logged to like or comment!", "Want to Log in/Sign up?", "warning", {
           buttons: {
@@ -57,8 +60,14 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
               swal("Okay then! No preasure!");
           }
         })
-    }
-    
+    }    
+  })
+
+  const loadActivities= ((id) => {
+    console.log("voy a fetchear")
+        axios.get(`http://localhost:4000/api/itinerary/activities/${id}`)
+        .then(response => setActivity({activities : response.data.respuesta}))
+        .catch(error => props.history.push('/serverdown')) 
   })
 
   return (
@@ -70,7 +79,7 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
                     <h3>{itinerary.author.userName}</h3>
                 </div>
                 <div className="itineraryObservations">
-                  <p className="likes">Likes: <svg onClick={()=> likeToggle()} aria-hidden="true" focusable="true" data-prefix="far" data-icon="heart" className={userFounded  ? "filled" : "empty"} role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d={userFounded  ? heartFilled : heartEmpty}></path></svg> {itinerary.usersLiked.length}</p>
+                  <p className="likes">Likes: <svg onClick={!like.fetching ? () => likeToggle() : null} aria-hidden="true" focusable="true" data-prefix="far" data-icon="heart" className={userFounded  ? "filled" : "empty"} role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d={userFounded  ? heartFilled : heartEmpty}></path></svg> {itinerary.usersLiked.length}</p>
                   <p className="duration">Duration:{"🕒".repeat(itinerary.duration)}</p>
                   <p className="price">Price: {"💵".repeat(itinerary.price)}</p>
                 </div>
@@ -82,20 +91,21 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
                 <div className={toggleItineraries.class}>
                     <div className="containerShowMore">
                       <div className="divActivities">
-                          <div className="simuladorActivities" style={{backgroundImage: `url('/img/mapa.jpg')`}}/>
-                          <div className="simuladorActivities" style={{backgroundImage: `url('/img/mapa.jpg')`}}/>
-                          <div className="simuladorActivities" style={{backgroundImage: `url('/img/mapa.jpg')`}}/>
+                        {activity.activities.length !== 0 &&
+                        activity.activities.map(activity => {
+                          return <Activity key = {activity._id} activityInfo = {activity}/>
+                        })}
                       </div>
                       <h3 className="commentariesTittle">Leave us a comment!</h3>
                       <div className="commentaries">
                         <div className="historyComments">
-                          <h1>hola</h1>
-                        </div>
-                        <input type="text"></input>
+                          <h1>hola</h1>                          
+                        </div>   
+                        <input id="commentInput" type="text"></input>                     
                       </div>
                     </div>
                 </div>                
-            <button className= "btnReadMore" onClick={(e) => showMoreShowLess(e.target.textContent)}>{toggleItineraries.text}</button>
+            <button className= "btnReadMore" onClick={(e) => showMoreShowLess(e.target.textContent)} onFocus={toggleItineraries.class === "hidden" ? () => loadActivities(itineraryId) : null}>{toggleItineraries.text}</button>
           </div>
       </div>
   );
@@ -104,13 +114,12 @@ const Itineraries = ({userLogged, itinerary, loadItineraries, props}) => {
 const mapStateToProps = state => {
   return {
       itineraries: state.cityReducer.itineraries,
-      userLogged: state.loginReducer.userLogged
+      userLogged: state.loginReducer.userLogged,
   }
 }
 const mapDispatchToProps = {
   loadItineraries: itinerariesActions.loadItineraries,
   addOrRemoveLike:itinerariesActions.addOrRemoveLike,
-
 }
 
 

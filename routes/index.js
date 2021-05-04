@@ -1,7 +1,8 @@
 const express =require ('express')
 const router = express.Router()
-const citiesControllers = require('../controllers/cityController')
-const itinerariesControllers = require('../controllers/itineraryController')
+const cityController = require('../controllers/cityController')
+const activitiesControllers = require('../controllers/activitiesControllers')
+const itineraryController = require('../controllers/itineraryController')
 const userController = require('../controllers/userController')
 const validatorCities = require('../config/validatorCities')
 const validatorItineraries = require('../config/validatorItineraries')
@@ -9,8 +10,9 @@ const validatorUser = require('../config/validatorUser')
 const passport = require('passport')
 
 const {newUser, logIn, forcedLogin} = userController
-const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary, addOrRemoveLike} = itinerariesControllers
-const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = citiesControllers
+const {getAllActivities, addActivity, getItineraryActivities, getSingleActivity, deleteActivity, updateActivity} = activitiesControllers
+const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary, addOrRemoveLike} = itineraryController
+const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = cityController
 
 router.route('/user/signup')
 .post(validatorUser,newUser)
@@ -18,12 +20,12 @@ router.route('/user/signup')
 router.route('/user/login')
 .post(logIn)
 
+router.route('/user/loginLS')
+.get(passport.authenticate('jwt', {session: false}), forcedLogin)
+
 router.route('/cities')
 .get(getAllCities)
 .post(validatorCities, addCity)
-
-router.route('/user/loginLS')
-.get(passport.authenticate('jwt', {session: false}), forcedLogin)
 
 router.route('/city/:id')
 .get(getSingleCity)
@@ -45,5 +47,16 @@ router.route('/itinerary/:id')
 router.route('/itinerary/addOrRemoveLike/:id')
 .put(addOrRemoveLike)
 
+router.route('/itinerary/activities/:id')
+.get(getItineraryActivities)
+
+router.route('/activities')
+.get(getAllActivities)
+.post(addActivity)
+
+router.route('/activity/:id')
+.get(getSingleActivity)
+.delete(deleteActivity)
+.put(updateActivity)
 
 module.exports = router

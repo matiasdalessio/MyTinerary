@@ -1,7 +1,6 @@
-const { rawListeners } = require('../models/Itinerary')
 const Itinerary = require('../models/Itinerary')
 
-const citiesControllers = {
+const itineraryControllers = {
     getAllItineraries: async (req,res) => {
         try {
             const itineraries = await Itinerary.find().populate('cityID')
@@ -66,14 +65,15 @@ const citiesControllers = {
         }
     },
     addOrRemoveLike: async (req, res) => {
-        console.log("add")
-        var {userInfo} = req.body
-        var {userId} = userInfo
+        var {sendData} = req.body
+        var {userId} =sendData
         const itineraryId = req.params.id
         console.log(req.body)
         try {
-            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, userInfo.userFounded ? { $pull: {usersLiked: {userId}} } : { $push: {usersLiked: {...userInfo}} })
-            res.json({success: true, respuesta: likeAdded})
+            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, sendData.userName ? {$push:{usersLiked:{...sendData}}} : {$pull:{usersLiked: {userId}}})
+            const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
+            res.json({success: true, respuesta: selectedCityItineraries})
+            console.log(selectedCityItineraries)
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
@@ -82,4 +82,4 @@ const citiesControllers = {
     
 }
 
-module.exports = citiesControllers
+module.exports = itineraryControllers
