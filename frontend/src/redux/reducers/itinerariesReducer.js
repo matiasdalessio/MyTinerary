@@ -1,5 +1,5 @@
 const initialState = {
-    itineraries:[],
+    itineraries:[]
 }
 
 
@@ -14,11 +14,6 @@ const citiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 itineraries: action.payload           
-            }
-        case 'ADD_OR_REMOVE_LIKE':
-            return{
-                ...state,
-                itineraries: action.payload.respuesta
             }            
         default:
             return state
