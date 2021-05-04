@@ -42,7 +42,7 @@ router.route('/itinerary/:id')
 .delete(deleteItinerary)
 .put(updateItinerary)
 
-router.route('/itinerary/addLike/:id')
+router.route('/itinerary/addOrRemoveLike/:id')
 .put(addOrRemoveLike)
 
 

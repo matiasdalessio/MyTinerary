@@ -9,20 +9,14 @@ const itinerariesActions = {
             .catch(error => props.push('/serverdown')) 
         }
     },
-    // addLike: (userInfo, itineraryId) => {
-    //     return (dispatch, getState) => {
-    //         axios.put(`http://localhost:4000/api/itinerary/addLike/${itineraryId}`, {userInfo})
-    //         .then(response => console.log(response.data.success))
-    //         .catch(error => props.push('/serverdown')) 
-    //     }
-    // },
-    // removeLike: (id, itineraryId) => {
-    //     return (dispatch, getState) => {
-    //         axios.put(`http://localhost:4000/api/itinerary/removeLike/${itineraryId}`, {id})
-    //         .then(response => console.log(response.data.success))
-    //         .catch(error => props.push('/serverdown')) 
-    //     }
-    // },
+    addOrRemoveLike: (infoAPasar) => {
+        console.log(infoAPasar)
+        return (dispatch, getState) => {
+            axios.put(`http://localhost:4000/api/itinerary/addOrRemoveLike/${infoAPasar.itineraryId}`, {infoAPasar})
+            .then(response => dispatch({type: 'ADD_OR_REMOVE_LIKE', payload: response.data}))
+            .catch(error => infoAPasar.props.history.push('/serverdown')) 
+        }
+    },
     cleanItineraries: () => {
         return (dispatch, getState) => {
             dispatch({type: 'CLEAN_ITINERARIES', payload: null})

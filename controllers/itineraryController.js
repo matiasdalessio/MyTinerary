@@ -67,13 +67,18 @@ const citiesControllers = {
     },
     addOrRemoveLike: async (req, res) => {
         console.log("add")
-        var {userInfo} = req.body
+        var {infoAPasar} = req.body
+        var {userInfo,props} = infoAPasar
         var {userId} = userInfo
+        var {match} = props
+        var {params} = match
+        var {id} = params
         const itineraryId = req.params.id
         console.log(req.body)
         try {
             const likeAdded = await Itinerary.updateOne({_id: itineraryId}, userInfo.userFounded ? { $pull: { usersLiked: {userId} } } : { $push: { usersLiked: {...userInfo} } }, {new: true})
-            res.json({success: true, respuesta: likeAdded})
+            const selectedCityItineraries = await Itinerary.find({cityID: id})
+            res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
