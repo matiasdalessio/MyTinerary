@@ -92,10 +92,17 @@ const itineraryControllers = {
     modifyOrRemoveComment: async (req, res) => {
         const {sendData} = req.body
         const {commentId, paramsId, editedComment} = sendData
+        const {userName,img,userId} = commentId
+        const comment = editedComment
+        const editedData = {img,userId,userName,comment}
         const itineraryId = req.params.id
-        console.log(req.body)
+        console.log(editedData)
         try {
-            const modifiedComment = await Itinerary.updateOne({_id: itineraryId}, !editedComment ? {$pull:{comments: {_id: commentId}}} : {$push:{comments:{_id:commentId, comment: editedComment }}})
+            if (!editedComment) {
+                await Itinerary.updateOne({_id: itineraryId}, {$pull:{comments: {_id: commentId}}})
+            } else{
+               const resultado = await Itinerary.updateOne({"comments._id" : commentId},{$set:{"comments.$.comment":comment}} )
+            }
             const selectedCityItineraries = await Itinerary.find({cityID: paramsId})
             res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {

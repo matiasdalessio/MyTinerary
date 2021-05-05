@@ -790,7 +790,7 @@ body, html, #root{
     border-radius: 15px  !important;
     border: 1px solid var(--secundary-bg-color);
     background-color:var(--main-bg-color);
-    width: 50vw;
+    width: 53vw;
     height: 35px;
   }
   .commentInput{
@@ -861,21 +861,34 @@ body, html, #root{
     align-items: center;
     justify-content: space-between;
   }
+
+  .comment:hover .optionIcons{
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
   .optionIcons{
+    border-radius: 100px;
+    opacity: 0;
     font-size: 25px;
+    transition: opacity 0.5s, background-color 0.5s !important;
+  }
+  .optionIcons:hover{
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.309);
+    transition: background-color 0.5s !important;
   }
   .sendComment{
     cursor: pointer;
     z-index: 5;
     position: relative;
-    left: -3vw;
-    font-size: 30px;
+    left: -1em;
+    font-size: 40px;
   }
   .iconsEditComment{
     cursor: pointer;
     z-index: 5;
     position: relative;
-    left: -4vw;
+    left: -2.2em;
     font-size: 30px;
   }
 

@@ -8,7 +8,6 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
 
     const[editingComment, setEditComment]= useState({comment: commentInfo.comment , editing : false})
     var commentId = commentInfo._id
-    console.log(editingComment)
 
     useEffect(()=> {
       setEditComment({...editingComment,
@@ -22,17 +21,33 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
       editOrRemoveComment(sendInfo, itineraryId)
     })
     
-    const options = (e)=> swal("Want to modify your comment?", {
+    const options = (e)=> swal("Want to modify your comment?", "What option do you prefer?", {
         buttons: {
           signup: {text: "Edit", value: "edit"},
           login: {text: "Delete", value: "delete"},
           cancel: "Cancel",
         },
       })
-      .then((value) => {
+      .then((value, willDelete) => {
         switch (value) {         
           case "delete":
-            editOrRemove(null, commentId, paramsId, itineraryId)            
+            swal({
+              title: "Your comment will be deleted...",
+              text: "Are you sure?",
+              icon: "warning",
+              buttons: ["No, my bad", "I'm Sure!"],
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                  editOrRemove(null, commentId, paramsId, itineraryId)
+                  swal("Poof! Your comment has been deleted!", {
+                      icon: "success",
+                });
+              } else {
+                swal("Okay! We'll keep it alive tho");
+              }
+            });                
             break      
           case "edit":
             editComment()
@@ -71,12 +86,11 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
                 <div className="nameAndComment">
                     <p>{commentInfo.userName}:</p>
                     {!editingComment.editing 
-                    ? <h4>{commentInfo.comment}</h4> 
-                    : 
-                    <div className="divEditCommentInput"> 
-                      <input className="editCommentInput" name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={editingComment.comment} ></input>
-                      <MdEdit className="iconsEditComment" onClick={() => send()}/>
-                      <MdDoNotDisturbAlt className="iconsEditComment"onClick={() => setEditComment({...editingComment, editing:false})} /> 
+                    ?<h4>{commentInfo.comment}</h4> 
+                    :<div className="divEditCommentInput"> 
+                          <input className="editCommentInput" name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={editingComment.comment} ></input>
+                          <MdEdit className="iconsEditComment" onClick={() => send()}/>
+                          <MdDoNotDisturbAlt className="iconsEditComment"onClick={() => setEditComment({...editingComment, editing:false})} /> 
                     </div> }
                 </div>                                    
             </div> 
