@@ -739,7 +739,8 @@ body, html, #root{
   }
   
 
-  ::-webkit-scrollbar {
+  ::-webkit-scrollbar {   
+    z-index: 10 !important; 
     height: 20px;
   }
   ::-webkit-scrollbar-track{
@@ -795,7 +796,7 @@ body, html, #root{
   }
   .commentInput{
     outline: none;
-    text-indent: 20px;
+    text-indent: 20px ;
     margin-left: 3vw;
     background-color:var(--main-bg-color);
     z-index: 3;
@@ -817,7 +818,7 @@ body, html, #root{
   }
   .divInputComment{    
     border-radius: 0 0 15px 15px;
-    width: 59vw;
+    width: 58.5vw;
     display: flex;
     flex-direction: row;
     justify-content: center !important;
@@ -1005,7 +1006,10 @@ body, html, #root{
       width: 5vw;
       margin: 0 2vw !important;
     }
-  
+    
+    .divInputComment{    
+      width: 58vw;
+    }
   .btnHomeEnCities{
     border-radius: 0 50px !important ;
     border: 1px solid rgb(255, 255, 255);
@@ -1039,6 +1043,9 @@ body, html, #root{
     }
     h1.cityName{
       font-size: 35px;
+    }
+    .divInputComment{    
+      width: 57.9vw;
     }
 
     #heroAvion{
@@ -1178,6 +1185,9 @@ body, html, #root{
       justify-content: center;
       align-items: center;
     }
+    .divInputComment{    
+      width: 56.8vw !important;
+    }
       .carousel{
       background-color: var(--secundary-bg-color);
       max-width: 100%;
@@ -1213,6 +1223,9 @@ body, html, #root{
     form div svg{
       width: 20px;
       height: 20px
+    }
+    .divInputComment{    
+      width: 57.7vw;
     }
     .aclaration{
       margin: 0 0 0 4vw !important;
@@ -1308,6 +1321,9 @@ body, html, #root{
     form div svg{
       width: 20px;
       height: 20px
+    }
+    .divInputComment{    
+      width: 56vw !important;
     }
     .aclaration{
       margin: 0 0 0 4vw !important;
@@ -1441,6 +1457,9 @@ body, html, #root{
     .backgroundSign{
       height: 80em;
       background-position:left;
+    }
+    .divInputComment{    
+      width: 56vw;
     }
 
     form div svg{
