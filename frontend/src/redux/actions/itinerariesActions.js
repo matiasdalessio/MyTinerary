@@ -1,4 +1,5 @@
 import axios from "axios"
+import swal from "sweetalert"
 
 const itinerariesActions = {
     
@@ -23,11 +24,11 @@ const itinerariesActions = {
             .catch(error => props.push('/serverdown')) 
         }
     },
-    removeComment: (sendData, props, id) => {
+    editOrRemoveComment: (sendData, id) => {
         return (dispatch, getState) => {
-            axios.post(`http://localhost:4000/api/itinerary/comments/${id}`, {sendData})
+            axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {sendData})
             .then(response => dispatch({type: 'LOAD_ITINERARIES', payload: response.data}))
-            .catch(error => props.push('/serverdown')) 
+            .catch(error => swal("Failed to try to connect with server", "Please try again in a few minutes", "error")) 
         }
     },
     cleanItineraries: () => {

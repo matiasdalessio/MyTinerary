@@ -125,7 +125,7 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, props, addComment}
                         <div className="historyComments">
                           {itinerary.comments.length !== 0 &&
                           itinerary.comments.map(comment =>{
-                            return <Comment key = {comment._id} commentInfo = {comment} />
+                            return <Comment key = {comment._id} commentInfo = {comment} itineraryId ={itinerary._id} paramsId = {paramsId} itinerary ={itinerary} />
                           })
                         }
                           

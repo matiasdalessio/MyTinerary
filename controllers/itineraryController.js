@@ -80,7 +80,6 @@ const itineraryControllers = {
     addComment: async (req, res) => {
         var {sendData} = req.body
         const itineraryId = req.params.id
-        console.log(req.body)
         try {
             const commentAdded = await Itinerary.updateOne({_id: itineraryId}, {$push:{comments:{...sendData}}})
             const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
@@ -91,10 +90,13 @@ const itineraryControllers = {
         }
     },
     modifyOrRemoveComment: async (req, res) => {
+        const {sendData} = req.body
+        const {commentId, paramsId, editedComment} = sendData
         const itineraryId = req.params.id
+        console.log(req.body)
         try {
-            const modifiedComment = await Itinerary.updateOne({_id: itineraryId})
-            const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
+            const modifiedComment = await Itinerary.updateOne({_id: itineraryId}, !editedComment ? {$pull:{comments: {_id: commentId}}} : {$push:{comments:{_id:commentId, comment: editedComment }}})
+            const selectedCityItineraries = await Itinerary.find({cityID: paramsId})
             res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {
             console.log(error)
