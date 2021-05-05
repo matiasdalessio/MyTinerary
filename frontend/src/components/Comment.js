@@ -6,8 +6,16 @@ import itinerariesActions from "../redux/actions/itinerariesActions";
 
 const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemoveComment, paramsId, props}) =>{ 
 
+    console.log(props)
+
     const[editingComment, setEditComment]= useState({comment: commentInfo.comment , editing : false})
+
     var commentId = commentInfo._id
+    const userData = JSON.parse(localStorage.getItem('userLogged'))
+    const userLS= {
+      token: localStorage.getItem('token'),
+      ...userData
+    }
 
     useEffect(()=> {
       setEditComment({...editingComment,
@@ -17,8 +25,8 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
 
 
     const editOrRemove = ((editedComment= null , commentId, paramsId, itineraryId) =>{
-      var sendInfo = {editedComment, commentId, paramsId} 
-      editOrRemoveComment(sendInfo, itineraryId)
+      var sendData = {editedComment, commentId, paramsId} 
+      editOrRemoveComment(sendData, itineraryId, props, userLS)
     })
     
     const options = (e)=> swal("Want to modify your comment?", "What option do you prefer?", {
@@ -35,7 +43,7 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
               title: "Your comment will be deleted...",
               text: "Are you sure?",
               icon: "warning",
-              buttons: ["No, my bad", "I'm Sure!"],
+              buttons: ["Nope", "I'm Sure!"],
               dangerMode: true,
             })
             .then((willDelete) => {
@@ -45,7 +53,7 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
                       icon: "success",
                 });
               } else {
-                swal("Okay! We'll keep it alive tho");
+                swal("Okay! We'll keep it alive then");
               }
             });                
             break      
@@ -61,10 +69,9 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
     })
 
     const readComment = ((e) => {
-      let field = e.value
       setEditComment({
         ...editingComment,
-        comment : field
+        comment : e.value
       })
     })
 
@@ -72,10 +79,7 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
         if (editingComment.comment !=="") {
           var comment = editingComment.comment
           editOrRemove(comment, commentInfo, paramsId, itineraryId)
-        } else { swal("You cannot send empty comment", "Write something!", "error")}
-
-      
-      
+        } else { swal("You cannot send an empty comment", "Write something!", "error")}        
     })
     
 
@@ -84,7 +88,7 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
             <div className="commentContent">            
                 <div className="commentProfileImg" style={{backgroundImage: `url('${commentInfo.img}')`}}/>
                 <div className="nameAndComment">
-                    <p>{commentInfo.userName}:</p>
+                    <p>{commentInfo.firstName} {commentInfo.lastName}:</p>
                     {!editingComment.editing 
                     ?<h4>{commentInfo.comment}</h4> 
                     :<div className="divEditCommentInput"> 

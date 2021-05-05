@@ -10,25 +10,37 @@ const itinerariesActions = {
             .catch(error => props.push('/serverdown')) 
         }
     },
-    addOrRemoveLike: (sendData, props, id) => {
+    addOrRemoveLike: (sendData, props, id, userLS) => {
         return (dispatch, getState) => {
-            axios.put(`http://localhost:4000/api/itinerary/likes/${id}`, {sendData})
+            axios.put(`http://localhost:4000/api/itinerary/likes/${id}`, {sendData}, {
+                headers: {
+                'Authorization': 'Bearer '+userLS.token
+                }
+            })            
             .then(response => dispatch({type: 'LOAD_ITINERARIES', payload: response.data}))
             .catch(error => props.push('/serverdown')) 
         }
     },    
-    addComment: (sendData, props, id) => {
+    addComment: (sendData, props, id, userLS) => {
         return (dispatch, getState) => {
-            axios.post(`http://localhost:4000/api/itinerary/comments/${id}`, {sendData})
+            axios.post(`http://localhost:4000/api/itinerary/comments/${id}`, {sendData},{
+                headers: {
+                'Authorization': 'Bearer '+userLS.token
+                }
+            })
             .then(response => dispatch({type: 'LOAD_ITINERARIES', payload: response.data}))
             .catch(error => props.push('/serverdown')) 
         }
     },
-    editOrRemoveComment: (sendData, id) => {
+    editOrRemoveComment: (sendData, id, props,  userLS) => {
         return (dispatch, getState) => {
-            axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {sendData})
+            axios.put(`http://localhost:4000/api/itinerary/comments/${id}`, {sendData},{
+                headers: {
+                'Authorization': 'Bearer '+userLS.token
+                }
+            })
             .then(response => dispatch({type: 'LOAD_ITINERARIES', payload: response.data}))
-            .catch(error => swal("Failed to try to connect with server", "Please try again in a few minutes", "error")) 
+            .catch(error => props.push('/serverdown')) 
         }
     },
     cleanItineraries: () => {

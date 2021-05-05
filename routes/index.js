@@ -45,11 +45,11 @@ router.route('/itinerary/:id')
 .put(updateItinerary)
 
 router.route('/itinerary/likes/:id')
-.put(addOrRemoveLike)
+.put(passport.authenticate('jwt', {session: false}), addOrRemoveLike)
 
 router.route('/itinerary/comments/:id')
-.post(addComment)
-.put(modifyOrRemoveComment)
+.post(passport.authenticate('jwt', {session: false}), addComment)
+.put(passport.authenticate('jwt', {session: false}), modifyOrRemoveComment)
 
 router.route('/itinerary/activities/:id')
 .get(getItineraryActivities)

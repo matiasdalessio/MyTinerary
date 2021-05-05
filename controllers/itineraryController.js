@@ -66,10 +66,12 @@ const itineraryControllers = {
     },
     addOrRemoveLike: async (req, res) => {
         var {sendData} = req.body
-        var {userId} =sendData
         const itineraryId = req.params.id
+        const {img, firstName, lastName, _id} = req.user
+        const userId = _id
+        const userInfo = {img, firstName, lastName, userId}
         try {
-            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, sendData.userName ? {$push:{usersLiked:{...sendData}}} : {$pull:{usersLiked: {userId}}})
+            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, sendData.add ? {$push:{usersLiked:{...userInfo}}} : {$pull:{usersLiked: {userId}}})
             const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
             res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {
@@ -79,9 +81,14 @@ const itineraryControllers = {
     },
     addComment: async (req, res) => {
         var {sendData} = req.body
+        var {comment} = sendData
         const itineraryId = req.params.id
+        const {img, firstName, lastName, _id} = req.user
+        const userId = _id
+        const userInfo = {img, firstName, lastName, userId, comment}
+
         try {
-            const commentAdded = await Itinerary.updateOne({_id: itineraryId}, {$push:{comments:{...sendData}}})
+            const commentAdded = await Itinerary.updateOne({_id: itineraryId}, {$push:{comments:{...userInfo}}})
             const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
             res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {
@@ -92,17 +99,9 @@ const itineraryControllers = {
     modifyOrRemoveComment: async (req, res) => {
         const {sendData} = req.body
         const {commentId, paramsId, editedComment} = sendData
-        const {userName,img,userId} = commentId
         const comment = editedComment
-        const editedData = {img,userId,userName,comment}
-        const itineraryId = req.params.id
-        console.log(editedData)
         try {
-            if (!editedComment) {
-                await Itinerary.updateOne({_id: itineraryId}, {$pull:{comments: {_id: commentId}}})
-            } else{
-               const resultado = await Itinerary.updateOne({"comments._id" : commentId},{$set:{"comments.$.comment":comment}} )
-            }
+            await Itinerary.updateOne({"comments._id" : commentId, "comments.userId": req.user._id}, !editedComment ?{$pull:{comments: {_id: commentId}}} : {$set:{"comments.$.comment":comment}})
             const selectedCityItineraries = await Itinerary.find({cityID: paramsId})
             res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {
