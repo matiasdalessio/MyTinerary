@@ -14,12 +14,7 @@ const citiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 itineraries: action.payload           
-            }
-        case 'LIKE':
-            return {
-                ...state,
-                itineraries: action.payload.respuesta           
-            }             
+            }          
         default:
             return state
     }

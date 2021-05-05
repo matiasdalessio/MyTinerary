@@ -713,15 +713,14 @@ body, html, #root{
   .activityBanner{
     display: flex;
     align-content: center;
-    width: 30vw;
+    width: 28vw;
     height: 15vh;
     margin: 3vh 2vw !important;
     background-color: #4949499e;
     background-blend-mode: soft-light;
-    /* border: 3px solid var(--secundary-bg-color); */
     margin: 10vh 0;
     border-radius: 30px;
-    min-width: 25vw;
+    min-width: 20vw;
     background-position:center;
     background-size:cover; 
     background-repeat: no-repeat;
@@ -765,6 +764,7 @@ body, html, #root{
     overflow-x: auto;
   }
   .historyComments{
+    padding-bottom: 50px;
     border-radius: 15px;
     background-color: var(--main-bg-color);
     width: 60vw;
@@ -779,16 +779,75 @@ body, html, #root{
     display: flex;
     flex-direction: column;
     align-items: flex-start ;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
-  #commentInput{
-    margin: -50px;
-    align-self: center;
+  .commentInput{
+    outline: none;
+    text-indent: 20px;
+    margin-left: 3vw;
+    background-color:var(--main-bg-color);
+    z-index: 3;
     border-radius: 15px  !important;
     border: 1px solid var(--secundary-bg-color);
     background-color:var(--main-bg-color);
-    width: 55vw;
+    width: 60vw;
     height: 35px;
+  }
+  .divInputComment{    
+    border-radius: 0 0 15px 15px;
+    width: 59vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 50px;
+    background-color:var(--main-bg-color);
+    z-index: 3;
+    margin: -50px 0;
+  }
+  .commentProfileImg{
+    border: 3px solid #4949499e !important;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    background-position:top;
+    background-size:cover; 
+    background-repeat: no-repeat;
+  }
+  .nameAndComment{
+    margin-left: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content:center ;
+  }
+  .nameAndComment *{
+    font-size: 15px;
+    margin: 0;
+  }
+  .commentContent{
+    display: flex;
+    align-content: center ;
+    justify-content:flex-start;
+  }
+  .comment{
+    border-radius: 100px;
+    width: 99%;
+    background-color: #49494929 !important;;
+    margin: 0.5vh ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .optionIcons{
+    font-size: 25px;
+  }
+  .sendComment{
+    cursor: pointer;
+    z-index: 5;
+    position: relative;
+    left: -3vw;
+    font-size: 30px;
   }
 
 

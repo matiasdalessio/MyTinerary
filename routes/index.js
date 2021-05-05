@@ -11,7 +11,7 @@ const passport = require('passport')
 
 const {newUser, logIn, forcedLogin} = userController
 const {getAllActivities, addActivity, getItineraryActivities, getSingleActivity, deleteActivity, updateActivity} = activitiesControllers
-const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary, addOrRemoveLike} = itineraryController
+const {getAllItineraries, addItinerary, getCityItineraries, getSingleItinerary, deleteItinerary, updateItinerary, addOrRemoveLike, addComment, modifyOrRemoveComment} = itineraryController
 const {getSingleCity, getAllCities, addCity, deleteCity, updateCity} = cityController
 
 router.route('/user/signup')
@@ -44,8 +44,12 @@ router.route('/itinerary/:id')
 .delete(deleteItinerary)
 .put(updateItinerary)
 
-router.route('/itinerary/addOrRemoveLike/:id')
+router.route('/itinerary/likes/:id')
 .put(addOrRemoveLike)
+
+router.route('/itinerary/comments/:id')
+.post(addComment)
+.put(modifyOrRemoveComment)
 
 router.route('/itinerary/activities/:id')
 .get(getItineraryActivities)

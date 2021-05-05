@@ -68,12 +68,34 @@ const itineraryControllers = {
         var {sendData} = req.body
         var {userId} =sendData
         const itineraryId = req.params.id
-        console.log(req.body)
         try {
             const likeAdded = await Itinerary.updateOne({_id: itineraryId}, sendData.userName ? {$push:{usersLiked:{...sendData}}} : {$pull:{usersLiked: {userId}}})
             const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
             res.json({success: true, respuesta: selectedCityItineraries})
-            console.log(selectedCityItineraries)
+        } catch(error) {
+            console.log(error)
+            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
+        }
+    },
+    addComment: async (req, res) => {
+        var {sendData} = req.body
+        const itineraryId = req.params.id
+        console.log(req.body)
+        try {
+            const commentAdded = await Itinerary.updateOne({_id: itineraryId}, {$push:{comments:{...sendData}}})
+            const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
+            res.json({success: true, respuesta: selectedCityItineraries})
+        } catch(error) {
+            console.log(error)
+            res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
+        }
+    },
+    modifyOrRemoveComment: async (req, res) => {
+        const itineraryId = req.params.id
+        try {
+            const modifiedComment = await Itinerary.updateOne({_id: itineraryId})
+            const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
+            res.json({success: true, respuesta: selectedCityItineraries})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})

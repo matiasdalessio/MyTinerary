@@ -7,7 +7,7 @@ const itinerarySchema = new mongoose.Schema({
         duration:{type:Number, required:true, min: 1, max: 5},
         hashtags:[{type:String, required:true, min: 3, max: 5}],
         cityID:	{type: mongoose.Types.ObjectId, ref: 'city', required:true},
-        comments:[{userName:{type:String, required: true}, img:{type:String, required: true}, userId:{type: mongoose.Types.ObjectId, ref: 'user', required:true}, default: 0}],
+        comments:[{userName:{type:String, required: true}, img:{type:String, required: true}, comment:{type:String, required: true}, userId:{type: mongoose.Types.ObjectId, ref: 'user', required:true}, default: 0}],
         usersLiked:[{userName:{type:String, required: true}, img:{type:String, required: true}, userId:{type: mongoose.Types.ObjectId, ref: 'user', required:true}, default: 0}]
 })
 
