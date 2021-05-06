@@ -12,7 +12,6 @@ const activitiesControllers = {
     },
     getItineraryActivities: async (req,res) => {
         const itineraryId = (req.params.id)
-        console.log(itineraryId)
         try {
             const selectedItineraryActivities = await Activity.find({itineraryId: itineraryId})
             if (selectedItineraryActivities.length != 0) {

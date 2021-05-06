@@ -71,9 +71,8 @@ const itineraryControllers = {
         const userId = _id
         const userInfo = {img, firstName, lastName, userId}
         try {
-            const likeAdded = await Itinerary.updateOne({_id: itineraryId}, sendData.add ? {$push:{usersLiked:{...userInfo}}} : {$pull:{usersLiked: {userId}}})
-            const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
-            res.json({success: true, respuesta: selectedCityItineraries})
+            const likeAdded = await Itinerary.findOneAndUpdate({_id: itineraryId}, sendData.add ? {$push:{usersLiked:{...userInfo}}} : {$pull:{usersLiked: {userId}}}, {new: true})
+            res.json({success: true, respuesta: likeAdded.usersLiked})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
@@ -86,11 +85,9 @@ const itineraryControllers = {
         const {img, firstName, lastName, _id} = req.user
         const userId = _id
         const userInfo = {img, firstName, lastName, userId, comment}
-
         try {
-            const commentAdded = await Itinerary.updateOne({_id: itineraryId}, {$push:{comments:{...userInfo}}})
-            const selectedCityItineraries = await Itinerary.find({cityID: sendData.paramsId})
-            res.json({success: true, respuesta: selectedCityItineraries})
+            const commentAdded = await Itinerary.findOneAndUpdate({_id: itineraryId}, {$push:{comments:{...userInfo}}}, {new: true})
+            res.json({success: true, respuesta: commentAdded.comments})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})
@@ -101,9 +98,8 @@ const itineraryControllers = {
         const {commentId, paramsId, editedComment} = sendData
         const comment = editedComment
         try {
-            await Itinerary.updateOne({"comments._id" : commentId, "comments.userId": req.user._id}, !editedComment ?{$pull:{comments: {_id: commentId}}} : {$set:{"comments.$.comment":comment}})
-            const selectedCityItineraries = await Itinerary.find({cityID: paramsId})
-            res.json({success: true, respuesta: selectedCityItineraries})
+            const modifiedOrRemovedComment = await Itinerary.findOneAndUpdate({"comments._id" : commentId}, !editedComment ?{$pull:{comments: {_id: commentId}}} : {$set:{"comments.$.comment":comment}}, {new: true})
+            res.json({success: true, respuesta: modifiedOrRemovedComment.comments})
         } catch(error) {
             console.log(error)
             res.json({success: false, respuesta: 'Oops! the ID you enter was not founded'})

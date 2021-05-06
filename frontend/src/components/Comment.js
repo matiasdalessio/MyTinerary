@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import swal from "sweetalert";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 
-const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemoveComment, paramsId, props}) =>{ 
+const Activity = ({commentInfo, userLogged, setCommentState, itinerary, itineraryId, editOrRemoveComment, paramsId, props}) =>{ 
 
-    console.log(props)
+    console.log(commentInfo)
 
     const[editingComment, setEditComment]= useState({comment: commentInfo.comment , editing : false})
 
@@ -21,13 +21,14 @@ const Activity = ({commentInfo, userLogged, itinerary, itineraryId, editOrRemove
       setEditComment({...editingComment,
         editing:false})
          // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[itinerary])
+    },[commentInfo])
 
 
-    const editOrRemove = ((editedComment= null , commentId, paramsId, itineraryId) =>{
+    const editOrRemove = async (editedComment= null , commentId, paramsId, itineraryId) =>{
       var sendData = {editedComment, commentId, paramsId} 
-      editOrRemoveComment(sendData, itineraryId, props, userLS)
-    })
+      const respuesta = await editOrRemoveComment(sendData, itineraryId, props, userLS)
+      setCommentState({comments: respuesta})
+    }
     
     const options = (e)=> swal("Want to modify your comment?", "What option do you prefer?", {
         buttons: {
