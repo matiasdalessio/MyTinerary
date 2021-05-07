@@ -15,6 +15,7 @@ const activitiesControllers = {
         try {
             const selectedItineraryActivities = await Activity.find({itineraryId: itineraryId})
             if (selectedItineraryActivities.length != 0) {
+                console.log(selectedItineraryActivities)
                 res.json({success: true, respuesta: selectedItineraryActivities})
             } else{
             res.json({success: false, respuesta: []})

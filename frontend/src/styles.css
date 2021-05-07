@@ -668,7 +668,7 @@ body, html, #root{
     width: 25px;
     color: red;
     transition: transform 1s;
-    transform:scale(1.5);
+    transform:scale(1.3);
   }
 
   .btnReadMore:hover{
@@ -699,7 +699,7 @@ body, html, #root{
   .showMore{
     visibility: visible;
     opacity: 1;
-    height: 68vh;
+    height: 85vh;
     transition: height 0.5s, opacity 2.5s;
   }
   .containerShowMore{
@@ -709,19 +709,20 @@ body, html, #root{
     justify-content: center;
   }
   .commentariesTittle{
+    text-align: center;
+    color: black;
     margin: 2vh 0 !important;
   }
   .activityBanner{
-    display: flex;
-    align-content: center;
-    width: 28vw;
-    height: 15vh;
+    box-shadow: 2px 10px 20px 1px rgba(0,0,0,0.85);
+    width: 26vw;
+    height: 25vh;
     margin: 3vh 2vw !important;
     background-color: #4949499e;
     background-blend-mode: soft-light;
     margin: 10vh 0;
     border-radius: 30px;
-    min-width: 20vw;
+    min-width: 26vw;
     background-position:center;
     background-size:cover; 
     background-repeat: no-repeat;
@@ -731,10 +732,11 @@ body, html, #root{
     justify-content: flex-end;
   } 
   .activityName{
+    font-size: 18px;
     width: 100%;
     text-shadow: 1px 1px 5px rgba(0,0,0,1) !important;
     color: var(--main-bg-color);
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 15px 15px;
     background-color: rgba(0,0,0,0.4);
     text-align: center;
   }
@@ -765,17 +767,38 @@ body, html, #root{
     align-items: center;
     overflow-x: auto;
   }
+  .historyEmptyComments{
+    padding-bottom: 50px;
+    border-radius: 15px;
+    background-color: var(--main-bg-color);
+    width: 60vw;
+    height: 40vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+  }
+  .arrowDownward{
+    font-size: 4vw;
+  }
   .historyComments{
     padding-bottom: 50px;
     border-radius: 15px;
     background-color: var(--main-bg-color);
     width: 60vw;
-    height: 30vh;
+    height: 40vh;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start ;
     justify-content: flex-start;
+  }
+  .emptyCommentariesBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .commentaries{
     display: flex;
@@ -833,29 +856,33 @@ body, html, #root{
     border: 3px solid #4949499e !important;
     border-radius: 100px;
     width: 40px;
+    min-width: 40px;
+    min-height: 40px;
     height: 40px;
     background-position:top;
     background-size:cover; 
     background-repeat: no-repeat;
   }
   .nameAndComment{
-    margin-left: 1vw;
+    margin-left: 8px;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
     justify-content:center ;
   }
   .nameAndComment *{
+    text-align: justify;
     font-size: 15px;
     margin: 0;
   }
   .commentContent{
+    max-width: 60vw;
     display: flex;
     align-content: center ;
     justify-content:flex-start;
   }
   .comment{
-    border-radius: 100px;
+    border-radius: 30px;
     width: 99%;
     background-color: #49494929 !important;
     margin: 0.5vh ;
@@ -872,6 +899,7 @@ body, html, #root{
     border-radius: 100px;
     opacity: 0;
     font-size: 25px;
+    min-width: 25px;
     transition: opacity 0.5s, background-color 0.5s !important;
   }
   .optionIcons:hover{
@@ -885,6 +913,7 @@ body, html, #root{
     position: relative;
     left: -1em;
     font-size: 40px;
+    min-width: 20px;
   }
   .iconsEditComment{
     cursor: pointer;
@@ -892,6 +921,7 @@ body, html, #root{
     position: relative;
     left: -2.2em;
     font-size: 30px;
+    min-width: 20px;
   }
 
 
@@ -1170,6 +1200,95 @@ body, html, #root{
     .tituloCities h1{
       font-size: 6vw;
     }
+    
+
+
+
+
+
+
+    ::-webkit-scrollbar {   
+      width: 10px !important;
+    }
+    .showMore{
+      height: 90vh;
+      transition: height 0.5s, opacity 2.5s;
+    }
+    .commentariesTittle{
+      font-size: 20px;
+      margin: 4vh 0 !important;
+    }
+    .activityBanner{
+      height: 25vh;
+      min-width: 30vw;
+    }    
+    .divActivities{
+      width: 70vw;
+      max-width: 70vw;
+      min-width: 70vw;
+    }
+    .historyEmptyComments{
+      width: 70vw;
+      height: 40vh;
+    }
+    .emptyCommentariesTitle{
+      font-size: 4vw;
+    }
+    .arrowDownward{
+      font-size: 10vw;
+    }
+    .historyComments{
+      width: 70vw;
+      height: 40vh;
+    }
+    .editCommentInput{
+      text-indent: 10px;
+      margin-left: 10vw;
+      width: 60vw;
+      height: 35px;
+    }
+    .commentInput{
+      font-size: 14px;
+      text-indent: 20px ;
+      margin-left: 3vw;
+      width: 100%;
+      height: 35px;
+    }
+    .divEditCommentInput{
+      background-color:var(--main-bg-color);
+    }
+    .divInputComment{   
+      overflow: hidden; 
+      width: 68vw !important;
+      height: 50px;
+      padding: 0;
+      margin: -50px 0;
+    }
+    .nameAndComment p{
+      color: black;
+      max-width: 40vw;
+    }
+    .commentContent{
+      border-radius: 15px;
+    }
+    .userComment{
+      text-decoration: dashed !important;
+      text-align: justify;
+      max-width: 50vw !important;
+    }
+    .optionIcons{
+      opacity: 1;
+    }
+    .sendComment{
+      left: 0em;
+    }
+    .iconsEditComment{
+      left: 0em;
+    }
+
+
+
+
   
   }
   
@@ -1227,6 +1346,9 @@ body, html, #root{
     }
     .divInputComment{    
       width: 57.7vw;
+    }
+    .itineraryObservations {
+      flex-direction: column;
     }
     .aclaration{
       margin: 0 0 0 4vw !important;
@@ -1315,6 +1437,88 @@ body, html, #root{
     .itineraryTitle{
       text-align: center;
     }
+    ::-webkit-scrollbar {   
+      width: 0px !important;
+    }
+    
+    .showMore{
+      height: 90vh;
+    }
+    .commentariesTittle{
+      font-size: 20px;
+      margin: 4vh 0 !important;
+    }
+    .activityBanner{
+      height: 25vh;
+      min-width: 40vw;
+    }    
+    .divActivities{
+      width: 70vw;
+      max-width: 70vw;
+      min-width: 70vw;
+    }
+    .historyEmptyComments{
+      width: 70vw;
+      height: 40vh;
+    }
+    .emptyCommentariesTitle{
+      font-size: 4vw;
+    }
+    .arrowDownward{
+      font-size: 10vw;
+    }
+    .historyComments{
+      width: 70vw;
+      height: 40vh;
+    }
+    .commentInput{
+      font-size: 14px;
+      text-indent: 20px ;
+      margin-left: 3vw;
+      width: 100%;
+      height: 35px;
+    }
+    .editCommentInput{
+      text-indent: 10px;
+      margin: 0;
+      width: 60vw !important;
+      height: 35px;
+    }
+    .divEditCommentInput{
+      width: 60vw !important;
+      height: 50px;
+      margin: 0 !important;
+      padding: 0;
+    }
+    .divInputComment{   
+      overflow: hidden; 
+      width: 70vw !important;
+      height: 50px;
+      padding: 0;
+      margin: -50px 0;
+    }
+    .nameAndComment p{
+      color: black;
+      min-width: 50vw;
+      max-width: 50vw !important;
+    }
+    .commentContent{
+      border-radius: 15px;
+    }
+    .userComment{
+      text-decoration: dashed !important;
+      text-align: justify;
+      max-width: 50vw !important;
+    }
+    .optionIcons{
+      opacity: 1;
+    }
+    .sendComment{
+      left: 0em;
+    }
+    .iconsEditComment{
+      left: 0em;
+    }
     
   }
   @media screen and (min-width: 1px) and (max-width: 571px) {
@@ -1322,9 +1526,6 @@ body, html, #root{
     form div svg{
       width: 20px;
       height: 20px
-    }
-    .divInputComment{    
-      width: 56vw !important;
     }
     .aclaration{
       margin: 0 0 0 4vw !important;
@@ -1410,9 +1611,7 @@ body, html, #root{
       background-size:cover; 
       background-repeat: no-repeat;
     }
-    .itineraryObservations {
-      flex-direction: column;
-    }
+
     .itineraryObservations *{
       text-align: center;
       font-size: 1.0em;
@@ -1448,9 +1647,37 @@ body, html, #root{
       margin: 2vh 0;
     }
     .hashtags{
-      font-size: 4vw;
+      margin-top: 2vh;
+      font-size: 15px;
       text-align: center;
     }
+    ::-webkit-scrollbar {   
+      width: 0px;
+    }
+    .activityBanner{
+      height: 25vh;
+      min-width: 55vw;
+    }    
+    .divInputComment{   
+      overflow: hidden; 
+      width: 70vw !important;
+      height: 50px;
+      padding: 0;
+      margin: -50px 0;
+    }
+    .divEditCommentInput{
+      width: 60vw !important;
+      height: 50px;
+      margin: 0 !important;
+      padding: 0;
+    }
+    .editCommentInput{
+      text-indent: 10px;
+      margin-left: 0vw;
+      width: 60vw !important;
+      height: 35px;
+    }
+
   }
 
   @media screen and (min-width: 1px) and (max-width: 450px) {
@@ -1458,9 +1685,6 @@ body, html, #root{
     .backgroundSign{
       height: 80em;
       background-position:left;
-    }
-    .divInputComment{    
-      width: 56vw;
     }
 
     form div svg{
@@ -1509,8 +1733,83 @@ body, html, #root{
       width: 35px;
       margin-left: 2vw !important;
     }
+    .editCommentInput{
+      text-indent: 10px;
+      width: 50vw !important;
+      height: 35px;
+    }
+    .divEditCommentInput{
+      width: 50vw !important;
+      height: 50px;
+      margin: 0 !important;
+      padding: 0;
+    }
+
 
   }
+
+
+  /* .commentariesTittle{
+    margin: 2vh 0 !important;
+  }
+  .activityBanner{
+    width: 26vw;
+    height: 25vh;
+    margin: 10vh 0;
+    min-width: 26vw;
+  } 
+  .activityName{
+    font-size: auto;
+  }
+  
+  .divActivities{
+    width: 60vw;
+    max-width: 60vw;
+    min-width: 60vw;
+  }
+  .historyEmptyComments{
+    width: 60vw;
+    height: 40vh;
+  }
+  .arrowDownward{
+    font-size: 4vw;
+  }
+  .historyComments{
+    width: 60vw;
+    height: 40vh;
+  }
+  .editCommentInput{
+    text-indent: 20px;
+    margin-left: 3vw;
+    width: 53vw;
+    height: 35px;
+  }
+  .commentInput{
+    text-indent: 20px ;
+    margin-left: 3vw;
+    width: 60vw;
+    height: 35px;
+  }
+  .divEditCommentInput{
+    background-color:var(--main-bg-color);
+  }
+  .divInputComment{    
+    width: 58.5vw;
+    height: 50px;
+    margin: -50px 0;
+  }
+  .nameAndComment *{
+    max-width: 40vw !important;
+  }
+  .optionIcons{
+    opacity: 0;
+  }
+  .sendComment{
+    left: -1em;
+  }
+  .iconsEditComment{
+    left: -2.2em;
+  } */
 
 
 

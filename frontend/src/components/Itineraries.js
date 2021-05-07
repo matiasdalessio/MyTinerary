@@ -1,14 +1,13 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import swal from 'sweetalert'
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
 import Comment from "./Comment";
-import { MdSend } from "react-icons/md";
+import { MdSend, MdArrowDownward } from "react-icons/md";
 
 
-const Itineraries = ({userLogged, itinerary, addOrRemoveLike, props, addComment}) => {
+const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesAction, props, addComment}) => {
 
   const userData = JSON.parse(localStorage.getItem('userLogged'))
   const userLS= {
@@ -80,7 +79,6 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, props, addComment}
         const respuesta = await addComment(sendData, props.history, _id, userLS)
         setCommentState({comments: respuesta})
         setCommentText({comment: ""})
-
       }else {
         swal("You cannot send an empty comment", "Write something!", "error")
       }
@@ -89,11 +87,10 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, props, addComment}
     }    
   }
 
-  const loadActivities= ((id) => {
-        axios.get(`http://localhost:4000/api/itinerary/activities/${id}`)
-        .then(response => setActivity({activities : response.data.respuesta}))
-        .catch(error => props.history.push('/serverdown')) 
-  })
+  const loadActivities= async (id) => {
+      const respuesta = await loadActivitiesAction(id, props.history)
+      setActivity({activities: respuesta})
+  }
 
   return (
       <div className="itineraryBanners">
@@ -123,16 +120,21 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, props, addComment}
                       </div>
                       <h3 className="commentariesTittle">Leave us a comment!</h3>
                       <div className="commentaries">
-                        <div className="historyComments">
-                          {commentState.comments.length !== 0 &&
+                        <div className={commentState.comments.length === 0 ? "historyEmptyComments" : "historyComments"}>
+                          {commentState.comments.length !== 0 ?
                           commentState.comments.map(comment =>{
                             return <Comment key = {comment._id} commentInfo = {comment} itineraryId ={_id} paramsId = {paramsId} itinerary ={itinerary} props={props.history} setCommentState = {setCommentState}/>
                           })
+                          : <div className="emptyCommentariesBox">
+                              <h2 className="emptyCommentariesTitle">Nowbody left a comment yet...</h2>
+                              <h3 className="emptyCommentariesTitle">Be the first!</h3>
+                              <MdArrowDownward className="arrowDownward" />
+                            </div>
                         }
                           
                         </div> 
                         <div className="divInputComment">  
-                            <input className="commentInput" name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={commentText.comment} ></input> 
+                            <input className="commentInput" name ="comment" placeholder="Write your comment here!" onChange={(e)=> readComment(e.target)} type="text" value={commentText.comment} ></input> 
                             <MdSend className="sendComment" onClick={() => sendComment()}/>
                         </div>                    
                       </div>
@@ -154,7 +156,7 @@ const mapDispatchToProps = {
   loadItineraries: itinerariesActions.loadItineraries,
   addOrRemoveLike:itinerariesActions.addOrRemoveLike,
   addComment: itinerariesActions.addComment,
-  loadActivities: itinerariesActions.loadActivities
+  loadActivitiesAction: itinerariesActions.loadActivitiesAction
 }
 
 

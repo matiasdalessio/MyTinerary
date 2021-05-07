@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import swal from "sweetalert";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 
-const Activity = ({commentInfo, userLogged, setCommentState, itinerary, itineraryId, editOrRemoveComment, paramsId, props}) =>{ 
-
-    console.log(commentInfo)
+const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOrRemoveComment, paramsId, props}) =>{ 
 
     const[editingComment, setEditComment]= useState({comment: commentInfo.comment , editing : false})
 
@@ -91,7 +89,7 @@ const Activity = ({commentInfo, userLogged, setCommentState, itinerary, itinerar
                 <div className="nameAndComment">
                     <p>{commentInfo.firstName} {commentInfo.lastName}:</p>
                     {!editingComment.editing 
-                    ?<h4>{commentInfo.comment}</h4> 
+                    ?<h4 className="userComment">{commentInfo.comment}</h4> 
                     :<div className="divEditCommentInput"> 
                           <input className="editCommentInput" name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={editingComment.comment} ></input>
                           <MdEdit className="iconsEditComment" onClick={() => send()}/>
@@ -108,12 +106,10 @@ const Activity = ({commentInfo, userLogged, setCommentState, itinerary, itinerar
 const mapStateToProps = state => {
     return {
         userLogged: state.loginReducer.userLogged,
-        itineraries: state.cityReducer.itineraries,
     }
   }
 const mapDispatchToProps = {
   editOrRemoveComment: itinerariesActions.editOrRemoveComment,
-  editComment: itinerariesActions.editComment
 }
 
 
