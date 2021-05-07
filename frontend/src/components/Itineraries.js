@@ -126,7 +126,7 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
                             return <Comment key = {comment._id} commentInfo = {comment} itineraryId ={_id} paramsId = {paramsId} itinerary ={itinerary} props={props.history} setCommentState = {setCommentState}/>
                           })
                           : <div className="emptyCommentariesBox">
-                              <h2 className="emptyCommentariesTitle">Nowbody left a comment yet...</h2>
+                              <h2 className="emptyCommentariesTitle">Nobody left a comment yet...</h2>
                               <h3 className="emptyCommentariesTitle">Be the first!</h3>
                               <MdArrowDownward className="arrowDownward" />
                             </div>
