@@ -1,6 +1,32 @@
 # MyTinerary
 
-Obtain and modify Cities, one specific City, Itineraries, one specific Itinerary or all the available Itineraries in one City.
+## Introducing our Web App for users who want to find their perfect trip, designed by insiders who know and love their cities!
+
+### Landing Page
+
+Entering our App, you can find an intuitive interface who gives the options of navigation and a "not logged" avatar up and right with the logo of our brand on the left.
+
+Moving down in this page we have a direct access to the available cities. Below the user could watch an ilustrative carousel with some of our popular MyTineraries. If you click any of this images, will be redirected to the cities page.
+
+### Cities Page
+
+The cities page has list of the available cities with a short description of each one when the user do a mouseOver action and a searcher that helps to find your preferred city introducing the name literally. If no results where founded, the App will let you know with a message.
+
+Entering Any of the available cities, the user will found the ilustrative picture of the city and some cards (if is one available) with the itineraries information. By pressing the button "View More" unfolds the Itinerary activities that the user recommends to do. the user can, if is logged, like it (clicking in the empty heart icon) and leave a comment if they want.
+
+### Sign Up / Log In
+
+By clicking the "not logged" avatar or in the bottom of the page, you will found the "Sign Up" and "Log In" options.
+To Sign Up the user needs to complete the fields with the requirements and add a URL image to their profile. If all the provided information is ok, the user will be logged instantly and be abble to like and comment any of our Itineraries.
+To Sign In the user needs to complete the E-mail and password fields with the provided information in the Sign Up. 
+In both cases, the user has the option to log in o sign up with their Google account.
+To Log Out the user can click the avatar and inside, the option to log out.
+
+## Let's talk about our API.
+
+### Objective:
+
+Obtain, create or modify Cities, Itineraries or Activities generally or specifically.
 
 ## Endpoints
 URL: https://localhost:4000/
@@ -12,12 +38,18 @@ URL: https://localhost:4000/
 | GET | /api/city/itineraries/:id | Get all available Itineraries in a single City replacing ":id" with the ID of the City |
 | GET | /api/itineraries | Get all available Itineraries populated with the City and it's information |
 | GET | /api/itinerary/:id | Get a single Itinerary populated with the City and it's information replacing ":id" with the ID of the Itinerary|
+| GET | /api/itineraries/activities/:id | Get all available Activities in a specific Itinerary replacing ":id" with the ID of the Itinerary |
+| GET | /api/activities | Get all available Activities populated with the Itinerary and it's information |
+| GET | /api/activity/:id | Get a specific Activity replacing ":id" with the ID of the Activity|
 | POST | /api/cities | Add one City with the required fields  < ***see required fields and format at the end of table*** > |
 | POST | /api/itineraries |  Add one Itinerary with the required fields  <***see required fields and format at the end of table***> |
+| POST | /api/activities | Add one Activity with the required fields  < ***see required fields and format at the end of table*** > |
 | DELETE | /api/city/:id | Delete one City replacing ":id" with the ID of the City|
 | DELETE | /api/itinerary/:id | Delete one Itinerary replacing ":id" with the ID of the Itinerary |
+| DELETE | /api/activity/:id | Delete one Activity replacing ":id" with the ID of the Activity |
 | PUT | /api/city/:id | Modify one City replacing ":id" with the ID of the City and sending the field with the information to change  <***see required fields and format at the end of table***>  |
 | PUT | /api/itinerary/:id | Modify one Itinerary replacing ":id" with the ID of the Itinerary and sending the field with the information to change  <***see required fields and format at the end of table***> |
+| PUT | /api/activity/:id | Modify one Activity replacing ":id" with the ID of the Activity and sending the field with the information to change  <***see required fields and format at the end of table***> |
 
 
 ## Responses
@@ -163,6 +195,14 @@ _Every PUT, POST and DELETE request, response with a JSON object with two proper
 | like | String | ------ | ------ |
 | hashtags | array of objects with String format| At least 3 and max 5 Hashtags, separated with a "," .  | Required |
 | cityID | String | Must be a existent City ID. if you don't know it, send a GET request to obtain it. | Required |
+
+### For Activities:
+
+| Field | Format | Specificity | Required |
+| ------ | ------ | ------ | ------ |
+| activityName | String | ------  | Required |
+| activityImage | String | ------ | Required |
+| itineraryId | String | Must be a existent Itinerary ID. if you don't know it, send a GET request to obtain it.  | Required |
 
 
 
