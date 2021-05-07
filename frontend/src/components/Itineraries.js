@@ -4,7 +4,9 @@ import swal from 'sweetalert'
 import itinerariesActions from "../redux/actions/itinerariesActions";
 import Activity from "./Activity";
 import Comment from "./Comment";
-import { MdSend, MdArrowDownward } from "react-icons/md";
+import { MdSend } from "react-icons/md";
+import { TiArrowDownThick } from "react-icons/ti";
+
 
 
 const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesAction, props, addComment}) => {
@@ -128,7 +130,7 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
                           : <div className="emptyCommentariesBox">
                               <h2 className="emptyCommentariesTitle">Nobody left a comment yet...</h2>
                               <h3 className="emptyCommentariesTitle">Be the first!</h3>
-                              <MdArrowDownward className="arrowDownward" />
+                              <TiArrowDownThick className="arrowDownward" />
                             </div>
                         }
                           

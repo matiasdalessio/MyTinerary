@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { useState } from "react"
 
-const ContentCarousel = ({cities}) =>{
+const ContentCarousel = ({cities, props}) =>{
     
     const [index, setIndex] = useState(0);
   
@@ -18,7 +18,7 @@ const ContentCarousel = ({cities}) =>{
                                 <div className=" carousel-slides" >
                                     {cityGroup.map(city => {
                                         const foto = require(`../assets/${city.img}`)
-                                        return  <div className="carousel-img" key={city.id} style={{backgroundImage: `url('${foto.default}')`}}>
+                                        return  <div onClick={() => props.push('/cities')} className="carousel-img" key={city.id} style={{backgroundImage: `url('${foto.default}')`}}>
                                                     <h3 className="cityName">{city.name}</h3>
                                                 </div>
                                     })}

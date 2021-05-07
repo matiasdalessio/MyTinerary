@@ -1343,6 +1343,9 @@ body, html, #root{
   
   @media screen and (min-width: 1px) and (max-width: 768px) {
 
+    .itineraryBanner{
+      width: 90vw;
+    }
     form div svg{
       width: 20px;
       height: 20px

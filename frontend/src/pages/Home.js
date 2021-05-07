@@ -57,7 +57,7 @@ class Home extends React.Component{
                     <div className="imgCallToAction" style={{backgroundImage: "url('./img/call to action4.png')"}}></div>
                 </div>
                 <div className="main">                    
-                    <ContentCarousel cities = {this.infoCities}/>            
+                    <ContentCarousel cities = {this.infoCities} props={this.props.history}/>            
                 </div>
                 <Footer className="footer"/>
             </div>        
