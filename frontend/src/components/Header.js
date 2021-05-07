@@ -37,7 +37,7 @@ const Header = (props) =>{
                     <NavLink className="nav-link" exact to="/">Home</NavLink>
                     <NavLink className="nav-link" exact to="/cities">Cities</NavLink>   
                 </div>   
-                <HeaderSm />    
+                <HeaderSm className="headerSmall"/>    
                 <ul className="nav-item">
                     <div className="welcomeAndAvatar">
                         <button style={{backgroundImage: `url("${imagen}")`}} className="nav-link genericUser" data-bs-toggle="dropdown" ></button>

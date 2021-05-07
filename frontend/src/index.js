@@ -7,10 +7,10 @@ import mainReducer from './redux/reducers/mainReducer'
 import thunk from 'redux-thunk';
 
 
-const miStore = createStore(mainReducer, applyMiddleware(thunk))
+const reduxStore = createStore(mainReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <Provider store={miStore} >
+  <Provider store={reduxStore} >
     <App />
   </Provider>,
   document.getElementById('root')

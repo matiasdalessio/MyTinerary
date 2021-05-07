@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const itinerariesActions = {
-    
+
     loadItineraries: (id, props) => {
         return (dispatch, getState) => {
             axios.get(`http://192.168.0.147:4000/api/city/itineraries/${id}`)
@@ -37,7 +37,7 @@ const itinerariesActions = {
             }
         }
     },
-    editOrRemoveComment: (sendData, id, props,  userLS) =>{
+    editOrRemoveComment: (sendData, id, props, userLS) =>{
         return async () => {
            try {
             const respuesta = await axios.put(`http://192.168.0.147:4000/api/itinerary/comments/${id}`, {sendData},{

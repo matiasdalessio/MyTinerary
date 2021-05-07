@@ -95,7 +95,7 @@ const itineraryControllers = {
     },
     modifyOrRemoveComment: async (req, res) => {
         const {sendData} = req.body
-        const {commentId, paramsId, editedComment} = sendData
+        const {commentId, editedComment} = sendData
         const comment = editedComment
         try {
             const modifiedOrRemovedComment = await Itinerary.findOneAndUpdate({"comments._id" : commentId}, !editedComment ?{$pull:{comments: {_id: commentId}}} : {$set:{"comments.$.comment":comment}}, {new: true})

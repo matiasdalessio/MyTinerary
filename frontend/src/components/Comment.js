@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import swal from "sweetalert";
 import itinerariesActions from "../redux/actions/itinerariesActions";
 
-const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOrRemoveComment, paramsId, props}) =>{ 
+const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOrRemoveComment, props}) =>{ 
 
     const[editingComment, setEditComment]= useState({comment: commentInfo.comment , editing : false})
 
@@ -22,8 +22,8 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
     },[commentInfo])
 
 
-    const editOrRemove = async (editedComment= null , commentId, paramsId, itineraryId) =>{
-      var sendData = {editedComment, commentId, paramsId} 
+    const editOrRemove = async (editedComment= null , commentId, itineraryId) =>{
+      var sendData = {editedComment, commentId} 
       const respuesta = await editOrRemoveComment(sendData, itineraryId, props, userLS)
       setCommentState({comments: respuesta})
     }
@@ -47,7 +47,7 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
             })
             .then((willDelete) => {
               if (willDelete) {
-                  editOrRemove(null, commentId, paramsId, itineraryId)
+                  editOrRemove(null, commentId, itineraryId)
                   swal("Poof! Your comment has been deleted!", {
                       icon: "success",
                 });
@@ -77,7 +77,7 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
     const send = (() => {
         if (editingComment.comment !=="") {
           var comment = editingComment.comment
-          editOrRemove(comment, commentInfo, paramsId, itineraryId)
+          editOrRemove(comment, commentInfo, itineraryId)
         } else { swal("You cannot send an empty comment", "Write something!", "error")}        
     })
     

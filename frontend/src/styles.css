@@ -891,7 +891,6 @@ body, html, #root{
     justify-content:flex-start;
   }
   .userComment{
-    font-style: italic !important;
     text-align: justify;
     max-width: 50vw !important;
   }
@@ -1474,6 +1473,7 @@ body, html, #root{
       font-size: 10vw;
     }
     .historyComments{
+      overflow-x: hidden;
       width: 70vw;
       height: 40vh;
     }
@@ -1745,77 +1745,4 @@ body, html, #root{
       margin: 0 !important;
       padding: 0;
     }
-
-
   }
-
-
-  /* .commentariesTittle{
-    margin: 2vh 0 !important;
-  }
-  .activityBanner{
-    width: 26vw;
-    height: 25vh;
-    margin: 10vh 0;
-    min-width: 26vw;
-  } 
-  .activityName{
-    font-size: auto;
-  }
-  
-  .divActivities{
-    width: 60vw;
-    max-width: 60vw;
-    min-width: 60vw;
-  }
-  .historyEmptyComments{
-    width: 60vw;
-    height: 40vh;
-  }
-  .arrowDownward{
-    font-size: 4vw;
-  }
-  .historyComments{
-    width: 60vw;
-    height: 40vh;
-  }
-  .editCommentInput{
-    text-indent: 20px;
-    margin-left: 3vw;
-    width: 53vw;
-    height: 35px;
-  }
-  .commentInput{
-    text-indent: 20px ;
-    margin-left: 3vw;
-    width: 60vw;
-    height: 35px;
-  }
-  .divEditCommentInput{
-    background-color:var(--main-bg-color);
-  }
-  .divInputComment{    
-    width: 58.5vw;
-    height: 50px;
-    margin: -50px 0;
-  }
-  .nameAndComment *{
-    max-width: 40vw !important;
-  }
-  .optionIcons{
-    opacity: 0;
-  }
-  .sendComment{
-    left: -1em;
-  }
-  .iconsEditComment{
-    left: -2.2em;
-  } */
-
-
-
-
-
-
-
-
