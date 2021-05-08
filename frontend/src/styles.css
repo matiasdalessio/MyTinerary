@@ -646,6 +646,22 @@ body, html, #root{
     background-size:cover; 
     background-repeat: no-repeat;
   }
+  .likes{
+    margin-bottom: 10px;
+    font-size: 18px !important;
+    text-align: center;
+  }
+
+  .divPopover *{
+    margin: 0 5px;
+  }
+  .divPopover{
+    margin: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 15vw;
+  }
 
   .itineraryObservations{
     display: flex;

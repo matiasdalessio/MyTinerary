@@ -6,6 +6,9 @@ import Activity from "./Activity";
 import Comment from "./Comment";
 import { MdSend } from "react-icons/md";
 import { TiArrowDownThick } from "react-icons/ti";
+import SimplePopover from "./Popover";
+
+
 
 
 
@@ -102,10 +105,19 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
                     <h3>{author.userName}</h3>
                 </div>
                 <div className="itineraryObservations">
-                  <p className="likes">Likes: <svg onClick={!like.fetching ? () => likeToggle() : null} aria-hidden="true" focusable="true" data-prefix="far" data-icon="heart" className={userFounded  ? "filled" : "empty"} role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d={userFounded  ? heartFilled : heartEmpty}></path></svg> {like.usersLiked.length}</p>
+                  <svg onClick={!like.fetching ? () => likeToggle() : null} aria-hidden="true" focusable="true" data-prefix="far" data-icon="heart" className={userFounded  ? "filled" : "empty"} role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" ><path fill="currentColor" d={userFounded  ? heartFilled : heartEmpty}></path></svg>                    
                   <p className="duration">Duration:{"🕒".repeat(duration)}</p>
                   <p className="price">Price: {"💵".repeat(price)}</p>
                 </div>
+                <span className="likes">                  
+                  {!userFounded && like.usersLiked.length === 1 
+                    ? `${like.usersLiked[0].firstName} like this!` : null}                  
+                  {userLogged && userFounded && like.usersLiked.length === 1
+                    ? `You like this!` 
+                    : null}
+                  {like.usersLiked.length === 0 && "Nobody like this yet, be the first!"}
+                </span>
+                <span style={{position:'relative', textDecoration: 'underline', color: 'black', fontSize:'18px'}}>{like.usersLiked.length > 1 && <SimplePopover key="popover" like={like}/> }</span>
                 <p className="hashtags">
                     {hashtags.map(hashtag =>{
                     return hashtag + " "
