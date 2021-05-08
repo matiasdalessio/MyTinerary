@@ -4,23 +4,23 @@
 
 ### Landing Page
 
-Entering our App, you can find an intuitive interface who gives the options of navigation and a "not logged" avatar up and right with the logo of our brand on the left.
+Entering our App, you can find an intuitive interface that gives the options of navigation and a "not logged" avatar up and right with the logo of our brand on the left.
 
-Moving down in this page we have a direct access to the available cities. Below the user could watch an ilustrative carousel with some of our popular MyTineraries. If you click any of this images, will be redirected to the cities page.
+Moving down in this page we have a direct access to the available cities. Below, the user can watch an ilustrative carousel with some of our popular MyTineraries. If you click any of this images, the user will be redirected to the cities page.
 
 ### Cities Page
 
-The cities page has list of the available cities with a short description of each one when the user do a mouseOver action and a searcher that helps to find your preferred city introducing the name literally. If no results where founded, the App will let you know with a message.
+The cities page has a list of the available cities with a short description of each one when the user do a mouse over action and a searcher that helps to find your preferred city introducing the name literally. If no results where founded, the App will let you know with a message.
 
-Entering Any of the available cities, the user will found the ilustrative picture of the city and some cards (if is one available) with the itineraries information. By pressing the button "View More" unfolds the Itinerary activities that the user recommends to do. the user can, if is logged, like it (clicking in the empty heart icon) and leave a comment if they want.
+Entering Any of the available cities, the user will found a representative picture of the city and some cards (if available) with the itineraries information. Pressing the button "View More", unfolds the Itinerary activities that the user recommends to do. The user can, if it's logged, like it (clicking in the empty heart icon) and leave a comment if they want.
 
 ### Sign Up / Log In
 
-By clicking the "not logged" avatar or in the bottom of the page, you will found the "Sign Up" and "Log In" options.
-To Sign Up the user needs to complete the fields with the requirements and add a URL image to their profile. If all the provided information is ok, the user will be logged instantly and be abble to like and comment any of our Itineraries.
-To Sign In the user needs to complete the E-mail and password fields with the provided information in the Sign Up. 
+By clicking the "not logged" avatar or in the bottom of the page, the user will find the "Sign Up" and "Log In" options.
+To Sign Up, the user needs to complete the fields with the requirements and add a URL image to their profile. If all the provided information is ok, the user will be logged instantly and be able to like and comment any Itinerary.
+To Sign In, the user needs to complete the E-mail and password fields with the provided information in the Sign Up. 
 In both cases, the user has the option to log in o sign up with their Google account.
-To Log Out the user can click the avatar and inside, the option to log out.
+To Log Out, the user can click the avatar and inside, the option to log out.
 
 ## Let's talk about our API.
 
