@@ -129,6 +129,7 @@ body, html, #root{
     padding: 0 2vw;
   }
   .headerDer{
+    margin: 2vh 0;
     display: flex !important;
   }
                                                           /* SIGN UP / LOG IN */
@@ -1132,6 +1133,10 @@ body, html, #root{
     }
     .divInputComment{    
       width: 57.9vw;
+    }
+    .headerDer{
+      margin: 0vh 0;
+      display: flex !important;
     }
 
     #heroAvion{

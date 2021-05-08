@@ -9,9 +9,6 @@ import { TiArrowDownThick } from "react-icons/ti";
 import SimplePopover from "./Popover";
 
 
-
-
-
 const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesAction, props, addComment}) => {
 
   const userData = JSON.parse(localStorage.getItem('userLogged'))
