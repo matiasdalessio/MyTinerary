@@ -71,6 +71,9 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
       comment : e.value
     })
   })
+  const enterToSend = ((e) =>{
+    e.key === 'Enter' && sendComment()    
+  })
 
   const sendComment = async () => {
     if (userLogged) {
@@ -144,7 +147,7 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
                           
                         </div> 
                         <div className="divInputComment">  
-                            <input className="commentInput" name ="comment" placeholder="Write your comment here!" onChange={(e)=> readComment(e.target)} type="text" value={commentText.comment} ></input> 
+                            <input className="commentInput" name ="comment" onKeyPress={(e)=> enterToSend(e)} placeholder="Write your comment here!" onChange={(e)=> readComment(e.target)} type="text" value={commentText.comment} ></input> 
                             <MdSend className="sendComment" onClick={() => sendComment()}/>
                         </div>                    
                       </div>

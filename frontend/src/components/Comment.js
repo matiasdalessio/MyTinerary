@@ -14,6 +14,9 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
       token: localStorage.getItem('token'),
       ...userData
     }
+    const enterToSend = ((e) =>{
+      e.key === 'Enter' && send()    
+    })
 
     useEffect(()=> {
       setEditComment({...editingComment,
@@ -91,7 +94,7 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
                     {!editingComment.editing 
                     ?<h4 className="userComment">{commentInfo.comment}</h4> 
                     :<div className="divEditCommentInput"> 
-                          <input className="editCommentInput" name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={editingComment.comment} ></input>
+                          <input className="editCommentInput" onKeyPress={(e)=> enterToSend(e)} name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={editingComment.comment} ></input>
                           <MdEdit className="iconsEditComment" onClick={() => send()}/>
                           <MdDoNotDisturbAlt className="iconsEditComment"onClick={() => setEditComment({...editingComment, editing:false})} /> 
                     </div> }
