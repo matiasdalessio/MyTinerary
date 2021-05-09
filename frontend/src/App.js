@@ -11,6 +11,7 @@ import loginActions from "./redux/actions/loginActions";
 import './styles.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './preloader.css'
+import './mediaQueries.css'
 
 class App extends React.Component{
 

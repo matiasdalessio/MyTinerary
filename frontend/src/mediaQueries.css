@@ -1,0 +1,709 @@
+
+
+
+  @media screen and (min-width: 576px) and (max-width: 1093px) {
+    .icons *{
+      width: 5vw;
+      margin: 0 2vw !important;
+    }
+    
+    .divInputComment{    
+      width: 58vw;
+    }
+  .btnHomeEnCities{
+    border-radius: 0 50px !important ;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: var(--main-bg-color);
+    width: 200px !important;
+    font-size: 20px !important;
+    margin: 5vh 5vw;
+    margin-bottom: 10vh;
+    padding: 1em;
+  }
+  .parrafoBanner{
+    width: 60vw !important;
+    font-size: 1.1vw !important;
+  }
+
+  .cityBanner .cityName{
+    color: var(--main-bg-color);
+    width: 100%;
+    margin-top: 15vh;
+    background-color:#00000079;
+    transition: background-color 0.5s;
+    text-align: center;
+  }
+  
+
+  ::-webkit-scrollbar {   
+    width: 10px !important;
+  }
+  .activityBanner{
+    height: 25vh;
+    min-width: 26vw;
+  }    
+  .editCommentInput{
+    text-indent: 10px;
+    width: 52vw;
+  }
+  .commentInput{
+    font-size: 14px;
+    text-indent: 20px ;
+    width: 100%;
+  }
+  .divInputComment{   
+    width: 68.5vw ;
+    height: 50px;
+    padding: 0;
+    margin: -50px 0;
+  }
+  .nameAndComment p{
+    color: black;
+    max-width: 50vw;
+  }
+
+  }
+  
+  @media screen and (min-width: 300px) and (max-width: 991px) {
+    .hero{
+      border-bottom: none;
+    }
+    h1.cityName{
+      font-size: 35px;
+    }
+    .divInputComment{    
+      width: 57.9vw;
+    }
+    .headerDer{
+      margin: 0vh 0;
+      display: flex !important;
+    }
+
+    #heroAvion{
+      border-bottom: none;
+      height: 58vh;
+    }
+    .responsiveNav{
+      background-color: var(--main-bg-color);
+      display: block !important;
+      width:65px;
+      height:65px;
+      background-position:center;
+      background-size: 50px;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 5em;
+      left: 100%;
+    }  
+    .genericUser{
+      width:65px;
+      height:65px;
+    }
+    .dropdown-menu{
+      position: relative;
+      top: -90px !important;
+      left: 70px !important;
+    }
+    .header{
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .navbar{
+      display: none !important;
+    }
+    .carousel-slides{
+      padding-top: 2em;
+      flex-direction:column ;
+    }
+    
+    .withWelcome{
+      top: 7em;
+    }
+
+    form div svg{
+      width: 20px;
+      height: 20px
+    }
+    .aclaration{
+      margin: 0 0 0 3.2vw !important;
+      font-size: 1vw;
+      width: 40vw;
+    }
+    .formCard form input{
+      margin:  1vh 0 0 1vw !important;
+      height: 5vh;
+      width: 40vw;
+    }
+    select{    
+      margin:  0 0 0 1vw !important;
+      height: 5vh;
+      width: 40vw;
+      max-width: 40vw;
+    }
+   .formCard{
+      top:0vh;
+      width: 55vw;
+    }
+    .logIn{
+      top:-16vh;
+    }  
+    .submit{
+      width: 20vw;
+      font-size: 15px;
+    }
+    .googleButton{
+      font-size: 12px;
+      width: 20vw;
+    }  
+    .googleButton svg{
+      width: 26px;
+      margin-left: 1vw !important;
+    }
+
+    .carousel-img{
+      box-shadow: 0px 0px 40px -20px rgba(255, 255, 255, 0.75);
+      border-radius: 30px;
+      width: 80%;
+      height: 16vh;
+      background-position:center;
+      background-size:cover; 
+      background-repeat: no-repeat;
+    }
+    .carousel-inner *{
+      margin: 0.2em 1em 0.5em 1em;
+    }
+    .carousel{
+      background-color: var(--secundary-bg-color);
+      max-width: 100% !important;
+      min-width: 100% !important;
+      max-height: 85vh;
+      min-height: 85vh; 
+      overflow: hidden;
+    }
+    .carousel-slides{
+      min-width: 100%;
+      max-width: 100%;
+      position: relative;
+      left: 6.5vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1{
+      width: 80%;
+      position: relative;
+      top: 20%;
+      left: 10% ;
+    
+    }
+    .tituloCities h1{
+      font-size: 6vw;
+    }
+
+    ::-webkit-scrollbar {   
+      width: 0px !important;
+    }
+    .showMore{
+      height: 90vh;
+      transition: height 0.5s, opacity 2.5s;
+    }
+    .commentariesTittle{
+      font-size: 30px;
+      margin: 4vh 0 !important;
+    }
+    .activityBanner{
+      height: 25vh;
+      min-width: 31vw;
+    }    
+    .emptyCommentariesTitle{
+      font-size: 3vw;
+    }
+    .arrowDownward{
+      font-size: 6vw;
+    }  
+    .editCommentInput{
+      text-indent: 10px;
+      width: 52vw;
+    }
+    .commentInput{
+      font-size: 14px;
+      text-indent: 20px ;
+      width: 100%;
+    }
+    .divInputComment{   
+      width: 70vw ;
+      height: 50px;
+      padding: 0;
+      margin: -50px 0;
+    }
+    .nameAndComment p{
+      color: black;
+      max-width: 40vw;
+    }
+    .commentContent{
+      border-radius: 15px;
+    }
+    .optionIcons{
+      opacity: 1;
+    }
+    .sendComment{
+      left: 0em;
+    }
+    .iconsEditComment{
+      left: 0em;
+    }  
+  }
+  
+  
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    
+    .carousel-slides{
+      min-width: 100%;
+      max-width: 100%;
+      position: relative;
+      left: 4vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .divInputComment{    
+      width: 56.8vw !important;
+    }
+      .carousel{
+      background-color: var(--secundary-bg-color);
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 90vh;
+      min-height: 90vh; 
+      overflow: hidden;
+    }
+    .carousel-item{
+      max-width: 80vw;
+      min-width: 80vw;
+      max-height: 84vh;  
+      min-height: 84vh;
+    }
+    .parrafoBanner{
+      font-size: 2vw !important;  
+    }
+    .hero h1{
+      font-size: 4.5vw;
+      width: 60%;
+      top: 20%;
+      left: 27% ;
+    
+    }
+    h1.cityName.cityNotFound{
+      font-size: 6vw;
+    }
+  }
+  
+  
+  @media screen and (min-width: 1px) and (max-width: 768px) {
+
+    .itineraryBanner{
+      width: 90vw;
+    }
+    form div svg{
+      width: 20px;
+      height: 20px
+    }
+    .divInputComment{    
+      width: 57.7vw;
+    }
+    .itineraryObservations {
+      flex-direction: column;
+    }
+    .aclaration{
+      margin: 0 0 0 4vw !important;
+      font-size: 1.6vw;
+      width: 60vw;
+    }
+    .formCard form input{
+      margin:  1vh 0 0 1vw !important;
+      height: 6vh;
+      width: 60vw;
+    }
+    select{    
+      margin:  0 0 0 1vw !important;
+      height: 5vh;
+      width: 60vw;
+      max-width: 60vw;
+    }
+   .formCard{
+      top:0vh;
+      left: 7vw;
+      width: 75vw;
+    }
+    .logIn{
+      top:-16vh;
+    }  
+
+    .submit{
+      width: 30vw;
+      height: 50px;
+      font-size: 15px;
+    }
+    .googleButton{
+      font-size: 15px;
+      width: 30vw;
+    }  
+    .googleButton svg{
+      width: 22px;
+      margin-left: 0.5vw !important;
+    }
+
+    .error{
+      background-color: var(--main-bg-color);
+      margin-top: 35vh ;
+      height: 100vh;
+    }
+  
+    .imgCallToAction{
+      display: none;
+    }
+    .callToAction{
+      padding: 6vh 0;
+      justify-content: center;
+    }
+    .btnHomeEnCities{
+      border-radius: 0 50px !important ;
+      border: 1px solid rgb(255, 255, 255);
+      background-color: var(--main-bg-color);
+      width: 150px;
+      font-size: 15px;
+      margin: 5vh 2vw;
+      margin-bottom: 10vh;
+      padding: 1em;
+    }
+    .footer{
+      background-color: var(--main-bg-color);
+      box-shadow: 15px 13px 44px 8px rgba(0,0,0,0.75);
+      color: var(--secundary-bg-color);
+      padding: 1vh 3vw !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2vh 1vw !important;
+      width: 10%;
+      text-align: center;
+      width : 100%;
+    }
+    .footer .navFooter{
+      display: flex;
+      margin: 3vh;
+    }
+    .footer .navFooter * {
+      box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.85);
+      margin: 0 1vw;
+    }
+    .itineraryTitle{
+      text-align: center;
+    }
+    ::-webkit-scrollbar {   
+      width: 0px !important;
+    }
+    
+    .showMore{
+      height: 90vh;
+    }
+    .commentariesTittle{
+      font-size: 20px;
+      margin: 4vh 0 !important;
+    }
+    .activityBanner{
+      height: 25vh;
+      min-width: 40vw;
+    }    
+    .divActivities{
+      width: 70vw;
+      max-width: 70vw;
+      min-width: 70vw;
+    }
+    .historyEmptyComments{
+      width: 70vw;
+      height: 40vh;
+    }
+    .emptyCommentariesTitle{
+      font-size: 4vw;
+    }
+    .arrowDownward{
+      font-size: 10vw;
+    }
+    .historyComments{
+      overflow-x: hidden;
+      width: 70vw;
+      height: 40vh;
+    }
+    .commentInput{
+      font-size: 14px;
+      text-indent: 20px ;
+      margin-left: 3vw;
+      width: 100%;
+      height: 35px;
+    }
+    .editCommentInput{
+      text-indent: 10px;
+      margin: 0;
+      width: 60vw ;
+      height: 35px;
+    }
+    .divEditCommentInput{
+      width: 60vw ;
+      height: 50px;
+      margin: 0 !important;
+      padding: 0;
+    }
+    .divInputComment{   
+      overflow: hidden; 
+      width: 70vw !important;
+      height: 50px;
+      padding: 0;
+      margin: -50px 0;
+    }
+    .nameAndComment p{
+      color: black;
+      min-width: 50vw;
+      max-width: 50vw !important;
+    }
+    .commentContent{
+      border-radius: 15px;
+    }
+    .optionIcons{
+      opacity: 1;
+    }
+    .sendComment{
+      left: 0em;
+    }
+    .iconsEditComment{
+      left: 0em;
+    }
+    
+  }
+  @media screen and (min-width: 1px) and (max-width: 571px) {
+
+    form div svg{
+      width: 20px;
+      height: 20px
+    }
+    .aclaration{
+      margin: 0 0 0 4vw !important;
+      font-size: 1.6vw;
+      width: 62vw;
+    }
+    .formCard form input{
+      margin:  1vh 0 0 1vw !important;
+      height: 6vh;
+      width: 60vw;
+    }
+    select{    
+      margin:  0 0 0 1vw !important;
+      height: 5vh;
+      width: 60vw;
+      max-width: 60vw;
+    }
+   .formCard{
+      top:5vh;
+      left: 7vw;
+      width: 75vw;
+    }
+    .logIn{
+      top:-16vh;
+    }  
+
+    .submit{
+      width: 30vw;
+      height: 50px;
+      font-size: 15px;
+    }
+    .googleButton{
+      font-size: 12px;
+      width: 30vw;
+    }  
+    .googleButton svg{
+      width: 28px;
+      margin-left: 2vw !important;
+    }
+    
+    .parrafoBanner{
+      display: none;  
+    }
+    .cityBanner .cityName{
+      color: var(--main-bg-color);
+      width: 100%;
+      margin-top: 0vh;
+      background-color:#00000079;
+      transition: background-color 0.5s;
+      text-align: center;
+    }
+    .errorBanner .cityName{
+      color: var(--main-bg-color);
+      width: 100%;
+      font-size: 30px;
+      background-color:#00000079;
+      transition: background-color 0.5s;
+      text-align: center;
+    }
+    .showMore{
+      margin: 5vh 0 0 0;
+    }
+    .error{
+      background-color: var(--main-bg-color);
+      margin-top: 50vh ;
+      height: 100vh;
+    }
+    .errorBanner .cityName *{
+      font-size: 25px;
+    }
+    .itineraryTitle{
+      margin: 2vh 0;
+      font-size: 30px !important;
+      color: var(--secundary-bg-color);
+      text-shadow: 1px 0px 5px rgb(139, 139, 139) ;
+    }
+    .avatarAuthor{
+      border: 3px solid #4949499e !important;
+      border-radius: 100px;
+      width: 80px;
+      height: 80px;
+      background-position:top;
+      background-size:cover; 
+      background-repeat: no-repeat;
+    }
+
+    .itineraryObservations *{
+      text-align: center;
+      font-size: 1.0em;
+      margin: 1vh 1vw;
+    }
+    .btnReadMore{
+      transition: box-shadow 0.5s, background-color 0.5s;
+      box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.85);
+      margin: 2vh 0;
+      color: var(--main-bg-color) !important;
+      background-color: var(--secundary-bg-color);
+      border-radius: 0 50px !important ;  
+      width: 150px;
+      font-size: 20px;
+      border-radius: 0;
+      padding: 1em;
+    }
+    .tituloCities h1{
+      font-size: 8vw;
+    }
+    .itinerariesSubtitle{
+      font-size: 6vw;
+    }
+    .avionH1Cities{
+      z-index: 1;
+      min-width: 60px;
+      width:13vw;
+      background-position:center;
+      background-size:cover;
+      background-repeat: no-repeat;
+    } 
+    .errorBanner{
+      margin: 2vh 0;
+    }
+    .hashtags{
+      margin-top: 2vh;
+      font-size: 15px;
+      text-align: center;
+    }
+    ::-webkit-scrollbar {   
+      width: 0px;
+    }
+    .activityBanner{
+      height: 25vh;
+      min-width: 55vw;
+    }    
+    .divInputComment{   
+      overflow: hidden; 
+      width: 70vw !important;
+      height: 50px;
+      padding: 0;
+      margin: -50px 0;
+    }
+    .divEditCommentInput{
+      width: 58vw !important;
+      height: 50px;
+      margin: 0 !important;
+      padding: 0;
+    }
+    .editCommentInput{
+      text-indent: 10px;
+      margin-left: 0vw;
+      width: 60vw !important;
+      height: 35px;
+    }
+
+  }
+
+  @media screen and (min-width: 1px) and (max-width: 450px) {
+
+    .backgroundSign{
+      height: 80em;
+      background-position:left;
+    }
+
+    form div svg{
+      width: 20px;
+      height: 30px
+    }
+    .aclaration{
+      margin: 1vw 0 1.5em 6vw !important;
+      font-size: 3vw;
+      width: 80vw;
+    }
+    .formCard form input{
+      font-size: 15px;
+      margin:  1vh 0 0 1vw !important;
+      height: 40px;
+      width: 80vw;
+    }
+    select{    
+      font-size: 15px !important;
+      margin:  0 0 0 1vw !important;
+      height: 40px;
+      width: 80vw;
+      max-width: 80vw;
+    }
+   .formCard{
+      top: 5em;
+      left: 0;
+      width: 95vw;
+    }
+    .logIn{
+      top:-5em;
+    }  
+
+    .submit{
+      width: 35vw;
+      border-radius: 0 30px !important;
+      height: 50px;
+      font-size: 15px;
+    }
+    .googleButton{
+      border-radius: 0 30px !important;
+      font-size: 12px;
+      width: 35vw;
+    }  
+    .googleButton svg{
+      width: 35px;
+      margin-left: 2vw !important;
+    }
+    .editCommentInput{
+      text-indent: 10px;
+      width: 50vw !important;
+      height: 35px;
+    }
+    .divEditCommentInput{
+      width: 50vw !important;
+      height: 50px;
+      margin: 0 !important;
+      padding: 0;
+    }
+  }

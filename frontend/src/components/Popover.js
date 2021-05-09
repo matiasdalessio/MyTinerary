@@ -34,7 +34,7 @@ export default function MouseOverPopover({like, userFounded, userLogged}) {
                     ? `You and ${like.usersLiked[0].firstName} like this!` 
                     : null}
             {userLogged && userFounded && like.usersLiked.length > 2
-                    ? `You, ${like.usersLiked[0].firstName} and ${like.usersLiked.length -2} like this!` 
+                    ? `You, ${like.usersLiked[0].firstName} and ${like.usersLiked.length -2} more like this!` 
                     : null}
             {like.usersLiked.length === 1 &&` ${like.usersLiked[0].firstName} like this!`}
             {!userFounded && like.usersLiked.length > 1 && `${like.usersLiked[0].firstName} and ${like.usersLiked.length -1} more like this!`}
