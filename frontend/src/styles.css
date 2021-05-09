@@ -895,7 +895,6 @@ body, html, #root{
     justify-content:center ;
   }
   .nameAndComment *{
-    text-align: justify;
     font-size: 15px;
     margin: 0;
   }
@@ -912,7 +911,6 @@ body, html, #root{
     justify-content:flex-start;
   }
   .userComment{
-    text-align: justify;
     max-width: 50vw !important;
   }
   .comment{

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MouseOverPopover({like}) {
+export default function MouseOverPopover({like, userFounded, userLogged}) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -30,8 +30,14 @@ export default function MouseOverPopover({like}) {
   return (
     <div>
       <p aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true" onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
+            {userLogged && userFounded && like.usersLiked.length <= 2
+                    ? `You and ${like.usersLiked[0].firstName} like this!` 
+                    : null}
+            {userLogged && userFounded && like.usersLiked.length > 2
+                    ? `You, ${like.usersLiked[0].firstName} and ${like.usersLiked.length -2} like this!` 
+                    : null}
             {like.usersLiked.length === 1 &&` ${like.usersLiked[0].firstName} like this!`}
-            {like.usersLiked.length > 1 && `${like.usersLiked[0].firstName} and ${like.usersLiked.length -1} more like this!`}
+            {!userFounded && like.usersLiked.length > 1 && `${like.usersLiked[0].firstName} and ${like.usersLiked.length -1} more like this!`}
             {like.usersLiked.length === 0 && "Nobody like this yet, be the first!"}
       </p>
       <Popover
