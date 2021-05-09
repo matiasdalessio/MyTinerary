@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdMoreVert, MdEdit, MdDoNotDisturbAlt } from "react-icons/md";
+import { MdMoreVert, MdEdit, MdClear } from "react-icons/md";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 import itinerariesActions from "../redux/actions/itinerariesActions";
@@ -96,7 +96,7 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
                     :<div className="divEditCommentInput"> 
                           <input className="editCommentInput" onKeyPress={(e)=> enterToSend(e)} name ="comment" onChange={(e)=> readComment(e.target)} type="text" value={editingComment.comment} ></input>
                           <MdEdit className="iconsEditComment" onClick={() => send()}/>
-                          <MdDoNotDisturbAlt className="iconsEditComment"onClick={() => setEditComment({...editingComment, editing:false})} /> 
+                          <MdClear className="iconsEditComment"onClick={() => setEditComment({...editingComment, editing:false})} /> 
                     </div> }
                 </div>                                    
             </div> 
