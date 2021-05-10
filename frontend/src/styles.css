@@ -242,6 +242,12 @@ body, html, #root{
     justify-content: center;
     align-items: center;
   }
+  .country{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   select{    
     margin:  0 0 0 1vw !important;
     box-shadow: 2px 2px 20px -5px rgba(0,0,0,0.75);
@@ -875,6 +881,7 @@ body, html, #root{
     margin: -50px 0;
   }
   .commentProfileImg{
+    align-self: center;
     border: 3px solid #4949499e !important;
     border-radius: 100px;
     width: 40px;
@@ -899,9 +906,13 @@ body, html, #root{
     margin: 0;
   }
   .nameAndComment p{
+    padding: 2px 0;
     font-weight: bold;
     color: black;
     max-width: 40vw;
+  }
+  .nameAndComment h4{
+    padding: 5px 1vw;
   }
   .commentContent{
     border-radius: 15px;

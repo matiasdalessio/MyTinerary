@@ -4,7 +4,7 @@ const citiesActions = {
 
     fetchCities: (props) => {
         return (dispatch, getState) => {
-            axios.get(`http://localhost:4000/api/cities`)
+            axios.get(`http://192.168.0.147:4000/api/cities`)
             .then(response => response.data.success
                 ? dispatch({type: 'FETCH_CITIES', payload: response.data})
                 : dispatch({type: 'FETCH_CITIES', payload: props.history.push('/error')}))
@@ -13,7 +13,7 @@ const citiesActions = {
     },
     fetchSingleCity: (id, props) => {
         return (dispatch, getState) => {
-            axios.get(`http://localhost:4000/api/city/${id}`)
+            axios.get(`http://192.168.0.147:4000/api/city/${id}`)
             .then(response => dispatch({type: 'FETCH_SINGLE_CITY', payload: response.data}))
             .catch(error => props.push('/serverdown')) 
         }
