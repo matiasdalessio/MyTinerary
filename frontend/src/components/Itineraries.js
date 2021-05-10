@@ -42,7 +42,6 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
         props.history.push('/signup')
         break         
       default:
-        swal("Okay then! No preasure!");
     }
   })
 
@@ -93,8 +92,11 @@ const Itineraries = ({userLogged, itinerary, addOrRemoveLike, loadActivitiesActi
   }
 
   const loadActivities= async (id) => {
+     if (activity.activities.length ===0 ) {
       const respuesta = await loadActivitiesAction(id, props.history)
       setActivity({activities: respuesta})
+     } else { return null}
+      
   }
 
   return (

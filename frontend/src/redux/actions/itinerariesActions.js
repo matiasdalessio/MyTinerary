@@ -52,7 +52,6 @@ const itinerariesActions = {
         }
     }, 
     loadActivitiesAction: (id, props) => {
-        console.log("fetcheo actividades")
         return async () => {
             try {
                 const respuesta = await axios.get(`http://localhost:4000/api/itinerary/activities/${id}`)
