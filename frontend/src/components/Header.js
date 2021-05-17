@@ -30,7 +30,7 @@ const Header = (props) =>{
 
     return(
         <header className= "header">
-            <div className= "logo animate__animated animate__fadeInLeft"style={{backgroundImage: `url('/img/logo.png')`}}>
+            <div className= "logo animate__animated animate__fadeInLeft"style={{backgroundImage: `url('/img/LOGO.png')`}}>
             </div>  
             <div className="animate__animated animate__fadeInRight headerDer"> 
                 <div className="navbar">
