@@ -24,7 +24,6 @@ const Activity = ({commentInfo, userLogged, setCommentState, itineraryId, editOr
          // eslint-disable-next-line react-hooks/exhaustive-deps
     },[commentInfo])
 
-
     const editOrRemove = async (editedComment= null , commentId, itineraryId) =>{
       var sendData = {editedComment, commentId} 
       const respuesta = await editOrRemoveComment(sendData, itineraryId, props, userLS)
