@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./server.js",
     "heroku-postbuild": "cd client && npm install && npm run build",
-    "dev" : "nodemon ./server.js"
+    "dev": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "joi": "^17.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.3",
+    "node": "^16.1.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"
   }
