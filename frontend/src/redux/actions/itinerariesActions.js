@@ -4,7 +4,7 @@ const itinerariesActions = {
 
     loadItineraries: (id, props) => {
         return (dispatch, getState) => {
-            axios.get(`http://192.168.0.147:4000/api/city/itineraries/${id}`)
+            axios.get(`https://mytinerary-dalessio.herokuapp.com/api/city/itineraries/${id}`)
             .then(response => dispatch({type: 'LOAD_ITINERARIES', payload: response.data}))
             .catch(error => props.push('/serverdown')) 
         }
@@ -12,7 +12,7 @@ const itinerariesActions = {
     addOrRemoveLike: (sendData, props, id, userLS) => {
         return async () => {
            try {
-            const respuesta = await axios.put(`http://192.168.0.147:4000/api/itinerary/likes/${id}`, {sendData}, {
+            const respuesta = await axios.put(`https://mytinerary-dalessio.herokuapp.com/api/itinerary/likes/${id}`, {sendData}, {
                 headers: {
                 'Authorization': 'Bearer '+userLS.token
                 }
@@ -26,7 +26,7 @@ const itinerariesActions = {
     addComment: (sendData, props, id, userLS) => {
         return async () => {
            try {
-            const respuesta = await axios.post(`http://192.168.0.147:4000/api/itinerary/comments/${id}`, {sendData},{
+            const respuesta = await axios.post(`https://mytinerary-dalessio.herokuapp.com/api/itinerary/comments/${id}`, {sendData},{
                 headers: {
                 'Authorization': 'Bearer '+userLS.token
                 }
@@ -40,7 +40,7 @@ const itinerariesActions = {
     editOrRemoveComment: (sendData, id, props, userLS) =>{
         return async () => {
            try {
-            const respuesta = await axios.put(`http://192.168.0.147:4000/api/itinerary/comments/${id}`, {sendData},{
+            const respuesta = await axios.put(`https://mytinerary-dalessio.herokuapp.com/api/itinerary/comments/${id}`, {sendData},{
                 headers: {
                 'Authorization': 'Bearer '+userLS.token
                 }
@@ -54,7 +54,7 @@ const itinerariesActions = {
     loadActivitiesAction: (id, props) => {
         return async () => {
             try {
-                const respuesta = await axios.get(`http://192.168.0.147:4000/api/itinerary/activities/${id}`)
+                const respuesta = await axios.get(`https://mytinerary-dalessio.herokuapp.com/api/itinerary/activities/${id}`)
                 return  respuesta.data.respuesta
             } catch {
                  props.push('/serverdown')
