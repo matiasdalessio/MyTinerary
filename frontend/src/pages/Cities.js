@@ -49,16 +49,15 @@ class Cities extends React.Component{
                         <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
                         <h1>Available cities</h1>
                         <img className="avionH1Cities" src="/img/avionH1CitiesR.png" alt="avion derecha"/>
-                    </div>
+                    </div> 
                     <div className="tituloCities">
                         <input placeholder="Search a City" className="finder" type='text'  onChange={(e) => this.props.findCity(e.target.value)}></input>
                     </div>
                     <div className= "cityBanners">
                         {this.props.filteredCities.length >0 
                             ? this.props.filteredCities.map(city =>{
-                            const imgBanner= require(`../assets/${city.img}`)
                             return <NavLink key={city._id} to={`/city/${city._id}`}> 
-                                        <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${imgBanner.default}')`}}> 
+                                        <div className="animate__animated animate__fadeIn cityBanner" style={{backgroundImage: `url('${city.img}')`}}> 
                                             <h1 className="cityName">{city.name} - {city.country}</h1> 
                                             <p className="parrafoBanner">{city.info}</p>
                                         </div>
