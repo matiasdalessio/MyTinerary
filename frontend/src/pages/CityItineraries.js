@@ -51,14 +51,13 @@ class CityItineraries extends React.Component{
                 <Loader />
             )
         }
-        const imgcityItinerary= require(`../assets/${this.state.city.img}`)
 
         return (   
             <div>     
                 <Header/>
                 <main className="main">
                     <div className="granContenedor">
-                        <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${imgcityItinerary.default}')`}}>
+                        <div id="heroAvion" className= "hero" style={{backgroundImage: `url('${this.state.city.img}')`}}>
                         </div>
                         <div className="tituloCities">
                             <img className="avionH1Cities" src="/img/avionH1CitiesL.png" alt="avion izquierda"/>
