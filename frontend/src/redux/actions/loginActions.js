@@ -12,7 +12,7 @@ const loginActions = {
     logUser: (userInfo) => {
         return async (dispatch, getState) => {
            try {
-                const respuesta = await axios.post('https://my-tinerary-nine.vercel.app/api/user/login', userInfo)
+                const respuesta = await axios.post('https://mytinerary-production.up.railway.app/api/user/login', userInfo)
                 if (!respuesta.data.success) {
                     return respuesta.data
                 }
@@ -30,7 +30,7 @@ const loginActions = {
     newUser: (userInfo) => {
         return async (dispatch, getState) => {
            try {
-                const respuesta = await axios.post('https://my-tinerary-nine.vercel.app/api/user/signup', userInfo)
+                const respuesta = await axios.post('https://mytinerary-production.up.railway.app/api/user/signup', userInfo)
                 if (!respuesta.data.success) {
                     return respuesta.data.error
                 }
@@ -48,7 +48,7 @@ const loginActions = {
     forcedLoginByLS: (userLS) => {
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('https://my-tinerary-nine.vercel.app/api/user/loginLS', {
+                const respuesta = await axios.get('https://mytinerary-production.up.railway.app/api/user/loginLS', {
                 headers: {
                     'Authorization': 'Bearer '+userLS.token
                 }
