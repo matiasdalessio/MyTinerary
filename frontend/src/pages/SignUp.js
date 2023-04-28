@@ -130,6 +130,8 @@ class SignUp extends React.Component {
     this.props.fetchCountries(this.props.history);
   }
   responseGoogle = (response) => {
+    console.log(response)
+
     if (response.error) {
       swal("The Google popup was closed too early!", "Try again!", "error");
     } else {
