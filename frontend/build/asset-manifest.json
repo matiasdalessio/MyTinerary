@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d56d72ab.chunk.css",
+    "main.js": "/static/js/main.5f13465d.chunk.js",
+    "main.js.map": "/static/js/main.5f13465d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.094d12d8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.094d12d8.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.dd0a91ec.chunk.js": "/static/js/2.dd0a91ec.chunk.js",
+    "static/js/2.dd0a91ec.chunk.js.map": "/static/js/2.dd0a91ec.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.d56d72ab.chunk.css.map": "/static/css/main.d56d72ab.chunk.css.map",
+    "static/js/2.dd0a91ec.chunk.js.LICENSE.txt": "/static/js/2.dd0a91ec.chunk.js.LICENSE.txt",
+    "static/media/Abu Dhabi.jpg": "/static/media/Abu Dhabi.97aa2264.jpg",
+    "static/media/Baku.jpg": "/static/media/Baku.48f02b9d.jpg",
+    "static/media/Bariloche.jpg": "/static/media/Bariloche.8d0ef018.jpg",
+    "static/media/Dublin.jpg": "/static/media/Dublin.162ef12a.jpg",
+    "static/media/Kirkjufell.jpg": "/static/media/Kirkjufell.a58e8325.jpg",
+    "static/media/Los Angeles.jpeg": "/static/media/Los Angeles.f9880569.jpeg",
+    "static/media/Mallorca.jpg": "/static/media/Mallorca.1a454bdb.jpg",
+    "static/media/Montreal.jpg": "/static/media/Montreal.10125a25.jpg",
+    "static/media/Nürburg.png": "/static/media/Nürburg.c8de585c.png",
+    "static/media/Paris.jpg": "/static/media/Paris.aa380075.jpg",
+    "static/media/Portimao.jpg": "/static/media/Portimao.82027e55.jpg",
+    "static/media/San Sebastian.jpg": "/static/media/San Sebastian.b92aa530.jpg",
+    "static/media/Sochi.png": "/static/media/Sochi.9e53e8e7.png",
+    "static/media/Tokyo.jpg": "/static/media/Tokyo.5ffe968c.jpg",
+    "static/media/Yidda.jpg": "/static/media/Yidda.1c751776.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.094d12d8.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.dd0a91ec.chunk.js",
+    "static/css/main.d56d72ab.chunk.css",
+    "static/js/main.5f13465d.chunk.js"
+  ]
+}

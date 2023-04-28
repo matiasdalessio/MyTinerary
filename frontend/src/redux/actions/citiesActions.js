@@ -4,7 +4,7 @@ const citiesActions = {
 
     fetchCities: (props) => {
         return (dispatch, getState) => {
-            axios.get(`https://mytinerary-dalessio.herokuapp.com/api/cities`)
+            axios.get(`https://my-tinerary-nine.vercel.app/api/cities`)
             .then(response => response.data.success
                 ? dispatch({type: 'FETCH_CITIES', payload: response.data})
                 : dispatch({type: 'FETCH_CITIES', payload: props.history.push('/error')}))
@@ -13,7 +13,7 @@ const citiesActions = {
     },
     fetchSingleCity: (id, props) => {
         return (dispatch, getState) => {
-            axios.get(`https://mytinerary-dalessio.herokuapp.com/api/city/${id}`)
+            axios.get(`https://my-tinerary-nine.vercel.app/api/city/${id}`)
             .then(response => dispatch({type: 'FETCH_SINGLE_CITY', payload: response.data}))
             .catch(error => props.push('/serverdown')) 
         }

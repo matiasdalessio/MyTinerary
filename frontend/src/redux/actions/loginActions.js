@@ -4,7 +4,7 @@ import swal from 'sweetalert'
 const loginActions = {
     fetchCountries: (props) => {
         return (dispatch, getState) => {
-            axios.get(`https://restcountries.eu/rest/v2/all`)
+            axios.get(`https://restcountries.com/v3.1/all`)
             .then(response => dispatch({type: 'FETCH_COUNTRIES', payload: response.data}))
             .catch(error => props.push('/serverdown')) 
         }
@@ -12,7 +12,7 @@ const loginActions = {
     logUser: (userInfo) => {
         return async (dispatch, getState) => {
            try {
-                const respuesta = await axios.post('https://mytinerary-dalessio.herokuapp.com/api/user/login', userInfo)
+                const respuesta = await axios.post('https://my-tinerary-nine.vercel.app/api/user/login', userInfo)
                 if (!respuesta.data.success) {
                     return respuesta.data
                 }
@@ -30,7 +30,7 @@ const loginActions = {
     newUser: (userInfo) => {
         return async (dispatch, getState) => {
            try {
-                const respuesta = await axios.post('https://mytinerary-dalessio.herokuapp.com/api/user/signup', userInfo)
+                const respuesta = await axios.post('https://my-tinerary-nine.vercel.app/api/user/signup', userInfo)
                 if (!respuesta.data.success) {
                     return respuesta.data.error
                 }
@@ -48,7 +48,7 @@ const loginActions = {
     forcedLoginByLS: (userLS) => {
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('https://mytinerary-dalessio.herokuapp.com/api/user/loginLS', {
+                const respuesta = await axios.get('https://my-tinerary-nine.vercel.app/api/user/loginLS', {
                 headers: {
                     'Authorization': 'Bearer '+userLS.token
                 }
